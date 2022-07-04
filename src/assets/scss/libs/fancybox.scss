@@ -1,0 +1,19 @@
+.fancybox__backdrop {
+   background: rgba(239, 231, 226, 0.9);
+}
+
+.carousel {
+   &__button {
+      top: 12px !important;
+      right: 12px !important;
+      svg {
+         stroke: #737373;
+         filter: none;
+      }
+      &:hover {
+         svg {
+            stroke: $main-font-color;
+         }
+      }
+   }
+}

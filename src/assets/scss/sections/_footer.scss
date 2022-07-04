@@ -1,0 +1,245 @@
+
+.footer-redesign {
+   $parent: &;
+
+   color: $white;
+   background: $black-color;
+   a {
+      &:hover {
+         color: $white;
+      }
+   }
+   &__container {
+      max-width: rem(1680);
+   }
+   &__contacts {
+      font-size: rem(18);
+
+      padding: 0 rem(30);
+
+      color: $white;
+
+@include lg-block() {
+         width: 50%;
+         margin-top: rem(50);
+         padding: 0;
+
+         order: 2;
+      }
+
+@include sm-block() {
+         width: 100%;
+         margin-top: rem(30);
+      }
+   }
+   &__logo {
+      display: block;
+
+      width: rem(112);
+
+@include sm-block() {
+         width: rem(64);
+         margin-bottom: rem(30);
+      }  flex-shrink: 0;
+   }
+
+   &__top {
+      &-row {
+         display: flex;
+
+         padding: rem(50) 0;
+
+         border-bottom: 1px solid $black-color3;
+
+@include lg-block() {
+            flex-wrap: wrap;
+         }  align-items: center;
+         justify-content: space-between;
+      }
+      &-buttons {
+         display: flex;
+
+         margin: 0 rem(-30) rem(-20) 0;
+
+@include lg-block() {
+            flex: 0 0 50%;
+         }
+
+@include sm-block() {
+            width: 100%;
+            margin-right: 0;
+
+            flex: initial;
+            flex-wrap: wrap;
+         }  justify-content: flex-end;
+         align-items: center;
+      }
+   }
+
+   &__btn {
+      margin: 0 rem(30) rem(20) 0;
+
+@include to(1270px) {
+         padding-right: rem(30);
+         padding-left: rem(30);
+      }
+
+@include sm-block() {
+         width: 100%;
+         height: rem(50);
+         margin-right: 0;
+      }
+   }
+
+   &__bottom {
+      &-link {
+         color: rgba($white, 0.5);
+         border-bottom: 1px solid;
+         &:hover {
+            color: rgba($white, 1);
+         }
+      }
+      &-row {
+         display: flex;
+
+         padding: rem(30) 0;
+
+         color: rgba($white, 0.5);
+         border-top: 1px solid $black-color3;
+
+@include lg-block() {
+            align-items: flex-end;
+         }
+
+@include sm-block() {
+            font-size: rem(12);
+         }  flex-wrap: wrap;
+         align-items: center;
+         justify-content: space-between;
+      }
+      &-col {
+         display: flex;
+         flex-direction: column;
+
+@include sm-block() {
+            margin-bottom: rem(25);
+
+            flex: 0 0 100%;
+         }  align-items: flex-start;
+         flex: 0 0 50%;
+      }
+   }
+   &__copyright {
+      &:not(:last-child) {
+         margin-bottom: rem(5);
+      }
+   }
+   &__ux {
+      display: flex;
+
+      margin-left: auto;
+
+      color: $white;
+
+@include sm-block() {
+         margin-left: 0;
+      }  align-items: center;
+
+      svg {
+         margin-left: rem(5);
+
+@include sm-block() {
+            width: rem(50);
+         }
+      }
+      &:hover {
+         color: $white;
+      }
+   }
+   &__link {
+      color: rgba($white, 0.5);
+      &:hover {
+         color: $white;
+      }
+      &-icon {
+         display: inline-flex;
+
+         transition: all 0.3s ease;
+         vertical-align: top;
+         svg {
+            width: rem(40);
+            height: rem(40);
+         }
+         &:hover {
+            opacity: 0.7;
+         }
+      }
+   }
+   &__angle {
+      &:after {
+         position: absolute;
+         top: 0;
+         left: 100%;
+
+         width: rem(7);
+         height: rem(7);
+
+         content: '';
+
+         border-top: solid 2px $white;
+         border-right: solid 2px $white;
+      }
+   }
+   &__links {
+      margin-bottom: rem(30);
+
+      li {
+         &:not(:last-child) {
+            margin-bottom: rem(20);
+
+@include sm-block() {
+               margin-bottom: rem(10);
+            }
+         }
+      }
+
+      &-row {
+         display: flex;
+
+         margin-right: rem(-15);
+         margin-left: rem(-15);
+
+@include lg-block() {
+            flex-wrap: wrap;
+         }
+      }
+      &-col {
+         padding-right: rem(15);
+         padding-left: rem(15);
+
+@include lg-block() {
+            flex: 0 0 33.333%;
+         }
+
+@include sm-block() {
+            flex: 0 0 100%;
+         }  flex: 0 0 15.86666%;
+      }
+
+      &-title {
+         font-size: rem(18);
+         font-weight: 700;
+
+         position: relative;
+
+         color: $white;
+         border-bottom: 1px solid  rgba($white, 0.5);
+         &:hover {
+            color: rgba($white, 0.7);
+         }
+      }
+      &-row {
+         padding-top: rem(30);
+      }
+   }
+}

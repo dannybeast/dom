@@ -1,0 +1,226 @@
+.header-redesign {
+   $parent: &;
+
+   position: relative;
+   &__container {
+      max-width: rem(1680);
+   }
+   &__btn-menu {
+      display: none;
+
+      width: rem(36);
+      height: rem(36);
+
+      cursor: pointer;
+
+@include lg-block() {
+         display: flex;
+
+         margin-right: rem(10);
+      }
+
+@include sm-block() {
+         margin-right: rem(5);
+      }  align-items: center;
+   }
+   &__logo {
+      display: block;
+
+      width: rem(112);
+
+@include lg-block() {
+         width: rem(65);
+         margin-right: auto;
+      }  flex-shrink: 0;
+   }
+   &__navigation {
+      display: flex;
+
+@include lg-block() {
+         display: none;
+      }
+
+@include to(1620px) {
+         flex: 0 0 45%;
+      }
+
+@include to(1440px) {
+         flex: 0 0 55%;
+      }  justify-content: center;
+      flex-wrap: wrap;
+      flex: 0 0 55%;
+      align-items: center;
+
+      &-item {
+         margin: 0 rem(16);
+
+@include to(1620px) {
+            display: none;
+
+            margin: 0;
+
+            flex-grow: 1;
+            &:nth-child(-n+5) {
+               display: block;
+            }
+         }
+
+         &.has-podmenu {
+            position: relative;
+
+            display: flex;
+
+@include to(1620px) {
+               display: none;
+               &:nth-child(-n+5) {
+                  display: flex;
+               }
+            }
+
+@include to(1620px) {
+               display: none;
+               &:nth-child(-n+5) {
+                  display: flex;
+               }
+            }  align-items: center;
+
+            &:after {
+               display: block;
+
+               width: rem(10);
+               height: rem(10);
+               margin-top: rem(5);
+               margin-left: rem(5);
+
+               content: '';
+
+               background-image: svg-load('../icons/arrow-bottom.svg', fill=$black-color);
+               background-repeat: no-repeat;
+               background-size: contain;
+
+               flex-shrink: 0;
+            }
+            &:hover {
+               &:after {
+                  background-image: svg-load('../icons/arrow-bottom.svg', fill=$primary-color);
+               }
+            }
+         }
+      }
+      &-link {
+         font-size: rem(16);
+         font-weight: 500;
+
+         display: block;
+
+         padding: rem(10) 0;
+
+         white-space: nowrap;
+
+         color: $black-color;
+         &:hover {
+            color: $primary-color;
+         }
+      }
+   }
+   &__row {
+      display: flex;
+
+      padding: rem(30) 0;
+
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__btn {
+      @include sm-block() {
+         display: none;
+      }
+   }
+
+   &__search {
+      display: flex;
+
+      width: rem(36);
+      height: rem(36);
+
+@include lg-block() {
+         margin-left: rem(30);
+      }  align-items: center;
+      justify-content: center;
+
+      svg {
+         width: rem(24);
+         height: rem(24);
+
+         fill: $black-color3;
+      }
+      &:hover {
+         svg {
+            fill: $primary-color;
+         }
+      }
+   }
+   &__separator {
+      display: block;
+
+      width: 1px;
+      height: rem(50);
+      margin: 0 rem(10);
+
+      background: $gray-color;
+
+@include to(1440px) {
+         margin: 0;
+      }
+
+@include lg-block() {
+         display: none;
+      }
+   }
+   &__contacts {
+      margin: 0 rem(20);
+
+      white-space: nowrap;
+
+@include to(1440px) {
+         display: none;
+      }
+
+@include lg-block() {
+         display: none;
+      }
+   }
+   &__signup {
+      display: flex;
+
+      height: rem(36);
+
+      color: $black-color3;
+
+@include lg-block() {
+         margin-left: rem(30);
+      }  align-items: center;
+
+      span {
+         @include to(1270px) {
+            display: none;
+         }
+      }
+      svg {
+         width: rem(24);
+         height: rem(24);
+         margin-right: rem(15);
+
+         fill: $black-color3;
+         flex-shrink: 0;
+      }
+
+      &:hover {
+         color: $primary-color;
+         svg {
+            fill: $primary-color;
+         }
+      }
+   }
+}

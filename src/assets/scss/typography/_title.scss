@@ -1,0 +1,61 @@
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+   font-family: $main-font;
+   font-weight: $heading-font-weight;
+   font-weight: 700;
+   line-height: 1.1;
+}
+
+.h1 {
+   font-size: 340%;
+
+@include lg-block() {
+      font-size: 340% * 0.7;
+   }
+}
+
+.h2 {
+   font-size: 260%;
+
+@include lg-block() {
+      font-size: 260% * 0.7;
+   }
+}
+
+.h3 {
+   font-size: 162%;
+
+@include lg-block() {
+      font-size: 162%*0.7;
+   }
+}
+
+.h4 {
+   font-size: 135%;
+
+@include lg-block() {
+      font-size: 135%*0.8;
+   }
+}
+
+.h5 {
+   font-size: 100%;
+}
+
+// titles
+.title {
+   margin-bottom: rem(40);
+
+@extend .h1;
+}
+//-

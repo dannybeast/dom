@@ -1,0 +1,30 @@
++b.HEADER.header-redesign
+ +e.container.container
+  +e.row
+    +e.btn-menu
+     include _hamburger
+    
+    +e.A(href="#" class="logo" target="_blank")
+      img(src="assets/images/logo.svg", alt="")
+
+    
+    
+    +e.UL.navigation 
+     each item, index in ['Наши дома','Технологии','Подрядчики','Сервисы','О нас','Контакты','Блог']
+      +e.LI.navigation-item.has-podmenu
+       +e.A(href="#" class=`navigation-link`) #{item}
+
+    +e.A(href="#" class='btn btn --primary --small') Расчитать дом
+
+    +b.module-contacts(class="__contacts")
+     +e.label Бесплатно по РФ
+     +e.A(href="tel:88006000565" class="value nowrap") 8 (800) 600-05-65
+
+    +e.A(href="#").search 
+     +icon('search')
+
+    +e.separator 
+
+    +e.A(href="#").signup 
+     +icon('sign')
+     span Войти

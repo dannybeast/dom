@@ -1,0 +1,22 @@
+.main-layout {
+   display: flex;
+   flex-direction: column;
+
+   min-height: 100vh;
+
+@include lg-block() {
+      overflow: hidden;
+   }
+
+   .footer,
+   .footer-redesign {
+      margin-top: auto;
+   }
+
+   &__content {
+      position: relative;
+   }
+}
+
+
+

@@ -1,0 +1,16 @@
+.link,
+a {
+   cursor: pointer;
+
+   color: $link-color;
+
+   &:hover {
+      text-decoration: none;
+
+      color: $main-font-color;
+   }
+   &:disabled,
+   &[disabled] {
+      color: $gray-color;
+   }
+}

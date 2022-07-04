@@ -1,0 +1,41 @@
+$speed: 0.15s;
+
+.hamburger {
+   .line {
+      display: block;
+
+      width: rem(18);
+      height: rem(2);
+      margin: rem(5) auto;
+
+      cursor: pointer;
+      transition: all $speed ease-in-out;
+
+      border-radius: rem(5);
+      background-color: $black-color3;
+
+      &:first-child {
+         margin-top: 0;
+      }
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+   }
+
+   &.is-active {
+      .line {
+         &:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+         }
+
+         &:nth-child(2) {
+            opacity: 0;
+         }
+
+         &:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+         }
+      }
+   }
+}
