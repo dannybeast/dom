@@ -2,6 +2,8 @@
    $parent: &;
 
    position: relative;
+
+   border-bottom: 1px solid $gray-color;
    &__container {
       max-width: rem(1680);
    }
