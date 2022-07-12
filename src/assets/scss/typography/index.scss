@@ -43,29 +43,12 @@ b {
 
 .typography {
    font-family: $base-font-family;
-   font-size: $base-font-size;
-   font-weight: 350;
+   font-size: rem(18);
+   font-weight: 400;
    line-height: $text-line-height;
 
-@include md-block() {
-      font-size: 16px;
-   }
-
-@include sm-block() {
-      font-size: 14px;
-      table {
-         td {
-            font-size: 12px;
-         }
-      }
-   }
-
-@include xs-block() {
-      table {
-         td {
-            font-size: 11px;
-         }
-      }
+   p {
+      color: $black-color3;
    }
 
    img {

@@ -3,10 +3,10 @@
 // Modules
 import $ from "jquery";
 import App from "./app";
-import Fancy from "./fancybox";
+//import Fancy from "./fancybox";
 $(document).ready(function () {
+ // Fancy.init();
 
-  Fancy.init();
-
-  App.currentYear()
+  App.anchors();
+  App.hideCookieAlert();
 })

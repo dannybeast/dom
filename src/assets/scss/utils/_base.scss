@@ -9,9 +9,9 @@ html {
 
    color: $main-font-color;
 
-   // @include notebookLg(font-size, 14px);
+@include lg(font-size, 14px);
 
-   // @include lg(font-size, 13px);
+@include xs(font-size, 13px);
 }
 
 body {

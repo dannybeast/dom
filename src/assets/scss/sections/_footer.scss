@@ -2,11 +2,11 @@
 .footer-redesign {
    $parent: &;
 
-   color: $white;
+   color: $white-color;
    background: $black-color;
    a {
       &:hover {
-         color: $white;
+         color: $white-color;
       }
    }
    &__container {
@@ -17,7 +17,7 @@
 
       padding: 0 rem(30);
 
-      color: $white;
+      color: $white-color;
 
 @include lg-block() {
          width: 50%;
@@ -93,10 +93,10 @@
 
    &__bottom {
       &-link {
-         color: rgba($white, 0.5);
+         color: rgba($white-color, 0.5);
          border-bottom: 1px solid;
          &:hover {
-            color: rgba($white, 1);
+            color: rgba($white-color, 1);
          }
       }
       &-row {
@@ -104,7 +104,7 @@
 
          padding: rem(30) 0;
 
-         color: rgba($white, 0.5);
+         color: rgba($white-color, 0.5);
          border-top: 1px solid $black-color3;
 
 @include lg-block() {
@@ -139,7 +139,7 @@
 
       margin-left: auto;
 
-      color: $white;
+      color: $white-color;
 
 @include sm-block() {
          margin-left: 0;
@@ -153,13 +153,13 @@
          }
       }
       &:hover {
-         color: $white;
+         color: $white-color;
       }
    }
    &__link {
-      color: rgba($white, 0.5);
+      color: rgba($white-color, 0.5);
       &:hover {
-         color: $white;
+         color: $white-color;
       }
       &-icon {
          display: inline-flex;
@@ -186,8 +186,8 @@
 
          content: '';
 
-         border-top: solid 2px $white;
-         border-right: solid 2px $white;
+         border-top: solid 2px $white-color;
+         border-right: solid 2px $white-color;
       }
    }
    &__links {
@@ -232,10 +232,10 @@
 
          position: relative;
 
-         color: $white;
-         border-bottom: 1px solid  rgba($white, 0.5);
+         color: $white-color;
+         border-bottom: 1px solid  rgba($white-color, 0.5);
          &:hover {
-            color: rgba($white, 0.7);
+            color: rgba($white-color, 0.7);
          }
       }
       &-row {

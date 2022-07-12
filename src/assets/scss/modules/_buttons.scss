@@ -49,7 +49,7 @@
    // Colors
 
    &--primary {
-      color: $white;
+      color: $white-color;
       background: $primary-color;
       &:hover {
          background: lighten($primary-color, 5%);
@@ -58,8 +58,8 @@
    }
 
    &--white-line {
-      color: $white;
-      border: solid 1px $white;
+      color: $white-color;
+      border: solid 1px $white-color;
       background: transparent;
       &:hover {
          border-color: lighten($primary-color, 5%);

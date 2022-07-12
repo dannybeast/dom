@@ -4,9 +4,7 @@
 
    min-height: 100vh;
 
-@include lg-block() {
-      overflow: hidden;
-   }
+
 
    .footer,
    .footer-redesign {
@@ -15,6 +13,9 @@
 
    &__content {
       position: relative;
+
+      padding-top: rem(50);
+      padding-bottom: rem(120);
    }
 }
 
