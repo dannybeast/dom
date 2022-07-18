@@ -189,6 +189,94 @@
 @include size-md(12);
    }
 }
+
+.not-found {
+   padding-top: rem(30);
+
+@include lg-block() {
+      padding-top: 0;
+   }
+
+   &__row {
+      display: flex;
+
+@include sm-block() {
+         flex-wrap: wrap;
+      }  align-items: center;
+      justify-content: space-between;
+   }
+   &__title {
+      font-size: rem(70);
+      font-weight: 900;
+
+      max-width: rem(430);
+
+@include xxl-block() {
+         font-size: rem(70 * 0.85);
+      }
+
+@include lg-block() {
+         font-size: rem(70 * 0.7);
+      }
+
+      &:not(:last-child) {
+         margin-bottom: rem(30);
+      }
+   }
+   &__content {
+      padding-left: rem(60);
+
+@include xxl-block() {
+         padding-top: rem(60);
+         padding-left: 0;
+      }
+
+@include sm-block() {
+         padding-top: 0;
+      }
+   }
+   &__media {
+      width: 60%;
+      padding-right: rem(60);
+      padding-left: rem(60);
+
+@include lg-block() {
+         padding-right: 0;
+      }
+
+@include sm-block() {
+         width: 100%;
+         padding-left: 0;
+
+         order: -1;
+      }
+
+      img {
+         margin-bottom: rem(-120);
+
+@include sm-block() {
+            width: rem(430);
+            margin-bottom: 0;
+         }
+      }
+   }
+   &__btn {
+      width: 100%;
+      max-width: rem(195);
+   }
+   &__text {
+      font-size: rem(18);
+
+      max-width: rem(430);
+
+      color: $black-color3;
+      &:not(:last-child) {
+         margin-bottom: rem(50);
+      }
+   }
+}
+
+
 // Sections
 @import 'sections/_header';
 @import 'sections/_footer';

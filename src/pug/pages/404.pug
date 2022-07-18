@@ -1,0 +1,22 @@
+extends ../layout/main
+
+block variables
+    - var title = '';
+    - var description = '';
+    - var pageName = 'index';
+block content
+  
+  +b.SECTION.not-found
+   .container
+    +e.row 
+     +e.content 
+      +e.H1.title Страница<br> не найдена
+      +e.text
+       p Запрашиваемой страницы не существует. Возможно, она была удалена или в запросе был указан неверный адрес страницы.
+      +e.A(href="#" class='btn btn --primary') На главную
+     +e.media 
+      img(src="assets/images/404/pic.svg", alt="")
+
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")
