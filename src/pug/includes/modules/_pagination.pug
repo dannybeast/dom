@@ -1,0 +1,13 @@
++b.pagination 
+ +e.btn 
+  +icon('arrow')
+  span Назад
+ +e.UL.list 
+  +e.LI 
+   each el in [1,2,3]
+    +e.A(href="#" class=`${el === 3 ? ' is-active': ''}`)=el
+   +e.SPAN.separator
+   +e.A(href="#") 34
+ +e.btn 
+  span Следующая
+  +icon('arrow')

@@ -1,0 +1,27 @@
++b.SECTION.know
+ .container
+  +e.row 
+   +e.col
+    +e.content 
+     +e.H3.title Хотите узнать больше о DOM TECHNONICOL?
+     +e.description 
+      p Оставьте заявку и мы ответим на любой ваш вопрос.
+
+   +e.col
+    form
+     +e.block
+      .row 
+       .col-12 
+        +b.field 
+         input(type="text" placeholder="Имя")
+       .col-6
+        +b.field 
+         input(type="text" placeholder="Телефон")
+       .col-6
+        +b.field 
+         input(type="text" placeholder="Эл. почта")
+        
+      +e.block-footer 
+        +e.A(href="#" class='block-footer-btn btn --primary') Отправить
+        +e.block-footer-content
+         p Нажимая на кнопку, я соглашаюсь с <a href="#" target="_blank">политикой обработки персональных данных.</a>

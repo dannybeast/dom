@@ -1,0 +1,22 @@
+extends ../layout/main
+
+block variables
+    - var title = '';
+    - var description = '';
+    - var pageName = 'catalog';
+block content
+  +b.SECTION.catalog
+   .container
+
+
+    include ../includes/modules/_pagination
+
+
+  include ../includes/modules/_section-know
+
+  include ../includes/modules/_section-calculate
+
+  
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")
