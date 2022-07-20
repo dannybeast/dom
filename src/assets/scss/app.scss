@@ -374,6 +374,8 @@
 
 .catalog-item {
    $parent: &;
+
+   position: relative;
    &__title {
       font-size: rem(18);
       font-weight: 500;
@@ -387,10 +389,26 @@
          color: $primary-color;
       }
    }
-   &__inner {
-      padding: rem(20) rem(0);
 
-      transition: padding 0.2s ease;
+   &__hidden {
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      left: -1px;
+
+      padding: rem(20);
+
+      pointer-events: none;
+
+      opacity: 0;
+      background: $white-color;
+      box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
+      #{$parent}__price {
+         margin-bottom: rem(15);
+         padding-bottom: rem(15);
+
+         border-bottom: 1px solid rgba($black-color3, 0.2);
+      }
    }
    &__subtitle {
       font-size: rem(18);
@@ -410,12 +428,15 @@
       display: block;
 
       margin-bottom: rem(30);
+      img {
+         will-change: transform;
+      }
    }
    &__price {
       font-size: rem(22);
       font-weight: 700;
 
-      margin-bottom: rem(30);
+      margin-bottom: rem(10);
    }
    &__params {
       display: flex;
@@ -441,10 +462,12 @@
       }
    }
    &:hover {
-      background: $white-color;
-      box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
-      #{$parent}__inner {
-         padding: rem(20);
+      z-index: 2;
+      #{$parent}__hidden {
+         transition: opacity 0.4s ease;
+         pointer-events: all;
+
+         opacity: 1;
       }
    }
 }
@@ -454,7 +477,9 @@
       @include row-flex();
    }
    &__col {
-      @include col();
+      margin-bottom: rem(30);
+
+@include col();
 
 @include size(4);
 
