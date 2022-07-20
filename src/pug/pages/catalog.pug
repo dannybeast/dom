@@ -146,13 +146,20 @@ block content
       option(value="3") 3
     
     +b.page-sorting 
+     mixin sort-svg()
+      svg(width='8' height='14' fill='none' xmlns='http://www.w3.org/2000/svg')
+       path(d='M3.691.374a.4.4 0 0 1 .618 0L7.79 4.595a.4.4 0 0 1-.308.655H.518a.4.4 0 0 1-.308-.655L3.69.375Z')
+       path(d='M4.309 13.626a.4.4 0 0 1-.618 0L.21 9.405a.4.4 0 0 1 .308-.655h6.964a.4.4 0 0 1 .308.655l-3.481 4.22Z')
+
      +e.label Сортировать по:
      +e.LABEL.button 
       input(type="radio" value="price" name="sorting" checked)
       span стоимости
+      +sort-svg()
      +e.LABEL.button 
       input(type="radio" value="square" name="sorting")
       span площади
+      +sort-svg()
 
     +e.row 
      each item in items
@@ -162,7 +169,7 @@ block content
     include ../includes/modules/_pagination
 
   include ../includes/modules/_section-calculate
-  
+
   include ../includes/modules/_section-know
   
 block script
