@@ -64,57 +64,59 @@ block variables
 block content
   mixin catalog-item(item)
    +b.catalog-item 
-    +e.A(href=item.link).image 
-     img(src=item.img, alt=item.title)
-    +e.title=item.title 
-    +e.UL.params 
-     +e.LI.params-item 
-      +e.params-icon 
-       +icon('arrow')
-      +e.params-value #{item.square} м²
-     +e.LI.params-item 
-      +e.params-icon 
-       +icon('arrow')
-      +e.params-value=item.floor
-     +e.LI.params-item 
-      +e.params-icon 
-       +icon('arrow')
-      +e.params-value=item.time
-    +e.price=item.price
-    +e.hidden 
-     +e.subtitle Фундамент:
-     +e.description 
-      p Утепленная шведская плита с контуром теплового пола и коллектором. Возможно применение других типов фундаментов.
-     +e.subtitle Варианты внешней отделки:
-     +b.UL.item-options
-      +e.LI 
-       +e.image 
-        img(src="assets/images/catalog/options/1.png", alt="")
-       +e.name Штукатурка и камень
-      +e.LI 
-       +e.image 
-        img(src="assets/images/catalog/options/2.png", alt="")
-       +e.name Имитация бруса
-      +e.LI 
-       +e.image 
-        img(src="assets/images/catalog/options/3.png", alt="")
-       +e.name Фахверк
-      +e.LI 
-       +e.image 
-        img(src="assets/images/catalog/options/4.png", alt="")
-       +e.name Hauberk
+    +e.inner
+     +e.A(href=item.link).image 
+      img(src=item.img, alt=item.title)
+    
+     +e.A(href=item.link).title=item.title 
+     +e.UL.params 
+      +e.LI.params-item 
+       +e.params-icon 
+        +icon('size')
+       +e.params-value #{item.square} м²
+      +e.LI.params-item 
+       +e.params-icon 
+        +icon('menu')
+       +e.params-value=item.floor
+      +e.LI.params-item 
+       +e.params-icon 
+        +icon('clock')
+       +e.params-value=item.time
+     +e.price=item.price
+     +e.hidden 
+      +e.subtitle Фундамент:
+      +e.description 
+       p Утепленная шведская плита с контуром теплового пола и коллектором. Возможно применение других типов фундаментов.
+      +e.subtitle Варианты внешней отделки:
+      +b.UL.item-options
+       +e.LI 
+        +e.image 
+         img(src="assets/images/catalog/options/1.png", alt="")
+        +e.name Штукатурка и камень
+       +e.LI 
+        +e.image 
+         img(src="assets/images/catalog/options/2.png", alt="")
+        +e.name Имитация бруса
+       +e.LI 
+        +e.image 
+         img(src="assets/images/catalog/options/3.png", alt="")
+        +e.name Фахверк
+       +e.LI 
+        +e.image 
+         img(src="assets/images/catalog/options/4.png", alt="")
+        +e.name Hauberk
 
 
   +b.SECTION.catalog
    .container
-    +b.H1.page-title Проекты домов
+    +b.H1.page-title(class="__title") Проекты домов
 
-    +b.UL.page-navigation 
+    +b.UL.page-navigation(class="__navigation") 
      each el, index in ['Типовые проекты', 'Готовые', 'Строящиеся', 'Поселки', 'В продаже']
       +e.LI(class=`${index === 0 ? ' is-active': ''}`)
        +e.A(href="#")=el
 
-    +b.page-filter
+    +b.page-filter(class="__filter")
      +b.SELECT(name="storey").js-select 
       option(value="Этажность" select disabled) Этажность
       option(value="1") 1
@@ -145,7 +147,7 @@ block content
       option(value="2") 2
       option(value="3") 3
     
-    +b.page-sorting 
+    +b.page-sorting(class="__sorting") 
      mixin sort-svg()
       svg(width='8' height='14' fill='none' xmlns='http://www.w3.org/2000/svg')
        path(d='M3.691.374a.4.4 0 0 1 .618 0L7.79 4.595a.4.4 0 0 1-.308.655H.518a.4.4 0 0 1-.308-.655L3.69.375Z')
