@@ -1,13 +1,16 @@
 +b.pagination 
- +e.btn 
-  +icon('arrow')
+ +e.A(href="#").btn 
+  +icon('arrow-right')
   span Назад
  +e.UL.list 
-  +e.LI 
-   each el in [1,2,3]
+  each el in [1,2,3]
+   +e.LI 
     +e.A(href="#" class=`${el === 3 ? ' is-active': ''}`)=el
-   +e.SPAN.separator
+  +e.SPAN.separator
+   svg(width='35' height='1' fill='none' xmlns='http://www.w3.org/2000/svg')
+    path(stroke='#2D3134' d='M.5.5h34')
+  +e.LI
    +e.A(href="#") 34
- +e.btn 
+ +e.A(href="#").btn 
   span Следующая
-  +icon('arrow')
+  +icon('arrow-right')

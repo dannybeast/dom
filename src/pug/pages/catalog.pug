@@ -137,35 +137,36 @@ block content
        +e.A(href="#")=el
 
     +b.page-filter(class="__filter")
-     +b.SELECT(name="storey").js-select 
-      option(value="Этажность" select disabled) Этажность
-      option(value="1") 1
-      option(value="2") 2
-      option(value="3") 3
-
-     +b.SELECT(name="square").js-select 
-      option(value="Площадь жилой части, м2" select disabled) Площадь жилой части, м2
-      option(value="1") 1
-      option(value="2") 2
-      option(value="3") 3
-     
-     +b.SELECT(name="price").js-select 
-      option(value="Стоимость" select disabled) Стоимость
-      option(value="1") 1
-      option(value="2") 2
-      option(value="3") 3
-     
-     +b.SELECT(name="type").js-select 
-      option(value="Тип конструкции" select disabled) Тип конструкции
-      option(value="1") 1
-      option(value="2") 2
-      option(value="3") 3
-     
-     +b.SELECT(name="bedrooms").js-select 
-      option(value="Кол-во спален" select disabled) Кол-во спален
-      option(value="1") 1
-      option(value="2") 2
-      option(value="3") 3
+     +e.item
+      +b.SELECT(name="storey" data-placeholder="Этажность").js-select
+       option(selected disabled) Этажность
+       option(value="1") Этажность
+       option(value="2") Этажность
+       option(value="3") Этажность
+     +e.item
+      +b.SELECT(name="square" data-placeholder="Площадь жилой части, м2").js-select
+       option(selected disabled) Площадь жилой части, м2
+       option(value="1") Площадь жилой части
+       option(value="2") Площадь жилой части
+       option(value="3") Площадь жилой части
+     +e.item
+      +b.SELECT(name="price" data-placeholder="Стоимость").js-select
+       option(selected disabled) Стоимость
+       option(value="1") Стоимость
+       option(value="2") Стоимость
+       option(value="3") Стоимость
+     +e.item
+      +b.SELECT(name="type" data-placeholder="Тип конструкции").js-select
+       option(selected disabled) Тип конструкции
+       option(value="1") Тип конструкции
+       option(value="2") Тип конструкции
+       option(value="3") Тип конструкции
+     +e.item
+      +b.SELECT(name="bedrooms" data-placeholder="Кол-во спален").js-select
+       option(selected disabled) Кол-во спален
+       option(value="1") Кол-во спален
+       option(value="2") Кол-во спален
+       option(value="3") Кол-во спален
     
     +b.page-sorting(class="__sorting") 
      mixin sort-svg()
