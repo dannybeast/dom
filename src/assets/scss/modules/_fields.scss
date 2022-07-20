@@ -1,0 +1,123 @@
+// Field
+@mixin inputBase() {
+   font-family: $main-font;
+   font-size: rem(16);
+
+   position: relative;
+
+   display: block;
+
+   width: 100%;
+   height: rem(60);
+   padding: 0 0 0 rem(30);
+
+   text-overflow: ellipsis;
+
+   color: $black-color;
+   border: 1px solid #c1c3c2;
+   border-radius: rem(4);
+   background: transparent;
+   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+
+   &:not(.field--error):hover {
+      border-color: $gray-color;;
+   }
+   &:not(.field--error).is-focus {
+      border-color: $primary-color;
+   }
+   &:focus,
+   &:hover {
+      outline: none !important;
+   }
+
+   &::placeholder {
+      font-family: $main-font;
+
+      color: rgba(#54555a, 0.6);
+   }
+}
+
+@keyframes errorInput {
+   0% {
+      transform: translateX(0);
+   }
+
+   50% {
+      transform: translateX(-6px);
+   }
+
+   100% {
+      transform: translateX(6px);
+   }
+}
+
+.field-label {
+   font-size: 12px;
+   line-height: 1.15;
+
+   letter-spacing: 0.03em;
+
+   color: #989898;
+}
+
+.field {
+   $parent: &;
+
+   input,
+   select,
+   textarea {
+      @include inputBase();
+   }
+
+   &--dark {
+      input,
+      select,
+      textarea {
+         color: $white-color;
+         border: 1px solid rgba(255, 255, 255, 0.25);
+         background: #414649;
+         &:not(.field--error):hover {
+            border: 1px solid rgba(255, 255, 255, 0.45);
+         }
+
+         &::placeholder {
+            color: rgba($white-color, 0.6);
+         }
+      }
+   }
+
+   & >textarea {
+      overflow: hidden;
+
+      min-height: rem(90);
+      padding-top: rem(10);
+
+      resize: vertical;
+   }
+
+   &--disabled {
+      cursor: not-allowed;
+
+      background: #f5f5f5;
+      input,
+      select,
+      textarea {
+         transition: none;
+         pointer-events: none;
+
+         background: #f5f5f5;
+      }
+   }
+
+   &--error {
+      animation: errorInput 0.2s cubic-bezier(0.6, 0.2, 0.1, 1);
+
+      border-color: $primary-color;
+
+      will-change: transform;
+      .field-label {
+         color: $primary-color;
+      }
+   }
+}
+

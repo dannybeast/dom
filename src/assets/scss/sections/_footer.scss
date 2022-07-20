@@ -5,6 +5,7 @@
    color: $white-color;
    background: $black-color;
    a {
+      transition: all 0.3s ease;
       &:hover {
          color: $white-color;
       }
@@ -47,7 +48,7 @@
       &-row {
          display: flex;
 
-         padding: rem(50) 0;
+         padding: rem(60) 0;
 
          border-bottom: 1px solid $black-color3;
 
@@ -93,6 +94,8 @@
 
    &__bottom {
       &-link {
+         transition: all 0.3s ease;
+
          color: rgba($white-color, 0.5);
          border-bottom: 1px solid;
          &:hover {
@@ -163,6 +166,8 @@
       }
       &-icon {
          display: inline-flex;
+
+         margin: 0 rem(10) 0 0;
 
          transition: all 0.3s ease;
          vertical-align: top;

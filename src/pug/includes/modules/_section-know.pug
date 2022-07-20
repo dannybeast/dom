@@ -10,15 +10,15 @@
    +e.col
     form
      +e.block
-      .row 
-       .col-12 
-        +b.field 
+      +e.block-row.row 
+       +e.block-col.col-12 
+        +b.field(class="--dark")
          input(type="text" placeholder="Имя")
-       .col-6
-        +b.field 
+       +e.block-col.col-6
+        +b.field(class="--dark")
          input(type="text" placeholder="Телефон")
-       .col-6
-        +b.field 
+       +e.block-col.col-6
+        +b.field(class="--dark")
          input(type="text" placeholder="Эл. почта")
         
       +e.block-footer 

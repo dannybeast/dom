@@ -4,18 +4,166 @@ block variables
     - var title = '';
     - var description = '';
     - var pageName = 'catalog';
+    -
+     var items = [
+      {
+       img: 'assets/images/catalog/1.png',
+       link: 'catalog-details.html',
+       title: 'CONSTANT 160-2',
+       price: 'от 8 305 784 ₽',
+       square: '165',
+       floor: '2 этажа',
+       time: 'от 2,5 месяцев'
+      },
+      {
+       img: 'assets/images/catalog/2.png',
+       link: 'catalog-details.html',
+       title: 'BASIS 120-1',
+       price: 'от 5 477 739 ₽',
+       square: '121',
+       floor: '2 этажа',
+       time: 'от 2 месяцев'
+      },
+      {
+       img: 'assets/images/catalog/3.png',
+       link: 'catalog-details.html',
+       title: 'AXIOM 40-1',
+       price: 'от 8 305 784 ₽',
+       square: '47',
+       floor: '2 этажа',
+       time: 'от 1,5 месяцев'
+      },
+      {
+       img: 'assets/images/catalog/3.png',
+       link: 'catalog-details.html',
+       title: 'AXIOM 40-1',
+       price: 'от 8 305 784 ₽',
+       square: '47',
+       floor: '2 этажа',
+       time: 'от 1,5 месяцев'
+      },
+      {
+       img: 'assets/images/catalog/1.png',
+       link: 'catalog-details.html',
+       title: 'CONSTANT 160-2',
+       price: 'от 8 305 784 ₽',
+       square: '165',
+       floor: '2 этажа',
+       time: 'от 2,5 месяцев'
+      },
+      {
+       img: 'assets/images/catalog/2.png',
+       link: 'catalog-details.html',
+       title: 'BASIS 120-1',
+       price: 'от 5 477 739 ₽',
+       square: '121',
+       floor: '2 этажа',
+       time: 'от 2 месяцев'
+      },
+     ]
 block content
+  mixin catalog-item(item)
+   +b.catalog-item 
+    +e.A(href=item.link).image 
+     img(src=item.img, alt=item.title)
+    +e.title=item.title 
+    +e.UL.params 
+     +e.LI.params-item 
+      +e.params-icon 
+       +icon('arrow')
+      +e.params-value #{item.square} м²
+     +e.LI.params-item 
+      +e.params-icon 
+       +icon('arrow')
+      +e.params-value=item.floor
+     +e.LI.params-item 
+      +e.params-icon 
+       +icon('arrow')
+      +e.params-value=item.time
+    +e.price=item.price
+    +e.hidden 
+     +e.subtitle Фундамент:
+     +e.description 
+      p Утепленная шведская плита с контуром теплового пола и коллектором. Возможно применение других типов фундаментов.
+     +e.subtitle Варианты внешней отделки:
+     +b.UL.item-options
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/1.png", alt="")
+       +e.name Штукатурка и камень
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/2.png", alt="")
+       +e.name Имитация бруса
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/3.png", alt="")
+       +e.name Фахверк
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/4.png", alt="")
+       +e.name Hauberk
+
+
   +b.SECTION.catalog
    .container
+    +b.H1.page-title Проекты домов
 
+    +b.UL.page-navigation 
+     each el, index in ['Типовые проекты', 'Готовые', 'Строящиеся', 'Поселки', 'В продаже']
+      +e.LI(class=`${index === 0 ? ' is-active': ''}`)
+       +e.A(href="#")=el
 
+    +b.page-filter
+     +b.SELECT(name="storey").js-select 
+      option(value="Этажность" select disabled) Этажность
+      option(value="1") 1
+      option(value="2") 2
+      option(value="3") 3
+
+     +b.SELECT(name="square").js-select 
+      option(value="Площадь жилой части, м2" select disabled) Площадь жилой части, м2
+      option(value="1") 1
+      option(value="2") 2
+      option(value="3") 3
+     
+     +b.SELECT(name="price").js-select 
+      option(value="Стоимость" select disabled) Стоимость
+      option(value="1") 1
+      option(value="2") 2
+      option(value="3") 3
+     
+     +b.SELECT(name="type").js-select 
+      option(value="Тип конструкции" select disabled) Тип конструкции
+      option(value="1") 1
+      option(value="2") 2
+      option(value="3") 3
+     
+     +b.SELECT(name="bedrooms").js-select 
+      option(value="Кол-во спален" select disabled) Кол-во спален
+      option(value="1") 1
+      option(value="2") 2
+      option(value="3") 3
+    
+    +b.page-sorting 
+     +e.label Сортировать по:
+     +e.LABEL.button 
+      input(type="radio" value="price" name="sorting" checked)
+      span стоимости
+     +e.LABEL.button 
+      input(type="radio" value="square" name="sorting")
+      span площади
+
+    +e.row 
+     each item in items
+      +e.col 
+       +catalog-item(item)
+       
     include ../includes/modules/_pagination
 
-
-  include ../includes/modules/_section-know
-
   include ../includes/modules/_section-calculate
-
+  
+  include ../includes/modules/_section-know
   
 block script
   //-script(src="assets/js/vendors.js")
