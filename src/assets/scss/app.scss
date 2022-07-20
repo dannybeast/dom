@@ -330,7 +330,7 @@
       svg {
          display: none;
          path {
-            fill: #c1c3c2;
+            fill: $gray-color;
          }
       }
       input {
@@ -389,7 +389,7 @@
    &__description {
       max-width: rem(515);
 
-      color: rgba(#fff, 0.8);
+      color: rgba($white-color, 0.8);
       &:not(:last-child) {
          margin-bottom: rem(30);
       }
@@ -448,7 +448,7 @@
 
 .calculate {
    color: $black-color;
-   background: url('../images/calculate/cross.svg') top right no-repeat #f9f9fc;
+   background: url('../images/calculate/cross.svg') top right no-repeat $light-color;
    &__btn {
       width: 100%;
       max-width: rem(290);
