@@ -84,47 +84,47 @@ block content
        +e.params-value=item.time
      +e.price=item.price
      
-     
-     +e.hidden
-      +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
-     
-      +e.A(href=item.link).title=item.title 
-      +e.UL.params 
-       +e.LI.params-item 
-        +e.params-icon 
-         +icon('size')
-        +e.params-value #{item.square} м²
-       +e.LI.params-item 
-        +e.params-icon 
-         +icon('menu')
-        +e.params-value=item.floor
-       +e.LI.params-item 
-        +e.params-icon 
-         +icon('clock')
-        +e.params-value=item.time
-      +e.price=item.price
-      +e.subtitle Фундамент:
-      +e.description 
-       p Утепленная шведская плита с контуром теплового пола и коллектором. Возможно применение других типов фундаментов.
-      +e.subtitle Варианты внешней отделки:
-      +b.UL.item-options
-       +e.LI 
-        +e.image 
-         img(src="assets/images/catalog/options/1.png", alt="")
-        +e.name Штукатурка и камень
-       +e.LI 
-        +e.image 
-         img(src="assets/images/catalog/options/2.png", alt="")
-        +e.name Имитация бруса
-       +e.LI 
-        +e.image 
-         img(src="assets/images/catalog/options/3.png", alt="")
-        +e.name Фахверк
-       +e.LI 
-        +e.image 
-         img(src="assets/images/catalog/options/4.png", alt="")
-        +e.name Hauberk
+    // Hidden item content
+    +e.hidden
+     +e.A(href=item.link).image 
+      img(src=item.img, alt=item.title)
+    
+     +e.A(href=item.link).title=item.title 
+     +e.UL.params 
+      +e.LI.params-item 
+       +e.params-icon 
+        +icon('size')
+       +e.params-value #{item.square} м²
+      +e.LI.params-item 
+       +e.params-icon 
+        +icon('menu')
+       +e.params-value=item.floor
+      +e.LI.params-item 
+       +e.params-icon 
+        +icon('clock')
+       +e.params-value=item.time
+     +e.price=item.price
+     +e.subtitle Фундамент:
+     +e.description 
+      p Утепленная шведская плита с контуром теплового пола и коллектором. Возможно применение других типов фундаментов.
+     +e.subtitle Варианты внешней отделки:
+     +b.UL.item-options
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/1.png", alt="")
+       +e.name Штукатурка и камень
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/2.png", alt="")
+       +e.name Имитация бруса
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/3.png", alt="")
+       +e.name Фахверк
+      +e.LI 
+       +e.image 
+        img(src="assets/images/catalog/options/4.png", alt="")
+       +e.name Hauberk
 
 
   +b.SECTION.catalog
