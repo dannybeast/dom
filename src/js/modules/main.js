@@ -7,6 +7,7 @@ import Fancy from "./fancybox";
 import Masks from "./inputmask";
 import Select from "./select";
 import Validation from '../forms/validation'
+import sliderCatalogItem from "../sliders/sliderCatalogItem";
 
 // Global
 window.Masks = Masks
@@ -22,4 +23,5 @@ $(document).ready(function () {
   App.anchors();
   App.toggleSorting();
   App.hideCookieAlert();
+  sliderCatalogItem.init()
 })

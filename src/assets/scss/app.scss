@@ -462,6 +462,32 @@
       }
    }
 
+   &__slider-pagination {
+      position: absolute;
+      right: rem(15) !important;
+      bottom: rem(15) !important;
+      left: rem(15) !important;
+
+      display: flex;
+
+      width: initial !important;
+      .swiper-pagination-bullet {
+         width: initial;
+         height: 3px !important;
+
+         opacity: 1;
+         border-radius: 0;
+         background: $white-color;
+
+         flex-grow: 1;
+         &.swiper-pagination-bullet-active {
+            background: $primary-color;
+         }
+      }
+   }
+   &__slider {
+      margin-bottom: rem(30);
+   }
    &__title {
       font-size: rem(18);
       font-weight: 500;
@@ -534,7 +560,6 @@
    &__image {
       display: block;
 
-      margin-bottom: rem(30);
       img {
          width: 100%;
       }

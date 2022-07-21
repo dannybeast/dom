@@ -129,8 +129,21 @@ mixin page-sorting(hideSquare)
 mixin catalog-item(item)
  +b.catalog-item 
   +e.inner
-   +e.A(href=item.link).image 
-    img(src=item.img, alt=item.title)
+   +e.slider.swiper-container.js-catalog-item-swiper
+    +e.slider-pagination.swiper-pagination
+    .swiper-wrapper 
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
 
    +e.A(href=item.link).title=item.title 
    +e.UL.params 
