@@ -437,10 +437,22 @@
 @include from($break_lg) {
       &:hover {
          z-index: 2;
+
+         background: $white-color;
+         box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
          #{$parent}__inner {
-            opacity: 0;
+            padding-right: rem(20);
+            padding-left: rem(20);
+
+            transition: all 0.1s ease-in;
+
+            background: $white-color;
          }
          #{$parent}__hidden {
+            padding-right: rem(20);
+            padding-left: rem(20);
+
+            transition: all 0.1s ease-in;
             pointer-events: all;
 
             opacity: 1;
@@ -464,17 +476,31 @@
 
    &__hidden {
       position: absolute;
-      top: -1px;
+      top: 100%;
       right: -1px;
       left: -1px;
 
-      padding: rem(20);
+      padding-top: rem(20);
 
       pointer-events: none;
 
       opacity: 0;
       background: $white-color;
-      box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
+      &:before {
+         position: absolute;
+         top: 0;
+         right: rem(20);
+         left: rem(20);
+
+         display: block;
+
+         height: 1px;
+
+         content: '';
+
+         background: $gray-color;
+      }
+
       #{$parent}__price {
          margin-bottom: rem(15);
          padding-bottom: rem(15);
@@ -482,7 +508,9 @@
          border-bottom: 1px solid rgba($black-color3, 0.2);
       }
    }
-
+   &__inner {
+      padding-bottom: rem(20);
+   }
    &__subtitle {
       font-size: rem(18);
       font-weight: 700;
@@ -508,8 +536,6 @@
    &__price {
       font-size: rem(22);
       font-weight: 700;
-
-      margin-bottom: rem(10);
    }
    &__params {
       display: flex;
@@ -732,12 +758,12 @@
    }
    &__footer-row {
       display: flex;
+
 @include lg-block() {
          justify-content: center;
-      }
-
-      justify-content: space-between;
+      }  justify-content: space-between;
       align-items: center;
+
       &:not(:last-child) {
          margin-bottom: rem(30);
       }

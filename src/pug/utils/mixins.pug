@@ -150,24 +150,6 @@ mixin catalog-item(item)
 
   // Hidden item content
   +e.hidden
-   +e.A(href=item.link).image 
-    img(src=item.img, alt=item.title)
-
-   +e.A(href=item.link).title=item.title 
-   +e.UL.params 
-    +e.LI.params-item 
-     +e.params-icon 
-      +icon('size')
-     +e.params-value #{item.square} м²
-    +e.LI.params-item 
-     +e.params-icon 
-      +icon('menu')
-     +e.params-value=item.floor
-    +e.LI.params-item 
-     +e.params-icon 
-      +icon('clock')
-     +e.params-value=item.time
-   +e.price=item.price
    +e.subtitle Фундамент:
    +e.description 
     p Утепленная шведская плита с контуром теплового пола и коллектором. Возможно применение других типов фундаментов.
