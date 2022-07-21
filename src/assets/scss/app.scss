@@ -436,11 +436,12 @@
 
 @include from($break_lg) {
       &:hover {
-         z-index: 2;
+         z-index: 3;
 
          background: $white-color;
          box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
          #{$parent}__inner {
+            padding-top: rem(20);
             padding-right: rem(20);
             padding-left: rem(20);
 
@@ -456,6 +457,7 @@
             pointer-events: all;
 
             opacity: 1;
+            box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
          }
       }
    }
@@ -498,7 +500,7 @@
 
          content: '';
 
-         background: $gray-color;
+         background: rgba($black-color3, 0.2);
       }
 
       #{$parent}__price {
@@ -509,6 +511,9 @@
       }
    }
    &__inner {
+      position: relative;
+      z-index: 2;
+
       padding-bottom: rem(20);
    }
    &__subtitle {
