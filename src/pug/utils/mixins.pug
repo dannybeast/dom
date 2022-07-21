@@ -9,8 +9,21 @@ mixin icon(name)
  svg.svg-icon
   use(href=`assets/icons/sprite.svg#icon-${name}`)
 
+mixin filter-links(type)
+ +b.filter-links 
+  if type === 'rows'
+   +e.link(class=" is-active")
+    +icon('rows')
+    span Списком
+  else
+   +e.link(class=" is-active")
+    +icon('grid')
+    span Карточками
+  +e.link 
+   +icon('map-pin')
+   span На карте
 
-mixin filter()
+mixin filter(argObj)
  +e.mobile
   +e.mobile-btn 
    +icon('sort')
@@ -18,54 +31,100 @@ mixin filter()
   +e.mobile-btn 
    +icon('filter')
    span Фильтр
- +e.row
-  +e.item
-   +b.SELECT(name="storey" data-placeholder="Этажность").js-select
-    option(selected disabled) Этажность
-    option(value="1") Этажность
-    option(value="2") Этажность
-    option(value="3") Этажность
-  +e.item
-   +b.SELECT(name="square" data-placeholder="Площадь жилой части, м2").js-select
-    option(selected disabled) Площадь жилой части, м2
-    option(value="1") Площадь жилой части
-    option(value="2") Площадь жилой части
-    option(value="3") Площадь жилой части
-  +e.item
-   +b.SELECT(name="price" data-placeholder="Стоимость").js-select
-    option(selected disabled) Стоимость
-    option(value="1") Стоимость
-    option(value="2") Стоимость
-    option(value="3") Стоимость
-  +e.item
-   +b.SELECT(name="type" data-placeholder="Тип конструкции").js-select
-    option(selected disabled) Тип конструкции
-    option(value="1") Тип конструкции
-    option(value="2") Тип конструкции
-    option(value="3") Тип конструкции
-  +e.item
-   +b.SELECT(name="bedrooms" data-placeholder="Кол-во спален").js-select
-    option(selected disabled) Кол-во спален
-    option(value="1") Кол-во спален
-    option(value="2") Кол-во спален
-    option(value="3") Кол-во спален
+ if argObj
+  +e.row
+   if argObj.hasOwnProperty('storey')
+    +e.item
+     +b.SELECT(name="storey" data-placeholder="Этажность").js-select
+      option(selected disabled) Этажность
+      option(value="1") Этажность
+      option(value="2") Этажность
+      option(value="3") Этажность
+   if argObj.hasOwnProperty('square')
+    +e.item
+     +b.SELECT(name="square" data-placeholder="Площадь жилой части, м2").js-select
+      option(selected disabled) Площадь жилой части, м2
+      option(value="1") Площадь жилой части
+      option(value="2") Площадь жилой части
+      option(value="3") Площадь жилой части
+   if argObj.hasOwnProperty('price')
+    +e.item
+     +b.SELECT(name="price" data-placeholder="Стоимость").js-select
+      option(selected disabled) Стоимость
+      option(value="1") Стоимость
+      option(value="2") Стоимость
+      option(value="3") Стоимость
+   if argObj.hasOwnProperty('type')
+    +e.item
+     +b.SELECT(name="type" data-placeholder="Тип конструкции").js-select
+      option(selected disabled) Тип конструкции
+      option(value="1") Тип конструкции
+      option(value="2") Тип конструкции
+      option(value="3") Тип конструкции
+   if argObj.hasOwnProperty('bedrooms')
+    +e.item
+     +b.SELECT(name="bedrooms" data-placeholder="Кол-во спален").js-select
+      option(selected disabled) Кол-во спален
+      option(value="1") Кол-во спален
+      option(value="2") Кол-во спален
+      option(value="3") Кол-во спален
+   if argObj.hasOwnProperty('region')
+    +e.item
+     +b.SELECT(name="region" data-placeholder="Регион").js-select
+      option(selected disabled) Регион
+      option(value="1") Регион
+      option(value="2") Регион
+      option(value="3") Регион
+   if argObj.hasOwnProperty('tour')
+    +e.item
+     +b.SELECT(name="tour" data-placeholder="3D-тур, +1").js-select
+      option(selected disabled) 3D-тур, +1
+      option(value="1") 3D-тур, +1
+      option(value="2") 3D-тур, +1
+      option(value="3") 3D-тур, +1
+   if argObj.hasOwnProperty('additionally')
+    +e.item
+     +b.SELECT(name="additionally" data-placeholder="Дополнительно").js-select
+      option(selected disabled) Дополнительно
+      option(value="1") Дополнительно
+      option(value="2") Дополнительно
+      option(value="3") Дополнительно
+   if argObj.hasOwnProperty('ownership')
+    +e.item
+     +b.SELECT(name="ownership" data-placeholder="Форма владения").js-select
+      option(selected disabled) Форма владения
+      option(value="1") Форма владения
+      option(value="2") Форма владения
+      option(value="3") Форма владения
+   if argObj.hasOwnProperty('communications')
+    +e.item
+     +b.SELECT(name="communications" data-placeholder="Коммуникации").js-select
+      option(selected disabled) Коммуникации
+      option(value="1") Коммуникации
+      option(value="2") Коммуникации
+      option(value="3") Коммуникации
+   if argObj.hasOwnProperty('resetBtn')
+    +e.item 
+     +e.reset-link 
+      +icon('cross')
+      span Сбросить фильтры
 
-mixin page-sorting()
+mixin page-sorting(hideSquare)
  +b.page-sorting(class="__sorting") 
   mixin sort-svg()
    svg(width='8' height='14' fill='none' xmlns='http://www.w3.org/2000/svg')
     path(d='M3.691.374a.4.4 0 0 1 .618 0L7.79 4.595a.4.4 0 0 1-.308.655H.518a.4.4 0 0 1-.308-.655L3.69.375Z')
     path(d='M4.309 13.626a.4.4 0 0 1-.618 0L.21 9.405a.4.4 0 0 1 .308-.655h6.964a.4.4 0 0 1 .308.655l-3.481 4.22Z')
-
   +e.label Сортировать по:
   +e.LABEL.button(class=" js-toggle-sorting") 
    input(type="radio" value="price" name="sorting" checked).sorting-asc
    span стоимости
    +sort-svg()
-  +e.LABEL.button(class=" js-toggle-sorting") 
-   input(type="radio" value="square" name="sorting")
-   span площади
-   +sort-svg()
+  if !hideSquare
+   +e.LABEL.button(class=" js-toggle-sorting") 
+    input(type="radio" value="square" name="sorting")
+    span площади
+    +sort-svg()
 
 mixin catalog-item(item)
  +b.catalog-item 

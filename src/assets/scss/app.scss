@@ -21,6 +21,8 @@
 @import 'modules/_fields';
 //@import 'modules/_checkbox-and-radio';
 
+// Sections
+
 .module-contacts {
    color: $black-color3;
    &__label {
@@ -587,7 +589,82 @@
    }
 }
 
+.filter-links {
+   display: flex;
+
+   align-items: center;
+   &__link {
+      display: flex;
+
+      margin: 0 rem(30) 0 0;
+
+      cursor: pointer;
+
+      color: $black-color3;
+
+      align-items: center;
+      &:last-child {
+         margin-right: 0;
+      }
+      span {
+         border-bottom: 1px dashed $gray-color;
+      }
+      &:hover {
+         color: $black-color;
+         svg {
+            fill: $black-color;
+         }
+      }
+      &.is-active {
+         color: $primary-color;
+         span {
+            border-color: transparent;
+         }
+         svg {
+            fill: $primary-color;
+         }
+      }
+      svg {
+         width: rem(22);
+         height: rem(22);
+         margin-right: rem(12);
+
+         fill: $black-color3;
+         flex-shrink: 0;
+      }
+   }
+}
+
 .page-filter {
+   $btn-size: rem(40);
+   &__reset-link {
+      display: inline-flex;
+
+      height: $btn-size;
+
+      cursor: pointer;
+
+      color: $black-color3;
+
+      align-items: center;
+      span {
+         border-bottom: 1px dashed $gray-color;
+      }
+      svg {
+         width: rem(12);
+         height: rem(12);
+         margin-right: rem(12);
+
+         fill: $black-color3;
+         flex-shrink: 0;
+      }
+      &:hover {
+         color: $primary-color;
+         svg {
+            fill: $primary-color;
+         }
+      }
+   }
    &__mobile {
       display: none;
 
@@ -606,14 +683,15 @@
          font-weight: 700;
 
          display: flex;
- cursor: pointer;
+
+         cursor: pointer;
+
 @include xs-block() {
             font-size: 14px;
-         } 
-
-         flex-grow: 1;
+         }  flex-grow: 1;
          justify-content: center;
          align-items: center;
+
          &:hover {
             color: $primary-color;
             svg {
@@ -651,12 +729,23 @@
       @include lg-block() {
          display: none;
       }
+   }
+   &__footer-row {
+      display: flex;
+@include lg-block() {
+         justify-content: center;
+      }
+
+      justify-content: space-between;
+      align-items: center;
       &:not(:last-child) {
          margin-bottom: rem(30);
       }
    }
    &__row {
       display: flex;
+
+      margin-bottom: rem(20);
 
 @include lg-block() {
          display: none;
@@ -670,15 +759,15 @@
    }
 
    .select2-container .select2-selection--single {
-      height: rem(42);
+      height: $btn-size;
 
       border: 1px solid $gray-color;
       border-radius: rem(4);
    }
 
    .select2-container--default .select2-selection--single .select2-selection__arrow {
-      width: rem(40);
-      height: rem(40);
+      width: $btn-size;
+      height: $btn-size;
       &:before {
          position: absolute;
          top: 50%;
@@ -686,7 +775,7 @@
 
          display: block;
 
-         width: rem(13 );
+         width: rem(13);
          height: rem(6);
 
          content: '';
@@ -702,9 +791,9 @@
       }
    }
    .select2-container--default .select2-selection--single .select2-selection__rendered {
-      line-height: rem(40);
+      line-height: $btn-size;
 
-      padding-right: rem(40);
+      padding-right: $btn-size;
       padding-left: rem(15);
 
       color: rgba( $black-color3,0.7);
@@ -1062,7 +1151,6 @@
    }
 }
 
-// Sections
 @import 'sections/_header';
 @import 'sections/_footer';
 

@@ -70,8 +70,9 @@ block content
     include ../includes/modules/_catalog-navigation
 
     +b.page-filter(class="__filter")
-     +filter()
-     +page-sorting()
+     +filter({storey, square, price, type, bedrooms})
+     +e.footer-row
+      +page-sorting()
 
     +e.row 
      each item in items
