@@ -1,0 +1,27 @@
+-
+ var links = [
+  {
+   name: 'Типовые проекты',
+   link: 'catalog.html'
+  },
+  {
+   name: 'Готовые',
+   link: 'catalog-finished.html'
+  },
+  {
+   name: 'Строящиеся',
+   link: 'catalog-under construction.html'
+  },
+  {
+   name: 'Поселки',
+   link: 'catalog-township.html'
+  },
+  {
+   name: 'В продаже',
+   link: 'catalog-on-sale.html'
+  }
+ ]
++b.UL.page-navigation(class="__navigation") 
+ each el, index in links
+  +e.LI(class=`${title === el.name ? ' is-active': ''}`)
+   +e.A(href=el.link)=el.name
