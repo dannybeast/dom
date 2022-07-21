@@ -8,20 +8,20 @@
       p Оставьте заявку и мы ответим на любой ваш вопрос.
 
    +e.col
-    form
+    form.js-validation-form
      +e.block
       +e.block-row.row 
        +e.block-col.col-12 
         +b.field(class="--dark")
-         input(type="text" placeholder="Имя")
+         input(type="text" name="name" placeholder="Имя" required)
        +e.block-col.col-6
         +b.field(class="--dark")
-         input(type="text" placeholder="Телефон")
+         input(type="text" name="phone" placeholder="Телефон" required).js-phone-mask
        +e.block-col.col-6
         +b.field(class="--dark")
-         input(type="text" placeholder="Эл. почта")
+         input(type="email" name="email" placeholder="Эл. почта")
         
       +e.block-footer 
-        +e.A(href="#" class='block-footer-btn btn --primary') Отправить
+        +e.BUTTON(class='block-footer-btn btn --primary') Отправить
         +e.block-footer-content
          p Нажимая на кнопку, я соглашаюсь с <a href="terms.html" target="_blank">политикой обработки персональных данных.</a>
