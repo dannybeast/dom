@@ -10,5 +10,6 @@ $(document).ready(function () {
  // Fancy.init();
   Select.init();
   App.anchors();
+  App.toggleSorting();
   App.hideCookieAlert();
 })

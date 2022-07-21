@@ -15,6 +15,10 @@
       position: relative;
 
       padding-top: rem(50);
+
+@include sm-block() {
+         padding-top: rem(40);
+      }
    }
 }
 

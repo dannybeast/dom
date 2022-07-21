@@ -39,7 +39,7 @@
       width: rem(112);
 
 @include sm-block() {
-         width: rem(64);
+         width: rem(80);
          margin-bottom: rem(30);
       }  flex-shrink: 0;
    }
@@ -87,7 +87,6 @@
 
 @include sm-block() {
          width: 100%;
-         height: rem(50);
          margin-right: 0;
       }
    }
@@ -115,7 +114,7 @@
          }
 
 @include sm-block() {
-            font-size: rem(12);
+            font-size: 12px;
          }  flex-wrap: wrap;
          align-items: center;
          justify-content: space-between;
@@ -198,12 +197,19 @@
    &__links {
       margin-bottom: rem(30);
 
+@include sm-block() {
+         margin-bottom: rem(40);
+      }
+
+      a {
+         font-size: 16px;
+      }
       li {
          &:not(:last-child) {
             margin-bottom: rem(20);
 
 @include sm-block() {
-               margin-bottom: rem(10);
+               margin-bottom: 10px;
             }
          }
       }
@@ -245,6 +251,10 @@
       }
       &-row {
          padding-top: rem(30);
+
+@include sm-block() {
+            padding-top: rem(50);
+         }
       }
    }
 }

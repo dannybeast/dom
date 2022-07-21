@@ -129,13 +129,16 @@
       display: flex;
 
       padding: rem(27) 0;
+@include to(450px) {
+         padding: rem(17) 0;
+      }
 
       align-items: center;
       justify-content: space-between;
    }
 
    &__btn {
-      @include sm-block() {
+      @include to(450px) {
          display: none;
       }
    }

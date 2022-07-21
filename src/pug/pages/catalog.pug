@@ -137,52 +137,60 @@ block content
        +e.A(href="#")=el
 
     +b.page-filter(class="__filter")
-     +e.item
-      +b.SELECT(name="storey" data-placeholder="Этажность").js-select
-       option(selected disabled) Этажность
-       option(value="1") Этажность
-       option(value="2") Этажность
-       option(value="3") Этажность
-     +e.item
-      +b.SELECT(name="square" data-placeholder="Площадь жилой части, м2").js-select
-       option(selected disabled) Площадь жилой части, м2
-       option(value="1") Площадь жилой части
-       option(value="2") Площадь жилой части
-       option(value="3") Площадь жилой части
-     +e.item
-      +b.SELECT(name="price" data-placeholder="Стоимость").js-select
-       option(selected disabled) Стоимость
-       option(value="1") Стоимость
-       option(value="2") Стоимость
-       option(value="3") Стоимость
-     +e.item
-      +b.SELECT(name="type" data-placeholder="Тип конструкции").js-select
-       option(selected disabled) Тип конструкции
-       option(value="1") Тип конструкции
-       option(value="2") Тип конструкции
-       option(value="3") Тип конструкции
-     +e.item
-      +b.SELECT(name="bedrooms" data-placeholder="Кол-во спален").js-select
-       option(selected disabled) Кол-во спален
-       option(value="1") Кол-во спален
-       option(value="2") Кол-во спален
-       option(value="3") Кол-во спален
+     +e.mobile
+      +e.mobile-btn 
+       +icon('sort')
+       span Сортировка
+      +e.mobile-btn 
+       +icon('filter')
+       span Фильтр
+     +e.row
+      +e.item
+       +b.SELECT(name="storey" data-placeholder="Этажность").js-select
+        option(selected disabled) Этажность
+        option(value="1") Этажность
+        option(value="2") Этажность
+        option(value="3") Этажность
+      +e.item
+       +b.SELECT(name="square" data-placeholder="Площадь жилой части, м2").js-select
+        option(selected disabled) Площадь жилой части, м2
+        option(value="1") Площадь жилой части
+        option(value="2") Площадь жилой части
+        option(value="3") Площадь жилой части
+      +e.item
+       +b.SELECT(name="price" data-placeholder="Стоимость").js-select
+        option(selected disabled) Стоимость
+        option(value="1") Стоимость
+        option(value="2") Стоимость
+        option(value="3") Стоимость
+      +e.item
+       +b.SELECT(name="type" data-placeholder="Тип конструкции").js-select
+        option(selected disabled) Тип конструкции
+        option(value="1") Тип конструкции
+        option(value="2") Тип конструкции
+        option(value="3") Тип конструкции
+      +e.item
+       +b.SELECT(name="bedrooms" data-placeholder="Кол-во спален").js-select
+        option(selected disabled) Кол-во спален
+        option(value="1") Кол-во спален
+        option(value="2") Кол-во спален
+        option(value="3") Кол-во спален
     
-    +b.page-sorting(class="__sorting") 
-     mixin sort-svg()
-      svg(width='8' height='14' fill='none' xmlns='http://www.w3.org/2000/svg')
-       path(d='M3.691.374a.4.4 0 0 1 .618 0L7.79 4.595a.4.4 0 0 1-.308.655H.518a.4.4 0 0 1-.308-.655L3.69.375Z')
-       path(d='M4.309 13.626a.4.4 0 0 1-.618 0L.21 9.405a.4.4 0 0 1 .308-.655h6.964a.4.4 0 0 1 .308.655l-3.481 4.22Z')
+     +b.page-sorting(class="__sorting") 
+      mixin sort-svg()
+       svg(width='8' height='14' fill='none' xmlns='http://www.w3.org/2000/svg')
+        path(d='M3.691.374a.4.4 0 0 1 .618 0L7.79 4.595a.4.4 0 0 1-.308.655H.518a.4.4 0 0 1-.308-.655L3.69.375Z')
+        path(d='M4.309 13.626a.4.4 0 0 1-.618 0L.21 9.405a.4.4 0 0 1 .308-.655h6.964a.4.4 0 0 1 .308.655l-3.481 4.22Z')
 
-     +e.label Сортировать по:
-     +e.LABEL.button 
-      input(type="radio" value="price" name="sorting" checked)
-      span стоимости
-      +sort-svg()
-     +e.LABEL.button 
-      input(type="radio" value="square" name="sorting")
-      span площади
-      +sort-svg()
+      +e.label Сортировать по:
+      +e.LABEL.button(class=" js-toggle-sorting") 
+       input(type="radio" value="price" name="sorting" checked).sorting-asc
+       span стоимости
+       +sort-svg()
+      +e.LABEL.button(class=" js-toggle-sorting") 
+       input(type="radio" value="square" name="sorting")
+       span площади
+       +sort-svg()
 
     +e.row 
      each item in items
