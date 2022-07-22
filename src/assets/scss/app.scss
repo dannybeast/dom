@@ -462,7 +462,7 @@
 
       display: flex;
 
-      max-width: 77%;
+      max-width: 78%;
       padding: rem(15);
 
       flex-wrap: wrap;
@@ -474,7 +474,7 @@
       display: flex;
 
       height: rem(35);
-      margin: 0 rem(15) rem(10) 0;
+      margin: 0 rem(10) rem(10) 0;
       padding: 0 rem(12);
 
       border-radius: rem(35);
@@ -485,7 +485,7 @@
       svg {
          width: rem(16);
          height: rem(16);
-         margin-right: rem(11);
+         margin-right: rem(10);
 
          fill: $primary-color;
          flex-shrink: 0;
@@ -503,7 +503,7 @@
       display: inline-block;
       overflow: hidden;
 
-      max-width: 33%;
+      max-width: 32%;
       padding: 0 rem(12);
 
       white-space: nowrap;

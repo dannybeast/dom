@@ -70,14 +70,14 @@ block content
     include ../includes/modules/_catalog-navigation
 
     +b.page-filter(class="__filter")
-     +filter({ region,ownership,communications})
+     +filter({ region, ownership, communications})
      +e.footer-row
       +page-sorting('hideSquare')
       +filter-links('rows')
     +e.row 
      each item in items
       +e.col 
-       +catalog-item(item)
+       +catalog-row-item(item)
        
     include ../includes/modules/_pagination
 

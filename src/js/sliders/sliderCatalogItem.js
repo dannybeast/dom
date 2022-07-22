@@ -7,7 +7,7 @@ class sliderCatalogItem {
      pagination: {
        el: ".swiper-pagination"
      },
-     speed: 300,
+     speed: 0,
     }
   }
 

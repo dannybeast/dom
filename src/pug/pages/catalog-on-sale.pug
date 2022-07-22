@@ -9,56 +9,101 @@ block variables
       {
        img: 'assets/images/catalog/1.png',
        link: 'catalog-details.html',
-       title: 'CONSTANT 160-2',
-       price: 'от 8 305 784 ₽',
-       square: '165',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 2,5 месяцев'
+       year: '2022',
+       tags: ['3D-тур'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/2.png',
        link: 'catalog-details.html',
-       title: 'BASIS 120-1',
-       price: 'от 5 477 739 ₽',
-       square: '121',
+       title: 'Чебоксарский р-н, Синьяльское с/п, с. Альгешево (4)',
+       price: '8 305 784 ₽',
+       square: '47',
        floor: '2 этажа',
-       time: 'от 2 месяцев'
+       year: '2022',
+       tags: ['Можно посетить'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/3.png',
        link: 'catalog-details.html',
-       title: 'AXIOM 40-1',
-       price: 'от 8 305 784 ₽',
-       square: '47',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 1,5 месяцев'
+       year: '2022',
+       tags: ['3D-тур'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/3.png',
        link: 'catalog-details.html',
-       title: 'AXIOM 40-1',
-       price: 'от 8 305 784 ₽',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
+       square: '188',
+       floor: '2 этажа',
+       year: '2022',
+       tags: ['3D-тур', 'Можно посетить', 'Видеотрансляция'],
+       isFinished: false
+      },
+      {
+       img: 'assets/images/catalog/2.png',
+       link: 'catalog-details.html',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
        square: '47',
        floor: '2 этажа',
-       time: 'от 1,5 месяцев'
+       year: '2022',
+       tags: ['Можно посетить'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/1.png',
        link: 'catalog-details.html',
-       title: 'CONSTANT 160-2',
-       price: 'от 8 305 784 ₽',
-       square: '165',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 2,5 месяцев'
+       year: '2022',
+       tags: ['Можно посетить'],
+       isFinished: false
+      },
+      {
+       img: 'assets/images/catalog/1.png',
+       link: 'catalog-details.html',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
+       square: '188',
+       floor: '2 этажа',
+       year: '2022',
+       tags: ['Можно посетить'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/2.png',
        link: 'catalog-details.html',
-       title: 'BASIS 120-1',
-       price: 'от 5 477 739 ₽',
-       square: '121',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
+       square: '47',
        floor: '2 этажа',
-       time: 'от 2 месяцев'
+       year: '2022',
+       tags: ['Видеотрансляция'],
+       isFinished: false
+      },
+      {
+       img: 'assets/images/catalog/3.png',
+       link: 'catalog-details.html',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: '8 305 784 ₽',
+       square: '188',
+       floor: '2 этажа',
+       year: '2022',
+       tags: ['Можно посетить','Видеотрансляция'],
+       isFinished: false
       },
      ]
 block content
@@ -78,7 +123,23 @@ block content
      each item in items
       +e.col 
        +catalog-item(item)
-       
+        +e.UL.table-list 
+         +e.LI 
+          +e.table-list-name Тип конструкции:
+          +e.table-list-value 
+           span Блочный
+         +e.LI 
+          +e.table-list-name Фундамент:
+          +e.table-list-value 
+           span Утепленная шведская плита
+         +e.LI 
+          +e.table-list-name Кровля:
+          +e.table-list-value 
+           span Двускатная, SHINGLAS
+         +e.LI 
+          +e.table-list-name Внешняя отделка:
+          +e.table-list-value 
+           span HAUBERK
     include ../includes/modules/_pagination
 
   include ../includes/modules/_section-calculate

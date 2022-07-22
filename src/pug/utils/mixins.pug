@@ -77,11 +77,10 @@ mixin filter(argObj)
       option(value="3") Регион
    if argObj.hasOwnProperty('tour')
     +e.item
-     +b.SELECT(name="tour" data-placeholder="3D-тур, +1").js-select
-      option(selected disabled) 3D-тур, +1
-      option(value="1") 3D-тур, +1
-      option(value="2") 3D-тур, +1
-      option(value="3") 3D-тур, +1
+     +b.SELECT(name="tags" data-placeholder="Теги").js-select
+      option(value="Только продающиеся") Только продающиеся
+      option(value="Можно посетить") Можно посетить
+      option(value="3D-тур") 3D-тур
    if argObj.hasOwnProperty('additionally')
     +e.item
      +b.SELECT(name="additionally" data-placeholder="Дополнительно").js-select
@@ -126,78 +125,62 @@ mixin page-sorting(hideSquare)
     span площади
     +sort-svg()
 
+mixin catalog-row-item(item)
+ +b.catalog-row-item
+  +e.A(href=item.link).image 
+   img(src=item.img, alt=item.title)
+  +e.content 
+   +e.A(href=item.link).title=item.title 
+   if item.tags && item.tags.length > 0
+    +e.tags 
+     each tag in item.tags
+      +e.tag 
+       +icon(tag.icon)
+       span=tag.name
+   +e.params 
+    +e.params-item 
+     +e.params-name Локация
+     +e.params-value 
+      +icon('map-pin')
+      span Московская обл.
+    +e.params-item 
+     +e.params-name Стоимость участка
+     +e.params-value 
+      +icon('rub')
+      span от 230 000 ₽
+    +e.params-item 
+     +e.params-name Форма управления
+     +e.params-value 
+      +icon('gear')
+      span ДНП 
+       span.answer-icon 
+        +icon('help')
+    +e.params-item 
+     +e.params-name Готовность дома
+     +e.params-value 
+      +icon('check')
+      span Да
+    +e.params-item 
+     +e.params-name Удаленность от города
+     +e.params-value 
+      +icon('routing')
+      span 80 км
+
 mixin catalog-item(item)
  +b.catalog-item 
   +e.inner
    +e.slider.swiper-container.js-catalog-item-swiper
-    +e.slider-pagination.swiper-pagination
-    .swiper-wrapper 
-     .swiper-slide
-      +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
-     .swiper-slide
-      +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
-     .swiper-slide
-      +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
-     .swiper-slide
-      +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
-
-   +e.A(href=item.link).title=item.title 
-   +e.UL.params 
-    +e.LI.params-item 
-     +e.params-icon 
-      +icon('size')
-     +e.params-value #{item.square} м²
-    +e.LI.params-item 
-     +e.params-icon 
-      +icon('menu')
-     +e.params-value=item.floor
-    +e.LI.params-item 
-     +e.params-icon 
-      +icon('clock')
-     +e.params-value=item.time
-   +e.price=item.price
-
-  // Hidden item content
-  +e.hidden
-   +e.subtitle Фундамент:
-   +e.description 
-    p Утепленная шведская плита с контуром теплового пола и коллектором. Возможно применение других типов фундаментов.
-   +e.subtitle Варианты внешней отделки:
-   +b.UL.item-options
-    +e.LI 
-     +e.image 
-      img(src="assets/images/catalog/options/1.png", alt="")
-     +e.name Штукатурка и камень
-    +e.LI 
-     +e.image 
-      img(src="assets/images/catalog/options/2.png", alt="")
-     +e.name Имитация бруса
-    +e.LI 
-     +e.image 
-      img(src="assets/images/catalog/options/3.png", alt="")
-     +e.name Фахверк
-    +e.LI 
-     +e.image 
-      img(src="assets/images/catalog/options/4.png", alt="")
-     +e.name Hauberk
-
-mixin catalog-item-finished(item)
- +b.catalog-item 
-  +e.inner
-   +e.slider.swiper-container.js-catalog-item-swiper
-    if item.tags.length
-    +e.tags 
-     each tag in item.tags
-      +e.tag 
-       if tag === 'Можно посетить'
-        +icon('home')
-       else if tag === '3D-тур'
-        +icon('cube')
-       span=tag
+    if item.tags && item.tags.length > 0
+     +e.tags 
+      each tag in item.tags
+       +e.tag 
+        if tag === 'Можно посетить'
+         +icon('home')
+        else if tag === '3D-тур'
+         +icon('cube')
+        else if tag === 'Видеотрансляция'
+         +icon('video')
+        span=tag
     if item.isFinished
      +e.status Продан
     +e.slider-pagination.swiper-pagination
@@ -207,13 +190,13 @@ mixin catalog-item-finished(item)
        img(src=item.img, alt=item.title)
      .swiper-slide
       +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
+       img(src='assets/images/catalog/2.png', alt=item.title)
      .swiper-slide
       +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
+       img(src='assets/images/catalog/3.png', alt=item.title)
      .swiper-slide
       +e.A(href=item.link).image 
-       img(src=item.img, alt=item.title)
+       img(src='assets/images/catalog/2.png', alt=item.title)
 
    +e.A(href=item.link).title=item.title 
    +e.UL.params 
@@ -225,30 +208,25 @@ mixin catalog-item-finished(item)
      +e.params-icon 
       +icon('menu')
      +e.params-value=item.floor
-    +e.LI.params-item 
-     +e.params-icon 
-      +icon('calendar')
-     +e.params-value=item.time
+    if item.time
+     +e.LI.params-item 
+      +e.params-icon 
+       +icon('clock')
+      +e.params-value=item.time
+    if item.category
+     +e.LI.params-item 
+      +e.params-icon 
+       +icon('play')
+      +e.params-value=item.category
+    if item.year
+     +e.LI.params-item 
+      +e.params-icon 
+       +icon('calendar')
+      +e.params-value=item.year
+   if item.price
+    +e.price=item.price
 
   // Hidden item content
   +e.hidden
-   +e.UL.table-list 
-    +e.LI 
-     +e.table-list-name Тип конструкции:
-     +e.table-list-value 
-      span Блочный
-    +e.LI 
-     +e.table-list-name Фундамент:
-     +e.table-list-value 
-      span Утепленная шведская плита
-    +e.LI 
-     +e.table-list-name Кровля:
-     +e.table-list-value 
-      span Двускатная, SHINGLAS
-    +e.LI 
-     +e.table-list-name Внешняя отделка:
-     +e.table-list-value 
-      span HAUBERK
-
-   +e.price-subtitle Продан за:
-   +e.price=item.price
+   if block 
+    block
