@@ -9,57 +9,103 @@ block variables
       {
        img: 'assets/images/catalog/1.png',
        link: 'catalog-details.html',
-       title: 'CONSTANT 160-2',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
        price: 'от 8 305 784 ₽',
-       square: '165',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 2,5 месяцев'
+       time: '2022',
+       tags: ['3D-тур'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/2.png',
        link: 'catalog-details.html',
-       title: 'BASIS 120-1',
-       price: 'от 5 477 739 ₽',
-       square: '121',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: 'от 8 305 784 ₽',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 2 месяцев'
+       time: '2022',
+       tags: ['Можно посетить'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/3.png',
        link: 'catalog-details.html',
-       title: 'AXIOM 40-1',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
        price: 'от 8 305 784 ₽',
-       square: '47',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 1,5 месяцев'
-      },
-      {
-       img: 'assets/images/catalog/3.png',
-       link: 'catalog-details.html',
-       title: 'AXIOM 40-1',
-       price: 'от 8 305 784 ₽',
-       square: '47',
-       floor: '2 этажа',
-       time: 'от 1,5 месяцев'
+       time: '2022',
+       tags: ['3D-тур'],
+       isFinished: true
       },
       {
        img: 'assets/images/catalog/1.png',
        link: 'catalog-details.html',
-       title: 'CONSTANT 160-2',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
        price: 'от 8 305 784 ₽',
-       square: '165',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 2,5 месяцев'
+       time: '2022',
+       tags: ['3D-тур', 'Можно посетить'],
+       isFinished: false
       },
       {
        img: 'assets/images/catalog/2.png',
        link: 'catalog-details.html',
-       title: 'BASIS 120-1',
-       price: 'от 5 477 739 ₽',
-       square: '121',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: 'от 8 305 784 ₽',
+       square: '188',
        floor: '2 этажа',
-       time: 'от 2 месяцев'
+       time: '2022',
+       tags: ['3D-тур'],
+       isFinished: false
       },
+      {
+       img: 'assets/images/catalog/3.png',
+       link: 'catalog-details.html',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: 'от 8 305 784 ₽',
+       square: '188',
+       floor: '2 этажа',
+       time: '2022',
+       tags: ['3D-тур'],
+       isFinished: false
+      },
+      {
+       img: 'assets/images/catalog/1.png',
+       link: 'catalog-details.html',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: 'от 8 305 784 ₽',
+       square: '188',
+       floor: '2 этажа',
+       time: '2022',
+       tags: ['3D-тур'],
+       isFinished: false
+      },
+      {
+       img: 'assets/images/catalog/2.png',
+       link: 'catalog-details.html',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: 'от 8 305 784 ₽',
+       square: '188',
+       floor: '2 этажа',
+       time: '2022',
+       tags: ['3D-тур', 'Можно посетить'],
+       isFinished: false
+      },
+      {
+       img: 'assets/images/catalog/3.png',
+       link: 'catalog-details.html',
+       title: 'МО, Наро-Фоминский г.о., д. Мартемьяново, КП «Апрелевка парк»',
+       price: 'от 8 305 784 ₽',
+       square: '188',
+       floor: '2 этажа',
+       time: '2022',
+       tags: ['3D-тур'],
+       isFinished: true
+      },
+      
      ]
 block content
 
@@ -78,7 +124,7 @@ block content
     +e.row 
      each item in items
       +e.col 
-       +catalog-item(item)
+       +catalog-item-finished(item)
        
     include ../includes/modules/_pagination
 

@@ -184,3 +184,71 @@ mixin catalog-item(item)
      +e.image 
       img(src="assets/images/catalog/options/4.png", alt="")
      +e.name Hauberk
+
+mixin catalog-item-finished(item)
+ +b.catalog-item 
+  +e.inner
+   +e.slider.swiper-container.js-catalog-item-swiper
+    if item.tags.length
+    +e.tags 
+     each tag in item.tags
+      +e.tag 
+       if tag === 'Можно посетить'
+        +icon('home')
+       else if tag === '3D-тур'
+        +icon('cube')
+       span=tag
+    if item.isFinished
+     +e.status Продан
+    +e.slider-pagination.swiper-pagination
+    .swiper-wrapper 
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
+     .swiper-slide
+      +e.A(href=item.link).image 
+       img(src=item.img, alt=item.title)
+
+   +e.A(href=item.link).title=item.title 
+   +e.UL.params 
+    +e.LI.params-item 
+     +e.params-icon 
+      +icon('size')
+     +e.params-value #{item.square} м²
+    +e.LI.params-item 
+     +e.params-icon 
+      +icon('menu')
+     +e.params-value=item.floor
+    +e.LI.params-item 
+     +e.params-icon 
+      +icon('calendar')
+     +e.params-value=item.time
+
+  // Hidden item content
+  +e.hidden
+   +e.UL.table-list 
+    +e.LI 
+     +e.table-list-name Тип конструкции:
+     +e.table-list-value 
+      span Блочный
+    +e.LI 
+     +e.table-list-name Фундамент:
+     +e.table-list-value 
+      span Утепленная шведская плита
+    +e.LI 
+     +e.table-list-name Кровля:
+     +e.table-list-value 
+      span Двускатная, SHINGLAS
+    +e.LI 
+     +e.table-list-name Внешняя отделка:
+     +e.table-list-value 
+      span HAUBERK
+
+   +e.price-subtitle Продан за:
+   +e.price=item.price
