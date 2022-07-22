@@ -37,9 +37,9 @@ mixin filter(argObj)
     +e.item
      +b.SELECT(name="storey" data-placeholder="Этажность").js-select
       option(selected disabled) Этажность
-      option(value="1") Этажность
-      option(value="2") Этажность
-      option(value="3") Этажность
+      option(value="Любая") Любая
+      option(value="1 этаж") 1 этаж
+      option(value="2 этажа") 2 этажа
    if argObj.hasOwnProperty('square')
     +e.item
      +b.SELECT(name="square" data-placeholder="Площадь жилой части, м2").js-select
@@ -58,23 +58,28 @@ mixin filter(argObj)
     +e.item
      +b.SELECT(name="type" data-placeholder="Тип конструкции").js-select
       option(selected disabled) Тип конструкции
-      option(value="1") Тип конструкции
-      option(value="2") Тип конструкции
-      option(value="3") Тип конструкции
+      option(value="Любой") Любой
+      option(value="Каркас") Каркас
+      option(value="Блоки") Блоки
+      option(value="Заводская готовность") Заводская готовность
    if argObj.hasOwnProperty('bedrooms')
     +e.item
      +b.SELECT(name="bedrooms" data-placeholder="Кол-во спален").js-select
       option(selected disabled) Кол-во спален
-      option(value="1") Кол-во спален
-      option(value="2") Кол-во спален
-      option(value="3") Кол-во спален
+      option(value="Любое") Любое
+      option(value="1 спальня") 1 спальня
+      option(value="2 спальни") 2 спальни
+      option(value="3 спальни") 3 спальни
+      option(value="4 спальни") 4 спальни
    if argObj.hasOwnProperty('region')
     +e.item
      +b.SELECT(name="region" data-placeholder="Регион").js-select
       option(selected disabled) Регион
-      option(value="1") Регион
-      option(value="2") Регион
-      option(value="3") Регион
+      option(value="Любой") Любой
+      option(value="Московская область") Московская область
+      option(value="Ленинградская область") Ленинградская область
+      option(value="Свердловская область") Свердловская область
+      option(value="Самарская область") Самарская область
    if argObj.hasOwnProperty('tour')
     +e.item
      +b.SELECT(name="tags" data-placeholder="Теги").js-select
@@ -85,23 +90,27 @@ mixin filter(argObj)
     +e.item
      +b.SELECT(name="additionally" data-placeholder="Дополнительно").js-select
       option(selected disabled) Дополнительно
-      option(value="1") Дополнительно
-      option(value="2") Дополнительно
-      option(value="3") Дополнительно
+      option(value="Все") Все
+      option(value="Только продающиеся") Только продающиеся
+      option(value="Можно посетить") Можно посетить
+      option(value="3D-тур") 3D-тур
+      option(value="Видеотрансляция") Видеотрансляция
    if argObj.hasOwnProperty('ownership')
     +e.item
      +b.SELECT(name="ownership" data-placeholder="Форма владения").js-select
       option(selected disabled) Форма владения
-      option(value="1") Форма владения
-      option(value="2") Форма владения
-      option(value="3") Форма владения
+      option(value="Любая") Любая
+      option(value="СНТ ДНП") СНТ ДНП
+      option(value="ИЖС") ИЖС
    if argObj.hasOwnProperty('communications')
     +e.item
      +b.SELECT(name="communications" data-placeholder="Коммуникации").js-select
       option(selected disabled) Коммуникации
-      option(value="1") Коммуникации
-      option(value="2") Коммуникации
-      option(value="3") Коммуникации
+      option(value="Все") Все
+      option(value="Газ") Газ
+      option(value="Электричество") Электричество
+      option(value="Водоснабжение") Водоснабжение
+      option(value="Канализация") Канализация
    if argObj.hasOwnProperty('resetBtn')
     +e.item 
      +e.reset-link 
