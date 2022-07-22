@@ -65,7 +65,14 @@
          border-color: lighten($primary-color, 5%);
       }
    }
-
+   &--black-line {
+      color: $black-color;
+      border: solid 1px $black-color;
+      background: transparent;
+      &:hover {
+         border-color: lighten($primary-color, 5%);
+      }
+   }
    &--small {
       height: rem(42);
       padding: 0 rem(25);

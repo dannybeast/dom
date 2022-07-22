@@ -7,58 +7,119 @@ block variables
     -
      var items = [
       {
-       img: 'assets/images/catalog/1.png',
+       img: 'assets/images/catalog/4.png',
        link: 'catalog-details.html',
-       title: 'CONSTANT 160-2',
-       price: 'от 8 305 784 ₽',
-       square: '165',
-       floor: '2 этажа',
-       time: 'от 2,5 месяцев'
+       title: 'Коттеджный поселок «Эсквайр Парк»',
+       tags: [
+        {
+         name: 'Газ',
+         icon: 'droplet'
+        },
+        {
+         name: 'Электричество',
+         icon: 'zap'
+        },
+        {
+         name: 'Водоснабжение',
+         icon: 'water'
+        },
+        {
+         name: 'Канализация',
+         icon: 'sewerage'
+        }
+       ],
       },
       {
-       img: 'assets/images/catalog/2.png',
+       img: 'assets/images/catalog/4.png',
        link: 'catalog-details.html',
-       title: 'BASIS 120-1',
-       price: 'от 5 477 739 ₽',
-       square: '121',
-       floor: '2 этажа',
-       time: 'от 2 месяцев'
+       title: 'Коттеджный поселок «Эсквайр Парк»',
+       tags: [
+        {
+         name: 'Газ',
+         icon: 'droplet'
+        },
+        {
+         name: 'Электричество',
+         icon: 'zap'
+        },
+        {
+         name: 'Водоснабжение',
+         icon: 'water'
+        },
+        {
+         name: 'Канализация',
+         icon: 'sewerage'
+        }
+       ],
       },
       {
-       img: 'assets/images/catalog/3.png',
+       img: 'assets/images/catalog/4.png',
        link: 'catalog-details.html',
-       title: 'AXIOM 40-1',
-       price: 'от 8 305 784 ₽',
-       square: '47',
-       floor: '2 этажа',
-       time: 'от 1,5 месяцев'
+       title: 'Коттеджный поселок «Эсквайр Парк»',
+       tags: [
+        {
+         name: 'Газ',
+         icon: 'droplet'
+        },
+        {
+         name: 'Электричество',
+         icon: 'zap'
+        },
+        {
+         name: 'Водоснабжение',
+         icon: 'water'
+        },
+        {
+         name: 'Канализация',
+         icon: 'sewerage'
+        }
+       ],
       },
       {
-       img: 'assets/images/catalog/3.png',
+       img: 'assets/images/catalog/4.png',
        link: 'catalog-details.html',
-       title: 'AXIOM 40-1',
-       price: 'от 8 305 784 ₽',
-       square: '47',
-       floor: '2 этажа',
-       time: 'от 1,5 месяцев'
+       title: 'Коттеджный поселок «Эсквайр Парк»',
+       tags: [
+        {
+         name: 'Газ',
+         icon: 'droplet'
+        },
+        {
+         name: 'Электричество',
+         icon: 'zap'
+        },
+        {
+         name: 'Водоснабжение',
+         icon: 'water'
+        },
+        {
+         name: 'Канализация',
+         icon: 'sewerage'
+        }
+       ],
       },
       {
-       img: 'assets/images/catalog/1.png',
+       img: 'assets/images/catalog/4.png',
        link: 'catalog-details.html',
-       title: 'CONSTANT 160-2',
-       price: 'от 8 305 784 ₽',
-       square: '165',
-       floor: '2 этажа',
-       time: 'от 2,5 месяцев'
-      },
-      {
-       img: 'assets/images/catalog/2.png',
-       link: 'catalog-details.html',
-       title: 'BASIS 120-1',
-       price: 'от 5 477 739 ₽',
-       square: '121',
-       floor: '2 этажа',
-       time: 'от 2 месяцев'
+       title: 'Коттеджный поселок «Эсквайр Парк»',
+       tags: [
+        {
+         name: 'Газ',
+         icon: 'droplet'
+        },
+        {
+         name: 'Электричество',
+         icon: 'zap'
+        },
+        {
+         name: 'Водоснабжение',
+         icon: 'water'
+        },
+        {
+         name: 'Канализация',
+         icon: 'sewerage'
+        }
+       ],
       },
      ]
 block content
@@ -74,11 +135,12 @@ block content
      +e.footer-row
       +page-sorting('hideSquare')
       +filter-links('rows')
-    +e.row 
+    +e.row(class="--spacing-none")
      each item in items
-      +e.col 
+      +e.col.col-12
        +catalog-row-item(item)
-       
+    
+    include ../includes/modules/_pagination-more-btn
     include ../includes/modules/_pagination
 
   include ../includes/modules/_section-calculate
