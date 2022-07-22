@@ -6,8 +6,8 @@ class sliderCatalogItem {
     this.options = {
      pagination: {
        el: ".swiper-pagination"
-     }
-
+     },
+     speed: 300,
     }
   }
 
@@ -18,7 +18,6 @@ class sliderCatalogItem {
     var per = width / ln;
   
     $("#" + uniq).on("mousemove", function (e) {
-     console.log('q');
       var parentOffset = el.parent().offset();
       //or $(this).offset(); if you really just want the current element's offset
       var relX = e.pageX - parentOffset.left;
@@ -44,8 +43,6 @@ class sliderCatalogItem {
      let swiper = new Swiper($("#" + uniq)[0], that.options)
      that.mouseMove(swiper, uniq, $(this))
     })
-
-   
   }
 }
 
