@@ -441,19 +441,11 @@
          background: $white-color;
          box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
          #{$parent}__inner {
-            padding-top: rem(20);
-            padding-right: rem(20);
-            padding-left: rem(20);
-
-            transition: all 0.1s ease-in;
-
+            // transition: all 0.1s ease-in;
             background: $white-color;
          }
          #{$parent}__hidden {
-            padding-right: rem(20);
-            padding-left: rem(20);
-
-            transition: all 0.1s ease-in;
+            // transition: all 0.1s ease-in;
             pointer-events: all;
 
             opacity: 1;
@@ -471,6 +463,11 @@
       display: flex;
 
       width: initial !important;
+
+@include lg-block() {
+         display: none;
+      }
+
       .swiper-pagination-bullet {
          width: initial;
          height: 3px !important;
@@ -508,13 +505,16 @@
       right: -1px;
       left: -1px;
 
-      padding-top: rem(20);
-      padding-bottom: rem(10);
+      padding: rem(20);
 
       pointer-events: none;
 
       opacity: 0;
       background: $white-color;
+
+@include lg-block() {
+         padding: 0;
+      }
       &:before {
          position: absolute;
          top: 0;
@@ -541,7 +541,11 @@
       position: relative;
       z-index: 2;
 
-      padding-bottom: rem(20);
+      padding: rem(20);
+
+@include lg-block() {
+         padding: 0;
+      }
    }
    &__subtitle {
       font-size: rem(18);
@@ -599,7 +603,7 @@
       margin-top: rem(30);
    }
    &__row {
-      @include row-flex();
+      @include u-row-flex(40px);
 
 @include lg-block() {
          @include u-row-flex(20px);
@@ -608,9 +612,9 @@
    &__col {
       margin-bottom: rem(30);
 
-@include col();
+@include u-col(0px);
 
-@include size(4);
+@include u-size(4,12,0px);
 
 @include lg-block() {
          @include u-col(20px);
