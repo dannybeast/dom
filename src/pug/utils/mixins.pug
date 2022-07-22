@@ -127,8 +127,10 @@ mixin page-sorting(hideSquare)
 
 mixin catalog-row-item(item)
  +b.catalog-row-item
-  +e.A(href=item.link).image 
-   img(src=item.img, alt=item.title)
+  +e.top
+   +e.A(href=item.link).image 
+    img(src=item.img, alt=item.title)
+   +e.A(href=item.link).title-mobile=item.title 
   +e.content 
    +e.A(href=item.link).title=item.title 
    if item.tags && item.tags.length > 0
@@ -165,7 +167,9 @@ mixin catalog-row-item(item)
      +e.params-value 
       +icon('routing')
       span 80 км
-
+   +e.show-more
+    span Показать больше
+    +icon('arrow-bottom')
 mixin catalog-item(item)
  +b.catalog-item 
   +e.inner

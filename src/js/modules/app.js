@@ -41,6 +41,17 @@ class App{
    });
   }
 
+  catalogItemToggleContent(){
+   Helpers.toggleText();
+   $('.catalog-row-item__show-more').click(function(){
+    let $item = $(this).closest('.catalog-row-item');
+    
+    $(this).toggleClass('is-show')
+    $(this).find('span').toggleText('Показать больше', 'Свернуть')
+    $item.find('.catalog-row-item__params').toggleClass('is-show')
+
+   })
+  }
 
 }
 

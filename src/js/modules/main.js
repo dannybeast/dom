@@ -22,6 +22,7 @@ $(document).ready(function () {
   Masks.maskPhone();
   App.anchors();
   App.toggleSorting();
+  App.catalogItemToggleContent();
   App.hideCookieAlert();
   sliderCatalogItem.init()
 })
