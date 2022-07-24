@@ -1,0 +1,128 @@
+$radio-size: rem(25px);
+
+
+@mixin check($size) {
+   cursor: pointer;
+
+   &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+
+      width: $size;
+      height: $size;
+
+      content: '';
+
+      border: solid 1px $gray-color;
+      border-radius: rem(4px);
+      background: $white-color;
+   }
+
+   &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: block;
+
+      width: $size;
+      height: $size;
+
+      content: '';
+   }
+}
+
+.checkbox,
+.radio {
+   font-size: $base-font-size;
+   font-weight: normal;
+   line-height: 1.2;
+
+   position: relative;
+
+   display: inline-flex !important;
+
+   min-height: $radio-size;
+   padding-left: rem(40px);
+
+   cursor: pointer;
+   user-select: none;
+   text-align: left;
+   vertical-align: middle;
+   text-transform: none;
+
+   align-items: center;
+   input {
+      display: none;
+   }
+   a {
+      text-decoration: underline;
+
+      &:hover {
+         text-decoration: none;
+      }
+   }
+
+
+
+   & >span {
+      @include check($radio-size);
+   }
+
+   &.field--error {
+      color: $primary-color;
+   }
+}
+
+.checkbox {
+   & >span {
+      &:after {
+         opacity: 0;
+         background-color: transparent;
+         background-image: svg-load('../icons/check-long.svg', fill=$white-color);
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: 60%;
+      }
+   }
+   input {
+      &:checked +span {
+         &:before {
+            border-color: $primary-color;
+            background: $primary-color;
+         }
+         &:after {
+            opacity: 1;
+         }
+      }
+   }
+}
+
+.radio {
+   & >span {
+      &:before {
+         border-radius: 50%;
+      }
+      &:after {
+         transform: scale(0.5);
+
+         border-radius: 50%;
+         background: $light-color;
+      }
+   }
+   input {
+      display: none;
+
+      &:checked +span {
+         &:before {
+            border-color: $primary-color;
+         }
+         &::after {
+            background: $primary-color;
+         }
+      }
+   }
+}

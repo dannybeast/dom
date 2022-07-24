@@ -19,7 +19,7 @@
 @import 'modules/_buttons';
 @import 'modules/_hamburger';
 @import 'modules/_fields';
-//@import 'modules/_checkbox-and-radio';
+@import 'modules/_checkbox-and-radio';
 
 // Sections
 
@@ -1189,10 +1189,67 @@
    &__item {
       margin: 0 rem(20) rem(20) 0;
    }
+   // select 2
    .select2-container {
       width: initial !important;
    }
+   .select2-search--dropdown {
+      position: relative;
 
+      margin-top: rem(15);
+      margin-bottom: rem(5);
+      padding: 0 rem(15);
+      &:after {
+         position: absolute;
+         top: 50%;
+         right: rem(35);
+
+         width: rem(20);
+         height: rem(20);
+
+         content: '';
+         transform: translateY(-50%);
+
+         background: svg-load('../icons/search.svg', fill=$black-color3);
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: contain;
+      }
+   }
+   .select2-dropdown {
+      min-width: rem(300);
+      margin-top: rem(10);
+
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0 14px 45px rgba(18, 19, 17, 0.06);
+   }
+
+   .select2-search__field {
+      font-family: $main-font;
+      font-size: rem(16);
+
+      height: rem(40);
+      padding-right: rem(50);
+      padding-left: rem(30);
+
+      border: 1px solid $gray-color;
+      border-radius: 4px;
+      background: $light-color;
+   }
+   .select2-container--default .select2-results >.select2-results__options {
+      &::-webkit-scrollbar {
+         width: 2px;
+      }
+
+      &::-webkit-scrollbar-track {
+         background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         box-shadow: inset 0 0 6px $gray-color;
+      }
+   }
    .select2-container .select2-selection--single {
       height: $btn-size;
 
@@ -1232,6 +1289,143 @@
       padding-left: rem(15);
 
       color: rgba( $black-color3,0.7);
+   }
+   // end select 2
+}
+
+.dropdown-module {
+   position: relative;
+   &__search {
+      position: relative;
+
+      margin-bottom: rem(20);
+      input {
+         font-family: $main-font;
+         font-size: rem(16);
+
+         width: 100%;
+         height: rem(40);
+         padding-right: rem(50);
+         padding-left: rem(30);
+
+         border: 1px solid $gray-color;
+         border-radius: 4px;
+         background: $light-color;
+      }
+      svg {
+         position: absolute;
+         top: 50%;
+         right: rem(25);
+
+         width: rem(20);
+         height: rem(20);
+
+         transform: translateY(-50%);
+
+         fill: $black-color;
+      }
+   }
+   &__hidden {
+      position: absolute;
+      z-index: 4;
+      top: 100%;
+      left: 0;
+
+      display: none;
+
+      width: rem(300);
+      margin-top: rem(10);
+      padding: rem(15);
+
+      border-radius: 4px;
+      background: $white-color;
+      box-shadow: 0 14px 45px rgba(18, 19, 17, 0.06);
+      &--medium {
+         width: rem(400);
+      }
+      &--large {
+         width: rem(490);
+      }
+   }
+   &__label {
+      width: 100%;
+
+      cursor: pointer;
+      user-select: none;
+   }
+   &__list {
+      overflow-y: auto;
+
+      max-height: 220px;
+      padding: rem(5);
+      &::-webkit-scrollbar {
+         width: 2px;
+      }
+
+      &::-webkit-scrollbar-track {
+         background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+         box-shadow: inset 0 0 6px $gray-color;
+      }
+      &-item {
+         &:not(:last-child) {
+            margin-bottom: rem(20);
+         }
+      }
+      &-row {
+         display: flex;
+
+         flex-grow: 1;
+         align-items: center;
+         justify-content: space-between;
+      }
+   }
+   &__count {
+      font-size: rem(14);
+
+      opacity: 0.6;
+      color: $black-color3;
+   }
+   &__button {
+      position: relative;
+
+      display: flex;
+
+      height: 40px;
+      padding: 0 rem(50) 0 rem(15);
+
+      cursor: pointer;
+
+      color: rgba($black-color, 0.7);
+      border: 1px solid $gray-color;
+      border-radius: 4px;
+      background: $white-color;
+
+      align-items: center;
+      &:hover {
+         color: rgba($black-color,1);
+         box-shadow: 0 14px 45px rgba(18, 19, 17, 0.06);
+      }
+      &:after {
+         position: absolute;
+         top: 50%;
+         right: 9px;
+
+         display: block;
+
+         width: 13px;
+         height: 13px;
+
+         content: '';
+         transform: translate(-50%,-50%);
+
+         background: svg-load('../icons/arrow-bottom.svg', fill=$black-color);
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: contain;
+      }
    }
 }
 
