@@ -1,0 +1,125 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Коттеджный поселок «Воздвиженское», Московская область';
+    - var description = '';
+    - var pageName = 'catalog-details';
+    -
+     var tags = [
+        {
+         name: 'Газ',
+         icon: 'droplet'
+        },
+        {
+         name: 'Электричество',
+         icon: 'zap'
+        },
+        {
+         name: 'Водоснабжение',
+         icon: 'water'
+        },
+        {
+         name: 'Канализация',
+         icon: 'sewerage'
+        }
+       ]
+block content
+  +b.SECTION.page-top 
+   .container 
+    +e.row
+     +b.A(href="catalog.html" class="btn-circle __back")
+      +e.icon(class="--small")
+       +icon('arrow-right')
+      span Все поселки
+     +b.A(href="#" class="btn-circle")
+      +e.icon
+       +icon('share')
+  +b.SECTION.catalog-details
+   .container
+    +b.H1.page-title(class="__title") Коттеджный поселок «Воздвиженское», Московская область
+    +e.tags 
+     each tag in tags
+      +e.tag 
+       +icon(tag.icon)
+       span=tag.name
+
+    +e.row
+     +e.col 
+
+     +e.col 
+      +e.params
+       +e.params-item 
+        +e.params-name Удаленность от москвы
+        +e.params-value 
+         +icon('routing')
+         span 47 км
+       +e.params-item 
+        +e.params-name Стоимость участка
+        +e.params-value 
+         +icon('rub')
+         span от 230 000 ₽
+       +e.params-item 
+        +e.params-name Форма управления
+        +e.params-value 
+         +icon('gear')
+         span ДНП 
+         span.answer-icon 
+          +icon('help')
+      +e.UL.table-list 
+       +e.LI 
+        +e.table-list-name Локация:
+        +e.table-list-value 
+         strong Московская обл.
+       +e.LI 
+        +e.table-list-name Площадь поселка:
+        +e.table-list-value 
+         strong 11,5 га
+       +e.LI 
+        +e.table-list-name Готовые дома:
+        +e.table-list-value 
+         strong Да
+       +e.LI 
+        +e.table-list-name Детские площадки:
+        +e.table-list-value 
+         strong Да
+      +e.row-contacts 
+       +e.A(href='tel:+7 (495) 234-56-78' class="row-contacts-phone") +7 (495) 234-56-78
+       +e.A(href='https://land.liveinpark.ru' target="_blank" class="row-contacts-link") land.liveinpark.ru
+      +e.description.typography
+       p Поселок расположен в одном из самых экологически чистых мест Подмосковья. Свежий воздух, живописная река Истра, в которой можно ловить рыбу, смешанный лес с грибами и ягодами, — все это наилучшим образом влияет на здоровье. 
+       p В 3-5 минутах ходьбы от поселка — супермаркеты, аптеки, ресторан, фитнес-клуб, стройрынок. Вблизи «Эсквайр Парка» расположен город Истра, пляжи, конно-спортивные клубы, музеи и многое другое, необходимое для комфортной жизни.
+
+
+  +b.SECTION.catalog.available-objects 
+   .container 
+    +e.H2.title.h2 Доступные объекты
+    +b.page-filter(class="__filter")
+     +filter({ storey, square, type, additionally})
+     +e.footer-row
+      +page-sorting()
+      +filter-links()
+
+  +b.SECTION.our-houses
+   .container 
+    +e.H2.title.h2 Наши дома в поселке
+    +e.row.row 
+     each item in [1,2,3]
+      +e.col
+       +b.our-houses-item 
+        +e.image 
+         img(src="assets/images/our-houses/pic.png", alt="")
+        +e.our-houses-item 
+         p В доме живу уже больше года. Очень доволен. В начале рассматривал другие технологии, но остановился на DOM TECHNONICOL, как на энергоэффективной, и не прогадал. Получился действительно прекрасный теплый дом, здесь все как в городской квартире, только лучше!
+        +e.name Дмитрий Кудрявцев
+  +b.SECTION.map-location
+   .container 
+    +e.H2.title.h2 Расположение
+   +e.map(data-address="Петровский пр., 9-11, Санкт-Петербург")
+
+
+  include ../includes/modules/_section-calculate
+  include ../includes/modules/_section-know
+
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")
