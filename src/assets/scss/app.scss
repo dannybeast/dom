@@ -21,6 +21,7 @@
 @import 'modules/_fields';
 @import 'modules/_checkbox-and-radio';
 
+@import 'modules/_range-slider';
 // Sections
 
 .module-contacts {
@@ -1294,7 +1295,12 @@
 }
 
 .dropdown-module {
+   $parent: &;
+
    position: relative;
+   .range-slider-wrapper {
+      padding-top: rem(25);
+   }
    &__search {
       position: relative;
 
@@ -1397,6 +1403,7 @@
       padding: 0 rem(50) 0 rem(15);
 
       cursor: pointer;
+      user-select: none;
 
       color: rgba($black-color, 0.7);
       border: 1px solid $gray-color;
@@ -1425,6 +1432,16 @@
          background-repeat: no-repeat;
          background-position: center;
          background-size: contain;
+      }
+   }
+   &.is-open {
+      #{$parent}__button {
+         &:after {
+            transform: translate(-50%,-50%) rotate(-180deg);
+         }
+      }
+      #{$parent}__hidden {
+         display: block;
       }
    }
 }
@@ -1793,6 +1810,46 @@
       }
    }
 }
+
+.filter-range {
+   &__fields {
+      display: flex;
+      .field {
+         margin-bottom: rem(20);
+      }
+   }
+   &__reset-btn {
+      font-size: 14px;
+
+      display: flex;
+
+      height: rem(42);
+
+      cursor: pointer;
+
+      color: $black-color;
+      border-radius: 4px;
+      background: $light-color;
+
+      justify-content: center;
+      align-items: center;
+      &:hover {
+         color: $primary-color;
+         svg {
+            fill: $primary-color;
+         }
+      }
+      svg {
+         width: rem(12);
+         height: rem(12);
+         margin-right: rem(16);
+
+         fill: $black-color;
+         flex-shrink: 0;
+      }
+   }
+}
+
 
 @import 'sections/_header';
 @import 'sections/_footer';

@@ -8,6 +8,8 @@ import Masks from "./inputmask";
 //import Select from "./select";
 import Validation from '../forms/validation'
 import sliderCatalogItem from "../sliders/sliderCatalogItem";
+import dropdown from "./dropdown";
+import rangeSlider from "./rangeSlider";
 
 // Global
 window.Masks = Masks
@@ -16,6 +18,9 @@ window.App = App
 window.Fancy = Fancy
 
 $(document).ready(function () {
+  dropdown();
+  rangeSlider();
+
   Fancy.init();
  //Select.init();
   Validation();

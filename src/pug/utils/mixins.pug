@@ -67,6 +67,25 @@ mixin filter(argObj)
        +b.field 
         label Площадь жилой части, м2
 
+        +b.filter-range 
+         +b.range-slider-wrapper(data-min="0" data-max="2000" data-step="1")
+           .range-slider
+           .filter-range__fields
+             +b.field
+              +e.input
+               +e.before(class="--gray") От:
+               input(type="number" value="30" name="square_from" class="js-range-min")
+          
+      
+             +b.field
+              +e.input
+               +e.before(class="--gray") До:
+               input(type="number" value="1000" name="square_to" class="js-range-max")
+               
+         +e.reset-btn 
+          +icon('cross')
+          span Сбросить
+
    if argObj.hasOwnProperty('price')
     +e.item
      +b.dropdown-module 
@@ -74,6 +93,26 @@ mixin filter(argObj)
       +e.hidden(class="--large") 
        +b.field 
         label Стоимость
+
+        +b.filter-range 
+         +b.range-slider-wrapper(data-min="0" data-max="100000000" data-step="10000")
+           .range-slider
+           .filter-range__fields
+             +b.field
+              +e.input
+               +e.before(class="--gray") От:
+               input(type="number" value="1300000" name="price_from" class="js-range-min")
+               +e.after(class="--gray") ₽
+      
+             +b.field
+              +e.input
+               +e.before(class="--gray") До:
+               input(type="number" value="30000000" name="price_to" class="js-range-max")
+               +e.after(class="--gray") ₽
+         +e.reset-btn 
+          +icon('cross')
+          span Сбросить
+       
 
    if argObj.hasOwnProperty('type')
     +e.item

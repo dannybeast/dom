@@ -116,6 +116,37 @@
       }
    }
 
+   &__before,
+   &__after {
+      padding: 0 rem(15);
+      &--gray {
+         color: rgba($black-color3, 0.6);
+      }
+   }
+   &__input {
+      position: relative;
+
+      display: flex !important;
+
+      padding: 0 !important;
+
+      background: $white-color;
+
+@include inputBase();
+
+      align-items: center;
+
+      input,
+      select,
+      textarea {
+         height: initial;
+         height: 100%;
+
+         border: none;
+         background: transparent;
+         box-shadow: none;
+      }
+   }
    &__error {
       font-size: 12px;
 
