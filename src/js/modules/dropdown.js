@@ -10,6 +10,25 @@ export default function(){
   $dropdown.toggleClass('is-open')
  })
 
+
+$('[data-filter-item]').each(function(){
+ name = $(this).data('filter-name').toLowerCase();
+ $(this).attr('data-filter-name',name)
+})
+
+$('[data-search]').on('keyup', function(){
+ var searchVal = $(this).val();
+	var filterItems = $(this).closest('.dropdown-module').find('[data-filter-item]');
+console.log(searchVal.toLowerCase());
+	if ( searchVal != '' ) {
+		filterItems.addClass('hidden');
+		$(this).closest('.dropdown-module').find('[data-filter-item][data-filter-name*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
+	} else {
+		filterItems.removeClass('hidden');
+	}
+})
+
+
  $(document).mouseup( function(e){ 
 		var div = $( ".dropdown-module" ); 
 		if ( !div.is(e.target) 

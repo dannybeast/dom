@@ -188,34 +188,34 @@ mixin filter(argObj)
       +e.button Регион
       +e.hidden(class="--medium")
        +e.search 
-        input(type="text" name="dropdown-search" placeholder="Поиск")
+        input(type="text" name="dropdown-search" data-search placeholder="Поиск")
         +icon('search')
        +e.UL.list 
-        +e.LI.list-item 
+        +e.LI.list-item(data-filter-item data-filter-name="Любой")
          +e.LABEL.label.radio
           input(type="radio" name="region" value="Любой" checked)
           +e.SPAN.list-row
            +e.name Любой
            +e.count 64
-        +e.LI.list-item 
+        +e.LI.list-item(data-filter-item data-filter-name="Ленинградская область")
          +e.LABEL.label.checkbox
           input(type="radio" name="region" value="Ленинградская область")
           +e.SPAN.list-row
            +e.name Ленинградская область
            +e.count 32
-        +e.LI.list-item 
+        +e.LI.list-item(data-filter-item data-filter-name="Московская область")
          +e.LABEL.label.checkbox
           input(type="radio" name="region" value="Московская область")
           +e.SPAN.list-row
            +e.name Московская область
            +e.count 12
-        +e.LI.list-item 
+        +e.LI.list-item(data-filter-item data-filter-name="Свердловская область")
          +e.LABEL.label.checkbox
           input(type="radio" name="region" value="Свердловская область")
           +e.SPAN.list-row
            +e.name Свердловская область
            +e.count 4
-        +e.LI.list-item 
+        +e.LI.list-item(data-filter-item data-filter-name="Самарская область")
          +e.LABEL.label.checkbox
           input(type="radio" name="region" value="Самарская область")
           +e.SPAN.list-row
