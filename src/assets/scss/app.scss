@@ -453,7 +453,11 @@
 
 @include md-block() {
       flex-wrap: wrap;
-   }  align-items: flex-start;
+   }
+
+@include tags();
+
+   align-items: flex-start;
 
    &__image {
       display: block;
@@ -626,41 +630,126 @@
          padding-top: rem(20);
       }
    }
-   &__tags {
+}
+
+.catalog-details {
+   padding-bottom: rem(60);
+
+   @include tags($light-color);
+
+@include params(rem(25));
+@include table();
+
+   &__params {
+      font-size: rem(16);
+
+@include row-flex();
+
+      &:not(:last-child) {
+         margin-bottom: rem(40);
+      }
+      &-item {
+         margin: 0;
+
+@include col();
+
+@include size(4);
+      }
+      &-value {
+         font-size: rem(16);
+      }
+   }
+   &__row-contacts {
+      font-size: rem(28);
+      font-weight: 700;
+
       display: flex;
 
-      flex-wrap: wrap;
-      &:not(:last-child) {
-         margin-bottom: rem(35);
+      padding: rem(40) 0;
 
-@include md-block() {
-            margin-bottom: rem(15);
+      border-top: 1px solid $gray-color;
+
+      align-items: center;
+      justify-content: space-between;
+      &-phone {
+         color: $black-color;
+      }
+   }
+   &__description {
+      font-size: rem(20);
+   }
+   &__title {
+      &:not(:last-child) {
+         margin-bottom: rem(25);
+      }
+   }
+   &__table-list {
+      margin-bottom: 0;
+      &:not(:last-child) {
+         padding-bottom: rem(40);
+      }
+   }
+   &__row {
+      @include row-flex();
+   }
+   &__col {
+      @include col();
+
+@include size(6);
+
+@include size-md(12);
+
+@include from($break_xl) {
+         &:nth-child(even) {
+            padding-left: rem(150);
          }
       }
    }
-   &__tag {
-      font-size: rem(14);
-      line-height: 1.1;
+}
 
-      display: flex;
-
-      height: rem(40);
-      margin: 0 rem(15) rem(10) 0;
-      padding: 0 rem(17);
-
-      color: #272727;
-      border-radius: rem(40);
-      background: $white-color;
-
-      align-items: center;
-      svg {
-         width: rem(22);
-         height: rem(22);
-         margin-right: rem(10);
-
-         fill: $primary-color;
-         flex-shrink: 0;
+.our-houses-item {
+   &__description {
+      font-size: rem(20);
+      &:not(:last-child) {
+         margin-bottom: rem(30);
       }
+   } &__name {
+      font-size: rem(20);
+      font-weight: 700;
+      &:not(:last-child) {
+         margin-bottom: rem(30);
+      }
+   }
+   &__image {
+      display: block;
+
+      margin-bottom: rem(30);
+      img {
+         width: 100%;
+      }
+   }
+}
+
+.our-houses {
+   padding-bottom: rem(70);
+   &__title {
+      margin-bottom: rem(50);
+   }
+   &__row {
+      margin-bottom: rem(-50);
+
+@include row-flex();
+   }
+   &__col {
+      margin-bottom: rem(50);
+
+@include col();
+
+@include size(4);
+
+@include size-lg(6);
+
+@include size-md(12);
    }
 }
 
@@ -705,6 +794,16 @@
 
             opacity: 1;
             box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
+         }
+      }
+   }
+
+@include table();
+
+   &__table {
+      &-list {
+         &:not(:last-child) {
+            margin-bottom: rem(50);
          }
       }
    }
@@ -811,54 +910,6 @@
       color: $black-color;
       &:hover {
          color: $primary-color;
-      }
-   }
-   &__table {
-      &-list {
-         &:not(:last-child) {
-            margin-bottom: rem(50);
-         }
-         li {
-            line-height: 1.15;
-
-            display: flex;
-
-@include notebookLg-block() {
-               font-size: rem(14);
-            }  align-items: center;
-
-            &:not(:last-child) {
-               margin-bottom: rem(20);
-            }
-         }
-
-         &-value {
-            font-weight: 500;
-
-            position: relative;
-
-            display: flex;
-
-            justify-content: flex-end;
-            flex-grow: 1;
-            align-items: flex-end;
-            span {
-               display: block;
-
-               text-align: right;
-            }
-            &:before {
-               display: block;
-
-               margin: 0 rem(10);
-
-               content: '';
-
-               border-bottom: 1px dashed $gray-color;
-
-               flex-grow: 1;
-            }
-         }
       }
    }
    &__hidden {
@@ -2112,6 +2163,29 @@
    }
 }
 
+
+.map-location {
+   padding-top: rem(50);
+   &__title {
+      margin-bottom: rem(30);
+   }
+   &__map {
+      height: 70vh;
+      min-height: rem(450);
+
+      background: $gray-color;
+   }
+}
+
+.page-top {
+   margin-bottom: rem(50);
+   &__row {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+   }
+}
 
 @import 'sections/_header';
 @import 'sections/_footer';

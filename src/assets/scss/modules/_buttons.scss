@@ -91,3 +91,57 @@
 }
 
 
+.btn-circle {
+   $parent: &;
+
+   font-size: 14px;
+   font-weight: 700;
+
+   display: flex;
+
+   color: $black-color3;
+
+   align-items: center;
+
+   svg {
+      width: rem(24);
+      height: rem(24);
+
+      transform: scale(-1,1);
+
+      fill: $black-color3;
+   }
+   &__icon {
+      display: flex;
+
+      width: rem(52);
+      height: rem(52);
+
+      border-radius: 50%;
+      background: $light-color;
+
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      &:not(:last-child) {
+         margin-right: rem(25);
+      }
+      &--small {
+         svg {
+            width: rem(16);
+            height: rem(16);
+         }
+      }
+   }
+   &:hover {
+      color: $primary-color;
+      #{$parent}__icon {
+         transition: background 0.1s linear;
+
+         background: $primary-color;
+         svg {
+            fill: $white-color;
+         }
+      }
+   }
+}

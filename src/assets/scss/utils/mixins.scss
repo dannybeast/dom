@@ -98,3 +98,144 @@
       src: url($f-url) format("woff");
   }
 }
+
+@mixin params($space: rem(60)){
+ &__params {
+  display: flex;
+
+@include sm-block() {
+     height: rem(200);
+     &.is-show {
+        height: auto;
+        padding-bottom: rem(30);
+     }
+  }  flex-wrap: wrap;
+
+  &-name {
+     margin-bottom: rem(12);
+  }
+  &-value {
+     font-size: rem(18);
+     font-weight: 700;
+
+     display: flex;
+
+     align-items: center;
+     & >span {
+        &:not(:last-child) {
+           margin-right: rem(8);
+        }
+     }
+  }
+  &-item {
+     margin: 0 $space rem(30) 0;
+
+@include sm-block() {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: rem(15);
+        padding-bottom: rem(15);
+
+        &:not(:last-child) {
+           border-bottom: solid 1px #e3e3e3;
+        }
+     }
+
+     svg {
+        width: rem(24);
+        height: rem(24);
+        margin-right: rem(10);
+
+        fill: $gray-color;
+        flex-shrink: 0;
+     }
+  }
+}
+}
+
+@mixin tags($bg : $white-color){
+ &__tags {
+  display: flex;
+
+  flex-wrap: wrap;
+  &:not(:last-child) {
+     margin-bottom: rem(35);
+
+@include md-block() {
+        margin-bottom: rem(15);
+     }
+  }
+}
+&__tag {
+  font-size: rem(14);
+  line-height: 1.1;
+
+  display: flex;
+
+  height: rem(40);
+  margin: 0 rem(15) rem(10) 0;
+  padding: 0 rem(17);
+
+  color: #272727;
+  border-radius: rem(40);
+  background: $bg;
+
+  align-items: center;
+  svg {
+     width: rem(22);
+     height: rem(22);
+     margin-right: rem(10);
+
+     fill: $primary-color;
+     flex-shrink: 0;
+  }
+}
+}
+@mixin table(){
+ &__table {
+  &-list {
+   
+     li {
+        line-height: 1.15;
+
+        display: flex;
+
+@include notebookLg-block() {
+           font-size: rem(14);
+        }  align-items: center;
+
+        &:not(:last-child) {
+           margin-bottom: rem(20);
+        }
+     }
+
+     &-value {
+        font-weight: 500;
+
+        position: relative;
+
+        display: flex;
+
+        justify-content: flex-end;
+        flex-grow: 1;
+        align-items: flex-end;
+        span {
+           display: block;
+
+           text-align: right;
+        }
+        &:before {
+           display: block;
+
+           margin: 0 rem(10);
+
+           content: '';
+
+           border-bottom: 1px dashed $gray-color;
+
+           flex-grow: 1;
+        }
+     }
+  }
+}
+}
