@@ -23,12 +23,328 @@ mixin filter-links(type)
    +icon('map-pin')
    span На карте
 
+mixin filter-storey()
+ +e.UL.list 
+  +e.LI.list-item 
+   +e.LABEL.label.radio
+    input(type="radio" name="storey" value="Любая" checked)
+    +e.SPAN.list-row
+     +e.name Любая
+     +e.count 32
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="storey" value="1 этаж")
+    +e.SPAN.list-row
+     +e.name 1 этаж
+     +e.count 20
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="storey" value="2 этажа")
+    +e.SPAN.list-row
+     +e.name 2 этажа
+     +e.count 12
+
+mixin filter-square()
+ +b.filter-range 
+  +b.range-slider-wrapper(data-min="0" data-max="2000" data-step="1")
+   .range-slider
+   .filter-range__fields
+    +b.field
+     +e.input
+      +e.before(class="--gray") От:
+      input(type="number" value="0" name="square_from" class="js-range-min")
+
+
+    +b.field
+     +e.input
+      +e.before(class="--gray") До:
+      input(type="number" value="2000" name="square_to" class="js-range-max")
+
+  +e.reset-btn 
+   +icon('cross')
+   span Сбросить
+
+mixin filter-price()
+ +b.filter-range 
+  +b.range-slider-wrapper(data-min="0" data-max="100000000" data-step="10000")
+   .range-slider
+   .filter-range__fields
+    +b.field
+     +e.input
+      +e.before(class="--gray") От:
+      input(type="number" value="0" name="price_from" class="js-range-min")
+      +e.after(class="--gray") ₽
+
+    +b.field
+     +e.input
+      +e.before(class="--gray") До:
+      input(type="number" value="100000000" name="price_to" class="js-range-max")
+      +e.after(class="--gray") ₽
+  +e.reset-btn 
+   +icon('cross')
+   span Сбросить
+
+mixin filter-type()
+ +e.UL.list 
+  +e.LI.list-item 
+   +e.LABEL.label.radio
+    input(type="radio" name="type" value="Любой" checked)
+    +e.SPAN.list-row
+     +e.name Любой
+     +e.count 64
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="type" value="Каркас")
+    +e.SPAN.list-row
+     +e.name Каркас
+     +e.count 12
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="type" value="Блоки")
+    +e.SPAN.list-row
+     +e.name Блоки
+     +e.count 32
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="type" value="Заводская готовность")
+    +e.SPAN.list-row
+     +e.name Заводская готовность
+     +e.count 20
+
+mixin filter-region()
+ .filter-search
+  input(type="text" name="dropdown-search" data-search placeholder="Поиск")
+  +icon('search')
+ +e.UL.list 
+  +e.LI.list-item(data-filter-item data-filter-name="Любой")
+   +e.LABEL.label.radio
+    input(type="radio" name="region" value="Любой" checked)
+    +e.SPAN.list-row
+     +e.name Любой
+     +e.count 64
+  +e.LI.list-item(data-filter-item data-filter-name="Ленинградская область")
+   +e.LABEL.label.checkbox
+    input(type="radio" name="region" value="Ленинградская область")
+    +e.SPAN.list-row
+     +e.name Ленинградская область
+     +e.count 32
+  +e.LI.list-item(data-filter-item data-filter-name="Московская область")
+   +e.LABEL.label.checkbox
+    input(type="radio" name="region" value="Московская область")
+    +e.SPAN.list-row
+     +e.name Московская область
+     +e.count 12
+  +e.LI.list-item(data-filter-item data-filter-name="Свердловская область")
+   +e.LABEL.label.checkbox
+    input(type="radio" name="region" value="Свердловская область")
+    +e.SPAN.list-row
+     +e.name Свердловская область
+     +e.count 4
+  +e.LI.list-item(data-filter-item data-filter-name="Самарская область")
+   +e.LABEL.label.checkbox
+    input(type="radio" name="region" value="Самарская область")
+    +e.SPAN.list-row
+     +e.name Самарская область
+     +e.count 5
+
+mixin filter-additionally()
+ +e.UL.list 
+  +e.LI.list-item 
+   +e.LABEL.label.radio
+    input(type="radio" name="additionally" value="Все" checked)
+    +e.SPAN.list-row
+     +e.name Все
+     +e.count 64
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="additionally" value="Только продающиеся")
+    +e.SPAN.list-row
+     +e.name Только продающиеся
+     +e.count 12
+
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="additionally" value="Можно посетить")
+    +e.SPAN.list-row
+     +e.name Можно посетить
+     +e.count 32
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="additionally" value="3D-тур")
+    +e.SPAN.list-row
+     +e.name 3D-тур
+     +e.count 20
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="additionally" value="Видеотрансляция")
+    +e.SPAN.list-row
+     +e.name Видеотрансляция
+     +e.count 10
+
+mixin filter-ownership()
+ +e.UL.list 
+  +e.LI.list-item 
+   +e.LABEL.label.radio
+    input(type="radio" name="ownership" value="Любая" checked)
+    +e.SPAN.list-row
+     +e.name Любая
+     +e.count 64
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="ownership" value="СНТ ДНП")
+    +e.SPAN.list-row
+     +e.name СНТ ДНП
+     +e.count 64
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="ownership" value="ИЖС")
+    +e.SPAN.list-row
+     +e.name ИЖС
+     +e.count 64
+
+mixin filter-communications()
+ +e.UL.list 
+  +e.LI.list-item 
+   +e.LABEL.label.radio
+    input(type="radio" name="communications" value="Все" checked)
+    +e.SPAN.list-row
+     +e.name Все
+     +e.count 64
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="communications" value="Газ")
+    +e.SPAN.list-row
+     +e.name Газ
+     +e.count 5
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="communications" value="Электричество")
+    +e.SPAN.list-row
+     +e.name Электричество
+     +e.count 22
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="communications" value="Водоснабжение")
+    +e.SPAN.list-row
+     +e.name Водоснабжение
+     +e.count 12
+  +e.LI.list-item 
+   +e.LABEL.label.checkbox
+    input(type="radio" name="communications" value="Канализация")
+    +e.SPAN.list-row
+     +e.name Канализация
+     +e.count 13
+
+mixin filter-bedrooms()
+ +e.hidden 
+  +e.UL.list 
+   +e.LI.list-item 
+    +e.LABEL.label.radio
+     input(type="radio" name="bedrooms" value="Любое" checked)
+     +e.SPAN.list-row
+      +e.name Любое
+      +e.count 64
+   +e.LI.list-item 
+    +e.LABEL.label.checkbox
+     input(type="radio" name="bedrooms" value="1 спальня")
+     +e.SPAN.list-row
+      +e.name 1 спальня
+      +e.count 5
+   +e.LI.list-item 
+    +e.LABEL.label.checkbox
+     input(type="radio" name="bedrooms" value="2 спальни")
+     +e.SPAN.list-row
+      +e.name 2 спальни
+      +e.count 22
+   +e.LI.list-item 
+    +e.LABEL.label.checkbox
+     input(type="radio" name="bedrooms" value="3 спальни")
+     +e.SPAN.list-row
+      +e.name 3 спальни
+      +e.count 13
+   +e.LI.list-item 
+    +e.LABEL.label.checkbox
+     input(type="radio" name="bedrooms" value="4 спальни")
+     +e.SPAN.list-row
+      +e.name 4 спальни
+      +e.count 12
+
 mixin filter(argObj)
+ +e.mobile-curtain 
+  +e.mobile-curtain-layer
+   +e.mobile-curtain-top 
+    +e.mobile-curtain-title
+     span Фильтр
+    +e.mobile-curtain-close.js-mobile-curtain-close
+     +icon('cross')
+
+   +e.mobile-curtain-list 
+    if argObj.hasOwnProperty('storey')
+     +e.mobile-curtain-item(data-filter-item-href="storey" data-filter-title="Этажность") 
+      span Этажность
+    if argObj.hasOwnProperty('square')
+     +e.mobile-curtain-item(data-filter-item-href="square" data-filter-title="Площадь жилой части, м2")  
+      span Площадь жилой части, м2
+    if argObj.hasOwnProperty('price')
+     +e.mobile-curtain-item(data-filter-item-href="price" data-filter-title="Стоимость")  
+      span Стоимость
+    if argObj.hasOwnProperty('type')
+     +e.mobile-curtain-item(data-filter-item-href="type" data-filter-title="Тип конструкции")  
+      span Тип конструкции
+    if argObj.hasOwnProperty('region')
+     +e.mobile-curtain-item(data-filter-item-href="region" data-filter-title="Регион")  
+      span Регион
+    if argObj.hasOwnProperty('additionally')
+     +e.mobile-curtain-item(data-filter-item-href="additionally" data-filter-title="Дополнительно")  
+      span Дополнительно
+    if argObj.hasOwnProperty('ownership')
+     +e.mobile-curtain-item(data-filter-item-href="ownership" data-filter-title="Форма владения")  
+      span Форма владения
+    if argObj.hasOwnProperty('communications')
+     +e.mobile-curtain-item(data-filter-item-href="communications" data-filter-title="Коммуникации") 
+      span Коммуникации
+    if argObj.hasOwnProperty('bedrooms')
+     +e.mobile-curtain-item(data-filter-item-href="bedrooms" data-filter-title="Количество спален") 
+      span Количество спален
+
+  +e.mobile-curtain-layer.js-page-filter-podmenu
+   +e.mobile-curtain-top 
+    +e.mobile-curtain-title.is-back
+     span.js-filter-title
+    +e.mobile-curtain-close.js-mobile-curtain-close
+     +icon('cross')
+   +e.mobile-curtain-content
+    +e.mobile-curtain-filter(data-filter-item-name="storey")
+     +filter-storey()
+    +e.mobile-curtain-filter(data-filter-item-name="square")
+     +filter-square()
+    +e.mobile-curtain-filter(data-filter-item-name="price")
+     +filter-price()
+    +e.mobile-curtain-filter(data-filter-item-name="type")
+     +filter-type()
+    +e.mobile-curtain-filter(data-filter-item-name="region")
+     +filter-region()
+    +e.mobile-curtain-filter(data-filter-item-name="additionally")
+     +filter-additionally()
+    +e.mobile-curtain-filter(data-filter-item-name="ownership")
+     +filter-ownership()
+    +e.mobile-curtain-filter(data-filter-item-name="communications")
+     +filter-communications()
+    +e.mobile-curtain-filter(data-filter-item-name="bedrooms")
+     +filter-bedrooms()
+
+
+   +e.mobile-curtain-footer
+    +e.mobile-curtain-btn(class=" btn btn-reset") 
+     +icon('cross')
+     span Сбросить
+    +e.mobile-curtain-btn(class=" btn btn--primary") Применить
+
  +e.mobile
-  +e.mobile-btn 
+  +e.mobile-btn.js-open-mobile-sorting
    +icon('sort')
    span Сортировка
-  +e.mobile-btn 
+  +e.mobile-btn.js-open-mobile-filter
    +icon('filter')
    span Фильтр
  if argObj
@@ -38,26 +354,7 @@ mixin filter(argObj)
      +b.dropdown-module 
       +e.button Этажность
       +e.hidden 
-       +e.UL.list 
-        +e.LI.list-item 
-         +e.LABEL.label.radio
-          input(type="radio" name="storey" value="Любая" checked)
-          +e.SPAN.list-row
-           +e.name Любая
-           +e.count 32
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="storey" value="1 этаж")
-          +e.SPAN.list-row
-           +e.name 1 этаж
-           +e.count 20
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="storey" value="2 этажа")
-          +e.SPAN.list-row
-           +e.name 2 этажа
-           +e.count 12
-
+       +filter-storey()
 
    if argObj.hasOwnProperty('square')
     +e.item
@@ -66,25 +363,7 @@ mixin filter(argObj)
       +e.hidden(class="--large") 
        +b.field 
         label Площадь жилой части, м2
-
-        +b.filter-range 
-         +b.range-slider-wrapper(data-min="0" data-max="2000" data-step="1")
-           .range-slider
-           .filter-range__fields
-             +b.field
-              +e.input
-               +e.before(class="--gray") От:
-               input(type="number" value="0" name="square_from" class="js-range-min")
-          
-      
-             +b.field
-              +e.input
-               +e.before(class="--gray") До:
-               input(type="number" value="2000" name="square_to" class="js-range-max")
-               
-         +e.reset-btn 
-          +icon('cross')
-          span Сбросить
+       +filter-square()
 
    if argObj.hasOwnProperty('price')
     +e.item
@@ -94,233 +373,48 @@ mixin filter(argObj)
        +b.field 
         label Стоимость
 
-        +b.filter-range 
-         +b.range-slider-wrapper(data-min="0" data-max="100000000" data-step="10000")
-           .range-slider
-           .filter-range__fields
-             +b.field
-              +e.input
-               +e.before(class="--gray") От:
-               input(type="number" value="0" name="price_from" class="js-range-min")
-               +e.after(class="--gray") ₽
-      
-             +b.field
-              +e.input
-               +e.before(class="--gray") До:
-               input(type="number" value="100000000" name="price_to" class="js-range-max")
-               +e.after(class="--gray") ₽
-         +e.reset-btn 
-          +icon('cross')
-          span Сбросить
-       
+        +filter-price()
 
    if argObj.hasOwnProperty('type')
     +e.item
      +b.dropdown-module 
       +e.button Тип конструкции
       +e.hidden 
-       +e.UL.list 
-        +e.LI.list-item 
-         +e.LABEL.label.radio
-          input(type="radio" name="type" value="Любой" checked)
-          +e.SPAN.list-row
-           +e.name Любой
-           +e.count 64
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="type" value="Каркас")
-          +e.SPAN.list-row
-           +e.name Каркас
-           +e.count 12
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="type" value="Блоки")
-          +e.SPAN.list-row
-           +e.name Блоки
-           +e.count 32
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="type" value="Заводская готовность")
-          +e.SPAN.list-row
-           +e.name Заводская готовность
-           +e.count 20
-    
+       +filter-type()
+
    if argObj.hasOwnProperty('bedrooms')
     +e.item
      +b.dropdown-module 
       +e.button Кол-во спален
-      +e.hidden 
-       +e.UL.list 
-        +e.LI.list-item 
-         +e.LABEL.label.radio
-          input(type="radio" name="bedrooms" value="Любое" checked)
-          +e.SPAN.list-row
-           +e.name Любое
-           +e.count 64
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="bedrooms" value="1 спальня")
-          +e.SPAN.list-row
-           +e.name 1 спальня
-           +e.count 5
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="bedrooms" value="2 спальни")
-          +e.SPAN.list-row
-           +e.name 2 спальни
-           +e.count 22
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="bedrooms" value="3 спальни")
-          +e.SPAN.list-row
-           +e.name 3 спальни
-           +e.count 13
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="bedrooms" value="4 спальни")
-          +e.SPAN.list-row
-           +e.name 4 спальни
-           +e.count 12
+      +filter-bedrooms()
 
    if argObj.hasOwnProperty('region')
     +e.item
      +b.dropdown-module 
       +e.button Регион
       +e.hidden(class="--medium")
-       +e.search 
-        input(type="text" name="dropdown-search" data-search placeholder="Поиск")
-        +icon('search')
-       +e.UL.list 
-        +e.LI.list-item(data-filter-item data-filter-name="Любой")
-         +e.LABEL.label.radio
-          input(type="radio" name="region" value="Любой" checked)
-          +e.SPAN.list-row
-           +e.name Любой
-           +e.count 64
-        +e.LI.list-item(data-filter-item data-filter-name="Ленинградская область")
-         +e.LABEL.label.checkbox
-          input(type="radio" name="region" value="Ленинградская область")
-          +e.SPAN.list-row
-           +e.name Ленинградская область
-           +e.count 32
-        +e.LI.list-item(data-filter-item data-filter-name="Московская область")
-         +e.LABEL.label.checkbox
-          input(type="radio" name="region" value="Московская область")
-          +e.SPAN.list-row
-           +e.name Московская область
-           +e.count 12
-        +e.LI.list-item(data-filter-item data-filter-name="Свердловская область")
-         +e.LABEL.label.checkbox
-          input(type="radio" name="region" value="Свердловская область")
-          +e.SPAN.list-row
-           +e.name Свердловская область
-           +e.count 4
-        +e.LI.list-item(data-filter-item data-filter-name="Самарская область")
-         +e.LABEL.label.checkbox
-          input(type="radio" name="region" value="Самарская область")
-          +e.SPAN.list-row
-           +e.name Самарская область
-           +e.count 5
+       +filter-region()
 
    if argObj.hasOwnProperty('additionally')
     +e.item
      +b.dropdown-module 
       +e.button Дополнительно
       +e.hidden 
-       +e.UL.list 
-        +e.LI.list-item 
-         +e.LABEL.label.radio
-          input(type="radio" name="additionally" value="Все" checked)
-          +e.SPAN.list-row
-           +e.name Все
-           +e.count 64
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="additionally" value="Только продающиеся")
-          +e.SPAN.list-row
-           +e.name Только продающиеся
-           +e.count 12
+       +filter-additionally()
 
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="additionally" value="Можно посетить")
-          +e.SPAN.list-row
-           +e.name Можно посетить
-           +e.count 32
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="additionally" value="3D-тур")
-          +e.SPAN.list-row
-           +e.name 3D-тур
-           +e.count 20
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="additionally" value="Видеотрансляция")
-          +e.SPAN.list-row
-           +e.name Видеотрансляция
-           +e.count 10
-    
    if argObj.hasOwnProperty('ownership')
     +e.item
      +b.dropdown-module 
       +e.button Форма владения
       +e.hidden 
-       +e.UL.list 
-        +e.LI.list-item 
-         +e.LABEL.label.radio
-          input(type="radio" name="ownership" value="Любая" checked)
-          +e.SPAN.list-row
-           +e.name Любая
-           +e.count 64
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="ownership" value="СНТ ДНП")
-          +e.SPAN.list-row
-           +e.name СНТ ДНП
-           +e.count 64
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="ownership" value="ИЖС")
-          +e.SPAN.list-row
-           +e.name ИЖС
-           +e.count 64
+       +filter-ownership()
 
    if argObj.hasOwnProperty('communications')
     +e.item
      +b.dropdown-module 
       +e.button Коммуникации
       +e.hidden 
-       +e.UL.list 
-        +e.LI.list-item 
-         +e.LABEL.label.radio
-          input(type="radio" name="communications" value="Все" checked)
-          +e.SPAN.list-row
-           +e.name Все
-           +e.count 64
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="communications" value="Газ")
-          +e.SPAN.list-row
-           +e.name Газ
-           +e.count 5
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="communications" value="Электричество")
-          +e.SPAN.list-row
-           +e.name Электричество
-           +e.count 22
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="communications" value="Водоснабжение")
-          +e.SPAN.list-row
-           +e.name Водоснабжение
-           +e.count 12
-        +e.LI.list-item 
-         +e.LABEL.label.checkbox
-          input(type="radio" name="communications" value="Канализация")
-          +e.SPAN.list-row
-           +e.name Канализация
-           +e.count 13
+       +filter-communications()
 
    if argObj.hasOwnProperty('resetBtn')
     +e.item 
@@ -390,6 +484,7 @@ mixin catalog-row-item(item)
    +e.show-more
     span Показать больше
     +icon('arrow-bottom')
+
 mixin catalog-item(item)
  +b.catalog-item 
   +e.inner

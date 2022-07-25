@@ -10,6 +10,7 @@ import Validation from '../forms/validation'
 import sliderCatalogItem from "../sliders/sliderCatalogItem";
 import dropdown from "./dropdown";
 import rangeSlider from "./rangeSlider";
+import CatalogFilter from "./catalogFilter";
 
 // Global
 window.Masks = Masks
@@ -20,6 +21,8 @@ window.Fancy = Fancy
 $(document).ready(function () {
   dropdown();
   rangeSlider();
+
+  CatalogFilter.init()
 
   Fancy.init();
  //Select.init();

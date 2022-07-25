@@ -1,38 +1,45 @@
 export default function(){
- $('.dropdown-module__button').on('click', function(e){
 
+ // open toggle
+ $('.dropdown-module__button').on('click', function(e){
   $('.dropdown-module').each(function(){
    $(this).removeClass('is-open')
   })
-
   let $dropdown = $(this).closest('.dropdown-module');
-
   $dropdown.toggleClass('is-open')
  })
 
 
+ // search
 $('[data-filter-item]').each(function(){
- name = $(this).data('filter-name').toLowerCase();
- $(this).attr('data-filter-name',name)
+ let itemName = $(this).data('filter-name') ? $(this).data('filter-name').toLowerCase() : '';
+ $(this).attr('data-filter-name',itemName)
 })
 
 $('[data-search]').on('keyup', function(){
  var searchVal = $(this).val();
-	var filterItems = $(this).closest('.dropdown-module').find('[data-filter-item]');
-console.log(searchVal.toLowerCase());
+ let $parent =  $(this).parent().parent()
+	var filterItems = $parent.find('[data-filter-item]');
+
 	if ( searchVal != '' ) {
-		filterItems.addClass('hidden');
-		$(this).closest('.dropdown-module').find('[data-filter-item][data-filter-name*="' + searchVal.toLowerCase() + '"]').removeClass('hidden');
+		filterItems.hide()
+  $parent.find('[data-filter-item][data-filter-name*="' + searchVal.toLowerCase() + '"]').show()
 	} else {
-		filterItems.removeClass('hidden');
+		filterItems.show()
 	}
+
 })
 
+//
 
+ // hide mouseup
  $(document).mouseup( function(e){ 
 		var div = $( ".dropdown-module" ); 
 		if ( !div.is(e.target) 
 		    && div.has(e.target).length === 0 ) {
        $('.dropdown-module').removeClass('is-open')
 		}
-	});}
+	});
+
+
+}

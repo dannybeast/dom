@@ -1,7 +1,6 @@
 import Helpers from "./helpers";
 
 class App{
-
   hideCookieAlert(){
     $('.cookie-alert__btn').click(function(e){
      e.preventDefault();

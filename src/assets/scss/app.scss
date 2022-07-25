@@ -346,11 +346,21 @@
 .page-sorting {
    display: flex;
 
-   align-items: center;
+@include to(500px) {
+      text-align: center;
+
+      flex-wrap: wrap;
+   }  align-items: center;
+
    &__label {
       margin: 0 rem(30) 0 0;
 
       color: #91939d;
+
+@include to(500px) {
+         width: 100%;
+         margin-bottom: 5px;
+      }
    }
    &__button {
       display: flex;
@@ -1073,6 +1083,233 @@
 
 .page-filter {
    $btn-size: rem(40);
+   [data-filter-item-name] {
+      display: none;
+   }
+   .range-slider {
+      margin: 30px 0;
+   }
+
+   &__mobile-curtain {
+      position: fixed;
+      z-index: 8;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      display: none;
+
+      background: $white-color;
+      &.is-show {
+         @include lg-block() {
+            display: block;
+         }
+      }
+      .filter-search {
+         margin-top: rem(30);
+      }
+      &-top {
+         display: flex;
+
+         height: 60px;
+         padding: 0 rem(30);
+         padding-right: rem(10);
+
+         border-bottom: 1px solid $gray-color;
+
+         flex-shrink: 0;
+         align-items: center;
+         justify-content: space-between;
+      }
+      &-title {
+         font-size: 18px;
+         font-weight: 700;
+
+         width: 100%;
+         max-width: calc(100% - 50px);
+         margin-right: 20px;
+         span {
+            display: inline-block;
+            overflow: hidden;
+
+            max-width: calc(100% - 25px);
+
+            vertical-align: middle;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+         }
+         &.is-back {
+            &:before {
+               display: inline-block;
+
+               width: 12px;
+               height: 12px;
+               margin-right: rem(12);
+
+               content: '';
+               transform: scale(-1,-1);
+               vertical-align: middle;
+
+               background: svg-load('../icons/arrow-right.svg', fill=$black-color3);
+               background-repeat: no-repeat;
+               background-position: center;
+               background-size: contain;
+            }
+         }
+      }
+      &-list,
+      &-content {
+         padding: 0 rem(30);
+
+         flex-grow: 1;
+      }
+      &-content {
+         display: flex;
+         overflow-y: auto;
+         flex-direction: column;
+      }
+      &-filter {
+         display: none;
+         flex-direction: column;
+
+         &.is-show {
+            display: flex;
+         }
+      }
+      &-item {
+         font-size: 16px;
+         font-weight: 500;
+
+         position: relative;
+
+         display: flex;
+
+         padding: rem(20) 0;
+         padding-right: rem(60);
+
+         cursor: pointer;
+
+         align-items: center;
+
+         &:not(:last-child) {
+            border-bottom: 1px solid $gray-color;
+         }
+         &:after {
+            position: absolute;
+            top: 50%;
+            right: rem(5);
+
+            width: 9px;
+            height: 9px;
+
+            content: '';
+            transform: translateY(-50%);
+
+            background: svg-load('../icons/arrow-right.svg', fill=$black-color3);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+         }
+      }
+      &-close {
+         display: flex;
+
+         width: rem(60);
+         height: rem(60);
+
+         cursor: pointer;
+
+         align-items: center;
+         justify-content: center;
+         svg {
+            width: rem(16);
+            height: rem(16);
+
+            fill: #54555a;
+         }
+      }
+      &-layer {
+         position: absolute;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+
+         display: flex;
+         flex-direction: column;
+
+         height: 100vh;
+
+         background: $white-color;
+         &.js-page-filter-podmenu {
+            z-index: 2;
+
+            display: none;
+            &.is-show {
+               display: flex;
+            }
+         }
+      }
+      &-footer {
+         display: flex;
+
+         margin-top: auto;
+         padding: rem(15) rem(30);
+
+         background: $white-color;
+         box-shadow: 0 10px 125px -20px rgba(18, 19, 17, 0.12);
+
+         align-items: center;
+         justify-content: space-between;
+      }
+      &-btn {
+         font-size: 16px;
+         &.btn-reset {
+            font-size: 14px;
+
+            padding-right: 0;
+            padding-left: 0;
+
+            color: $black-color3;
+            background: transparent;
+            svg {
+               width: rem(12);
+               height: rem(12);
+
+               fill: $black-color3;
+            }
+         }
+      }
+   }
+   &__label {
+      flex-grow: 1;
+   }
+   &__count {
+      font-size: 14px;
+
+      color: rgba($black-color3, 0.6);
+   }
+   &__list {
+      &-row {
+         display: flex;
+
+         width: 100%;
+
+         align-items: center;
+         justify-content: space-between;
+      }
+      &-item {
+         display: flex;
+
+         padding: rem(20) 0;
+
+         justify-content: space-between;
+         &:not(:last-child) {
+            border-bottom: 1px solid $gray-color;
+         }
+      }
+   }
 
    &__reset-link {
       display: inline-flex;
@@ -1125,16 +1362,19 @@
 
 @include xs-block() {
             font-size: 14px;
-         }  flex-grow: 1;
+         }
+
+@include from($break_lg) {
+            &:hover {
+               color: $primary-color;
+               svg {
+                  fill: $primary-color;
+               }
+            }
+         } flex-grow: 1;
          justify-content: center;
          align-items: center;
 
-         &:hover {
-            color: $primary-color;
-            svg {
-               fill: $primary-color;
-            }
-         }
          &:first-child {
             position: relative;
             &:after {
@@ -1165,6 +1405,16 @@
    &__sorting {
       @include lg-block() {
          display: none;
+
+         width: 100%;
+
+         justify-content: center;
+         &:not(:last-child) {
+            margin-bottom: rem(30);
+         }
+         &.is-show {
+            display: flex;
+         }
       }
    }
    &__footer-row {
@@ -1172,6 +1422,7 @@
 
 @include lg-block() {
          justify-content: center;
+         flex-wrap: wrap;
       }  justify-content: space-between;
       align-items: center;
 
@@ -1295,6 +1546,37 @@
    // end select 2
 }
 
+.filter-search {
+   position: relative;
+
+   margin-bottom: rem(10);
+   input {
+      font-family: $main-font;
+      font-size: rem(16);
+
+      width: 100%;
+      height: 40px;
+      padding-right: rem(50);
+      padding-left: rem(30);
+
+      border: 1px solid $gray-color;
+      border-radius: 4px;
+      background: $light-color;
+   }
+   svg {
+      position: absolute;
+      top: 50%;
+      right: rem(25);
+
+      width: rem(20);
+      height: rem(20);
+
+      transform: translateY(-50%);
+
+      fill: $black-color;
+   }
+}
+
 .dropdown-module {
    $parent: &;
 
@@ -1305,36 +1587,7 @@
    .range-slider-wrapper {
       padding-top: rem(25);
    }
-   &__search {
-      position: relative;
 
-      margin-bottom: rem(20);
-      input {
-         font-family: $main-font;
-         font-size: rem(16);
-
-         width: 100%;
-         height: rem(40);
-         padding-right: rem(50);
-         padding-left: rem(30);
-
-         border: 1px solid $gray-color;
-         border-radius: 4px;
-         background: $light-color;
-      }
-      svg {
-         position: absolute;
-         top: 50%;
-         right: rem(25);
-
-         width: rem(20);
-         height: rem(20);
-
-         transform: translateY(-50%);
-
-         fill: $black-color;
-      }
-   }
    &__hidden {
       position: absolute;
       z-index: 4;
@@ -1382,9 +1635,6 @@
       &-item {
          &:not(:last-child) {
             margin-bottom: rem(20);
-         }
-         &.hidden {
-            display: none;
          }
       }
       &-row {
@@ -1821,6 +2071,9 @@
 .filter-range {
    &__fields {
       display: flex;
+      input {
+         padding-left: 0;
+      }
       .field {
          margin-bottom: rem(20);
       }
