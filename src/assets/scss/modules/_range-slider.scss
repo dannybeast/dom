@@ -190,17 +190,7 @@
       }
    }
 
-   .range-max,
-   .range-min {
-      font-size: rem(16px);
-      font-weight: 500;
-      line-height: 1;
 
-      display: none;
-
-      color: $primary-color;
-      background: $white-color;
-   }
    .ui-slider {
       height: rem(5px);
       margin-right: rem(30px);

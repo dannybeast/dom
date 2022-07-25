@@ -74,13 +74,13 @@ mixin filter(argObj)
              +b.field
               +e.input
                +e.before(class="--gray") От:
-               input(type="number" value="30" name="square_from" class="js-range-min")
+               input(type="number" value="0" name="square_from" class="js-range-min")
           
       
              +b.field
               +e.input
                +e.before(class="--gray") До:
-               input(type="number" value="1000" name="square_to" class="js-range-max")
+               input(type="number" value="2000" name="square_to" class="js-range-max")
                
          +e.reset-btn 
           +icon('cross')
@@ -101,13 +101,13 @@ mixin filter(argObj)
              +b.field
               +e.input
                +e.before(class="--gray") От:
-               input(type="number" value="1300000" name="price_from" class="js-range-min")
+               input(type="number" value="0" name="price_from" class="js-range-min")
                +e.after(class="--gray") ₽
       
              +b.field
               +e.input
                +e.before(class="--gray") До:
-               input(type="number" value="30000000" name="price_to" class="js-range-max")
+               input(type="number" value="100000000" name="price_to" class="js-range-max")
                +e.after(class="--gray") ₽
          +e.reset-btn 
           +icon('cross')

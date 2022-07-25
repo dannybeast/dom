@@ -1073,6 +1073,7 @@
 
 .page-filter {
    $btn-size: rem(40);
+
    &__reset-link {
       display: inline-flex;
 
@@ -1298,6 +1299,9 @@
    $parent: &;
 
    position: relative;
+   .range-slider {
+      margin-bottom: rem(30);
+   }
    .range-slider-wrapper {
       padding-top: rem(25);
    }
