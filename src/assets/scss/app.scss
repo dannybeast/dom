@@ -1090,6 +1090,7 @@
       }
    }
    &__gallery {
+      opacity: 0;
       &.is-one-slide {
          .catalog-details__thrumbs,
          .catalog-details__gallery-next,
@@ -1290,6 +1291,14 @@
          @include size(5.9);
 
 @include size-md(12);
+      }
+   }
+}
+
+.is-loaded {
+   .catalog-details {
+      &__gallery {
+         opacity: 1;
       }
    }
 }
