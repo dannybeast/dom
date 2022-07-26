@@ -1,15 +1,17 @@
 //import './svg';
 
 // Modules
-import $ from "jquery";
+import $, { map } from "jquery";
 import App from "./app";
 import Fancy from "./fancybox";
 import Masks from "./inputmask";
 //import Select from "./select";
 import Validation from '../forms/validation'
 import sliderCatalogItem from "../sliders/sliderCatalogItem";
+import sliderGallery from "../sliders/sliderGallery";
 import dropdown from "./dropdown";
 import rangeSlider from "./rangeSlider";
+import yandexMap from "./map";
 import CatalogFilter from "./catalogFilter";
 
 // Global
@@ -19,11 +21,12 @@ window.App = App
 window.Fancy = Fancy
 
 $(document).ready(function () {
+  yandexMap();
   dropdown();
   rangeSlider();
 
-  CatalogFilter.init()
-
+  CatalogFilter.init();
+  sliderGallery();
   Fancy.init();
  //Select.init();
   Validation();

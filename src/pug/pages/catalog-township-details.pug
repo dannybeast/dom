@@ -45,7 +45,37 @@ block content
 
     +e.row
      +e.col 
+      +e.gallery
+       +e.gallery-large
+        +e.gallery-prev(ref="prev") 
+           +icon('arrow-right')
+          
+        +e.gallery-next(ref="next")
+          +icon('arrow-right')
+        .swiper-container.js-swiper-gallery-large
+          .swiper-wrapper
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
 
+       +e.thrumbs
+         .swiper-container.js-swiper-gallery-small
+           .swiper-wrapper
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
      +e.col 
       +e.params
        +e.params-item 
@@ -62,7 +92,7 @@ block content
         +e.params-name Форма управления
         +e.params-value 
          +icon('gear')
-         span ДНП 
+         span СНТ ДНП 
          span.answer-icon 
           +icon('help')
       +e.UL.table-list 
@@ -108,13 +138,13 @@ block content
        +b.our-houses-item 
         +e.image 
          img(src="assets/images/our-houses/pic.png", alt="")
-        +e.our-houses-item 
+        +e.description
          p В доме живу уже больше года. Очень доволен. В начале рассматривал другие технологии, но остановился на DOM TECHNONICOL, как на энергоэффективной, и не прогадал. Получился действительно прекрасный теплый дом, здесь все как в городской квартире, только лучше!
         +e.name Дмитрий Кудрявцев
   +b.SECTION.map-location
    .container 
     +e.H2.title.h2 Расположение
-   +e.map(data-address="Петровский пр., 9-11, Санкт-Петербург")
+   +e.map.js-map(data-address="Петровский пр., 9-11, Санкт-Петербург")
 
 
   include ../includes/modules/_section-calculate

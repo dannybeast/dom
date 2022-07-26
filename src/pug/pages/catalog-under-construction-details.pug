@@ -1,13 +1,140 @@
 extends ../layout/main
 
 block variables
-    - var title = '';
+    - var title = 'Коттеджный поселок «Воздвиженское», Московская область';
     - var description = '';
     - var pageName = 'catalog-details';
+    -
+     var tags = [
+        {
+         name: 'Можно посетить',
+         icon: 'home'
+        },
+        {
+         name: 'Видеотрансляция',
+         icon: 'video'
+        },
+       ]
 block content
+  +b.SECTION.page-top 
+   .container 
+    +e.row
+     +b.A(href="catalog.html" class="btn-circle __back")
+      +e.icon(class="--small")
+       +icon('arrow-right')
+      span Все строящиеся дома дома
+     +b.A(href="#" class="btn-circle")
+      +e.icon
+       +icon('share')
   +b.SECTION.catalog-details
    .container
-  
+    +b.H1.page-title(class="__title") МО, г.о. Чехов, д.Ходаево, ДНП Сантория
+    +e.tags 
+     each tag in tags
+      +e.tag 
+       +icon(tag.icon)
+       span=tag.name
+
+    +e.row
+     +e.col 
+      +e.gallery
+       +e.gallery-large
+        +e.gallery-prev(ref="prev") 
+           +icon('arrow-right')
+          
+        +e.gallery-next(ref="next")
+          +icon('arrow-right')
+        .swiper-container.js-swiper-gallery-large
+          .swiper-wrapper
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+
+       +e.thrumbs
+         .swiper-container.js-swiper-gallery-small
+           .swiper-wrapper
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+     +e.col 
+      +e.params
+       +e.params-item 
+        +e.params-name Общая площадь
+        +e.params-value 
+         +icon('size')
+         span 47 м2
+       +e.params-item 
+        +e.params-name Этажность
+        +e.params-value 
+         +icon('menu')
+         span 2
+       +e.params-item 
+        +e.params-name Этап строительства
+        +e.params-value 
+         +icon('play')
+         span Отделка
+   
+      +e.UL.table-list 
+       +e.LI 
+        +e.table-list-name Подрядчик:
+        +e.table-list-value 
+         strong ТЕХНОКАРКАС
+       +e.LI 
+        +e.table-list-name Тип конструкции:
+        +e.table-list-value 
+         strong Блочный
+       +e.LI 
+        +e.table-list-name Фундамент:
+        +e.table-list-value 
+         strong УШП
+       +e.LI 
+        +e.table-list-name Тип кровли:
+        +e.table-list-value 
+         strong Двухскатная
+       +e.LI 
+        +e.table-list-name Материал кровли:
+        +e.table-list-value 
+         strong SHINGLAS
+       +e.LI 
+        +e.table-list-name Внешняя отделка:
+        +e.table-list-value 
+         strong Фиброцементный сайдинг Decover
+       +e.LI 
+        +e.table-list-name Внешняя отделка:
+        +e.table-list-value 
+         strong ГКЛ
+      +e.row-contacts 
+       +e.A(href='tel:+7 (495) 234-56-78' class="row-contacts-phone") +7 (495) 234-56-78
+       +e.A(href='https://land.liveinpark.ru' target="_blank" class="row-contacts-link") land.liveinpark.ru
+
+
+  +b.SECTION.plan
+   .container 
+    +e.H2.title.h2 Планировка
+    
+
+
+  +b.SECTION.tour-3d
+   .container 
+    +e.H2.title.h2 3D-тур
+   +e.inner.js-tour
+
+
+  include ../includes/modules/_section-calculate
+  include ../includes/modules/_section-know
+
 block script
   //-script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")

@@ -1,13 +1,118 @@
 extends ../layout/main
 
 block variables
-    - var title = '';
+    - var title = 'Коттеджный поселок «Воздвиженское», Московская область';
     - var description = '';
     - var pageName = 'catalog-details';
+    -
+     var tags = [
+        {
+         name: 'Можно посетить',
+         icon: 'home'
+        },
+        {
+         name: 'Видеотрансляция',
+         icon: 'video'
+        },
+       ]
 block content
+  +b.SECTION.page-top 
+   .container 
+    +e.row
+     +b.A(href="catalog.html" class="btn-circle __back")
+      +e.icon(class="--small")
+       +icon('arrow-right')
+      span Все типовые проекты
+     +b.A(href="#" class="btn-circle")
+      +e.icon
+       +icon('share')
   +b.SECTION.catalog-details
    .container
-  
+
+
+    +e.row
+     +e.col 
+      +e.gallery
+       +e.gallery-large
+        +e.gallery-prev(ref="prev") 
+           +icon('arrow-right')
+          
+        +e.gallery-next(ref="next")
+          +icon('arrow-right')
+        .swiper-container.js-swiper-gallery-large
+          .swiper-wrapper
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic.png", alt="")
+
+       +e.thrumbs
+         .swiper-container.js-swiper-gallery-small
+           .swiper-wrapper
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic.png", alt="")
+     +e.col 
+      +e.params
+       +e.params-item 
+        +e.params-name Строительная площадь 
+         span.answer-icon 
+          +icon('help')
+        +e.params-value 
+         +icon('size')
+         span 47 м2
+         span.answer-icon 
+          +icon('help')
+       +e.params-item 
+        +e.params-name Отапливаемая площадь 
+         span.answer-icon 
+          +icon('help')
+        +e.params-value 
+         +icon('size')
+         span 42 м2
+       +e.params-item 
+        +e.params-name Срок строительства
+        +e.params-value 
+         +icon('clock')
+         span от 1,5 месяцев
+       +e.params-item 
+        +e.params-name Кол-во спален
+        +e.params-value 
+         +icon('grid')
+         span 2
+       +e.params-item 
+        +e.params-name Этажность
+        +e.params-value 
+         +icon('menu')
+         span 2
+       
+    +e.tabs 
+     +b.UL.page-navigation(class="__tabs-navigation") 
+      li.is-active
+       a(href="#") Описание
+      li 
+       a(href="#") Стадии готовности
+      li 
+       a(href="#") Конструктив стен
+      li 
+       a(href="#") Выбрать подрядчика
+
+      
+
+  include ../includes/modules/_section-calculate
+  include ../includes/modules/_section-know
+
 block script
   //-script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")

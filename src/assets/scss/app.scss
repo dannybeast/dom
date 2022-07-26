@@ -635,15 +635,96 @@
 .catalog-details {
    padding-bottom: rem(60);
 
-   @include tags($light-color);
+@include tags($light-color);
 
 @include params(rem(25));
+
 @include table();
 
+   .slide-large,
+   .slide-small {
+      display: block;
+      overflow: hidden;
+
+      width: 100%;
+
+      border-radius: 4px;
+      img {
+         width: 100%;
+      }
+   }
+   &__gallery {
+      .slide-small {
+         cursor: pointer;
+      }
+
+      &-large {
+         position: relative;
+
+         margin-bottom: 20px;
+         .swiper-container {
+            overflow: visible;
+         }
+      }
+      &-next {
+         left: 100%;
+
+         transform: translateX(-50%) translateY(-50%);
+      }
+      &-prev {
+         right: 100%;
+
+         transform: translateX(50%) translateY(-50%);
+         svg {
+            transform: scale(-1,1);
+         }
+      }
+      &-prev,
+      &-next {
+         position: absolute;
+         z-index: 2;
+         top: 50%;
+
+         display: flex;
+
+         width: rem(64);
+         height: rem(64);
+
+         cursor: pointer;
+
+         border-radius: rem(10);
+         background: $white-color;
+         box-shadow: 0 10px 35px -10px rgba(18, 19, 17, 0.2);
+
+         align-items: center;
+         justify-content: center;
+         svg {
+            width: rem(16);
+            height: rem(16);
+         }
+         &:hover {
+            svg {
+               fill: $primary-color;
+            }
+         }
+      }
+   }
+   &__thrumbs {
+      .swiper-slide {
+         &:not(.swiper-slide-active) {
+            transition: opacity 0.2s ease;
+
+            opacity: 0.5;
+            &:hover {
+               opacity: 0.6;
+            }
+         }
+      }
+   }
    &__params {
       font-size: rem(16);
 
-@include row-flex();
+@include u-row-flex(15px);
 
       &:not(:last-child) {
          margin-bottom: rem(40);
@@ -651,9 +732,9 @@
       &-item {
          margin: 0;
 
-@include col();
+@include u-col(15px);
 
-@include size(4);
+@include u-size(4,12,15px);
       }
       &-value {
          font-size: rem(16);
@@ -671,6 +752,11 @@
 
       align-items: center;
       justify-content: space-between;
+      &-link {
+         &:hover {
+            color: $primary-color;
+         }
+      }
       &-phone {
          color: $black-color;
       }
@@ -695,14 +781,17 @@
    &__col {
       @include col();
 
-@include size(6);
-
-@include size-md(12);
-
 @include from($break_xl) {
          &:nth-child(even) {
-            padding-left: rem(150);
+            padding-left: rem(180);
          }
+      }
+
+      &:first-child {
+         @include size(6.1);@include size-md(12);
+      }
+      &:last-child {
+         @include size(5.9);@include size-md(12);
       }
    }
 }
@@ -713,7 +802,8 @@
       &:not(:last-child) {
          margin-bottom: rem(30);
       }
-   } &__name {
+   }
+   &__name {
       font-size: rem(20);
       font-weight: 700;
       &:not(:last-child) {
@@ -722,8 +812,11 @@
    }
    &__image {
       display: block;
+      overflow: hidden;
 
       margin-bottom: rem(30);
+
+      border-radius: 4px;
       img {
          width: 100%;
       }
@@ -2170,7 +2263,7 @@
       margin-bottom: rem(30);
    }
    &__map {
-      height: 70vh;
+      height: 800px;
       min-height: rem(450);
 
       background: $gray-color;
@@ -2178,7 +2271,8 @@
 }
 
 .page-top {
-   margin-bottom: rem(50);
+   margin-top: rem(-20);
+   margin-bottom: rem(30);
    &__row {
       display: flex;
 
