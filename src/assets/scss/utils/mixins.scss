@@ -194,7 +194,6 @@
 @mixin table(){
  &__table {
   &-list {
-   
      li {
         line-height: 1.15;
 
@@ -219,7 +218,7 @@
         justify-content: flex-end;
         flex-grow: 1;
         align-items: flex-end;
-        span {
+        span, strong {
            display: block;
 
            text-align: right;

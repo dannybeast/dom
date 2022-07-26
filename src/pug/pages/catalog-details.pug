@@ -75,12 +75,15 @@ block content
              +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
               img(src="assets/images/details/pic.png", alt="")
             .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
+             +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic2.png", alt="")
             .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-
+             +b.A(href="assets/images/details/pic3.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic3.png", alt="")
+            .swiper-slide 
+             +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
+              img(src="assets/images/details/pic2.png", alt="")
+            
        +e.thrumbs
          .swiper-container.js-swiper-gallery-small
            .swiper-wrapper
@@ -89,10 +92,13 @@ block content
                  img(src="assets/images/details/pic.png", alt="")
              .swiper-slide 
                 +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
+                 img(src="assets/images/details/pic2.png", alt="")
              .swiper-slide 
                 +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
+                 img(src="assets/images/details/pic3.png", alt="")
+             .swiper-slide 
+                +b.slide-small
+                 img(src="assets/images/details/pic2.png", alt="")
      +e.col 
       +e.params
        +e.params-item 
@@ -130,10 +136,10 @@ block content
 
        +b.switch-buttons 
         +e.LABEL.button 
-         input(type="radio" name="type" value="frame" checked)
+         input(type="radio" name="type_construction" value="frame" checked)
          span Каркас
         +e.LABEL.button 
-         input(type="radio" name="type" value="block")
+         input(type="radio" name="type_construction" value="block")
          span Блоки
 
       +e.field-row 
@@ -210,12 +216,12 @@ block content
           +e.title Планировки
           +e.row 
            +e.col 
-            +b.A(href="assets/images/details/planning/1.png" class="planning-item")
+            +b.A(href="assets/images/details/planning/1.png" data-fancybox="planning" class="planning-item")
              +e.image 
               img(src="assets/images/details/planning/1.png", alt="")
              +e.name 1 этаж – 47,3 м²
            +e.col 
-            +b.A(href="assets/images/details/planning/1.png" class="planning-item")
+            +b.A(href="assets/images/details/planning/1.png" data-fancybox="planning" class="planning-item")
              +e.image 
               img(src="assets/images/details/planning/1.png", alt="")
              +e.name 2 этаж – 47,3 м²
@@ -228,12 +234,64 @@ block content
      // Tab - Конструктив стен
      +e.tabs-content.js-tab-content
       +b.tab-catalog-side
-       p side
+       +b.notification-module 
+        +icon('warning')
+        +e.content 
+         p Технологию строительства можно выбрать для любой стадии готовности.
+        +e.text-right 
+         p Мы можем помочь подобрать правильный тип конструкции, отвечающий климатической зоне вашего проживания.
      
      // Tab - Выбрать подрядчика
      +e.tabs-content.js-tab-content
       +b.tab-catalog-contractor
-       p contractor
+       +b.page-filter(class="__filter")
+        +filter({region, resetBtn})
+       
+       +b.contractors-slider.swiper-container.js-contractors-swiper
+        +e.prev(ref="prev") 
+           +icon('arrow-right')
+          
+        +e.next(ref="next")
+          +icon('arrow-right')
+        +e.wrapper.swiper-wrapper
+         each item in [1,2,3,4,5,6]
+          +e.slide.swiper-slide 
+           +b.contractors-item 
+            +e.top 
+             +e.image 
+              img(src="assets/images/details/contractors/1.png", alt="")
+             +e.top-content 
+              +e.title Мила-Вилла
+              +b.rating-module(class='__rating') 
+               +e.icon 
+                +icon('star')
+               +e.value 8.1 
+                span.answer-icon 
+                 +icon('help')
+            +e.UL.table-list 
+             +e.LI 
+              +e.table-list-name Регион:
+              +e.table-list-value 
+               strong Самарская область
+             +e.LI 
+              +e.table-list-name Готовых объектов:
+              +e.table-list-value 
+               strong 11
+             +e.LI 
+              +e.table-list-name Аккредитован ДОМ РФ:
+              +e.table-list-value 
+               strong Дa
+             +e.LI 
+              +e.table-list-name Количество бригад:
+              +e.table-list-value 
+               strong 10
+             +e.LI 
+              +e.table-list-name Стаж в строительстве:
+              +e.table-list-value 
+               strong 9 лет
+
+       +b.pagination-more(class="__pagination")
+        +e.btn.btn(class="--black-line") Все подрядчики
 
   include ../includes/modules/_section-calculate
   include ../includes/modules/_section-know

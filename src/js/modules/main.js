@@ -9,6 +9,7 @@ import Masks from "./inputmask";
 import Validation from '../forms/validation'
 import sliderCatalogItem from "../sliders/sliderCatalogItem";
 import sliderGallery from "../sliders/sliderGallery";
+import sliderContractors from "../sliders/sliderContractors";
 import dropdown from "./dropdown";
 import rangeSlider from "./rangeSlider";
 import yandexMap from "./map";
@@ -36,5 +37,6 @@ $(document).ready(function () {
   App.toggleSorting();
   App.catalogItemToggleContent();
   App.hideCookieAlert();
-  sliderCatalogItem.init()
+  sliderCatalogItem.init();
+  sliderContractors.init();
 })
