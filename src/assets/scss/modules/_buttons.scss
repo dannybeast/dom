@@ -56,7 +56,23 @@
          box-shadow: 0 15px 25px rgba(192, 34, 53, 0.2);
       }
    }
+   &--transparent {
+      height: initial;
+      padding: 0;
 
+      background: transparent;
+      &:hover {
+         color: $black-color;
+         background: transparent;
+         box-shadow: none;
+      }
+   }
+   &--transparent#{&}--primary {
+      color: $primary-color;
+      svg {
+         fill: $primary-color;
+      }
+   }
    &--white-line {
       color: $white-color;
       border: solid 1px $white-color;

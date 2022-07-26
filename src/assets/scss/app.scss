@@ -813,6 +813,40 @@
 @include u-size(6,12,15px);
    }
 }
+
+.plan {
+   &__title {
+      margin-bottom: rem(30);
+   }
+   &__btn {
+      &:not(:last-child) {
+         margin-bottom: rem(30);
+      }
+   }
+   &:not(:last-child) {
+      margin-bottom: rem(100);
+   }
+   &__row {
+      @include row-flex();
+   }
+   &__col {
+      @include col();
+
+@include size(4);
+   }
+}
+
+.tour-3d {
+   &__title {
+      margin-bottom: rem(30);
+   }
+   &__inner {
+      img {
+         width: 100%;
+      }
+   }
+}
+
 .rating-module {
    font-size: rem(18);
 
