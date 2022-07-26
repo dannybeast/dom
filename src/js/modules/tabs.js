@@ -14,7 +14,7 @@ export default function() {
           tabs_item
             .find(".js-tab-content")
             .eq(index)
-            .fadeIn(100);
+            .show();
             if(window.sidebar){
             window.sidebar.updateSticky();
             
@@ -29,7 +29,7 @@ export default function() {
         hideTabs();
         showTab(0);
 
-        tabs_item.find(".main-tabs-navigation").find('.js-tab-link').click(function() {
+        tabs_item.find(".page-navigation").find('.js-tab-link').click(function() {
           hideTabs();
           showTab($(this).index());
           

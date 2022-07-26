@@ -12,6 +12,7 @@ import sliderGallery from "../sliders/sliderGallery";
 import dropdown from "./dropdown";
 import rangeSlider from "./rangeSlider";
 import yandexMap from "./map";
+import tabs from "./tabs";
 import CatalogFilter from "./catalogFilter";
 
 // Global
@@ -24,7 +25,7 @@ $(document).ready(function () {
   yandexMap();
   dropdown();
   rangeSlider();
-
+  tabs()
   CatalogFilter.init();
   sliderGallery();
   Fancy.init();

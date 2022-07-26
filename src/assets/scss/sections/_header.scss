@@ -128,12 +128,11 @@
    &__row {
       display: flex;
 
-      padding: rem(27) 0;
+      padding: rem(23) 0;
+
 @include to(450px) {
          padding: rem(17) 0;
-      }
-
-      align-items: center;
+      }  align-items: center;
       justify-content: space-between;
    }
 

@@ -632,7 +632,124 @@
    }
 }
 
+.radio-cards {
+   @include u-row-flex(20);
+   &__item {
+      font-size: 14px;
+
+      cursor: pointer;
+      text-align: center;
+
+@include u-col(20px);
+
+@include u-size(3,12,20px);
+
+      img {
+         width: 100%;
+
+         border-radius: rem(10);
+      }
+      &-image {
+         position: relative;
+
+         display: block;
+      }
+      &-button {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+
+         width: rem(26);
+         height: rem(26);
+
+         border: 1px solid $gray-color;
+         border-radius: 50%;
+         background: $white-color;
+         &:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            display: none;
+
+            width: rem(14);
+            height: rem(14);
+
+            content: '';
+            transform: translate(-50%,-50%);
+
+            border-radius: inherit;
+            background: $primary-color;
+         }
+      }
+      &-name {
+         line-height: 1.2;
+
+         display: block;
+
+         margin-top: rem(15);
+      }
+      input {
+         display: none;
+         &:checked +span {
+            .radio-cards__item-button {
+               &:after {
+                  display: block;
+               }
+            }
+         }
+      }
+   }
+}
+
+.switch-buttons {
+   display: flex;
+
+   height: rem(64);
+   padding: 0 rem(5);
+
+   border-radius: rem(64);
+   background: $light-color;
+
+   align-items: center;
+   &__button {
+      text-align: center;
+
+      flex-grow: 1;
+      input {
+         display: none;
+         &:checked +span {
+            color: $black-color;
+            background: $white-color;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.2);
+         }
+      }
+      span {
+         font-size: 14px;
+         font-weight: 500;
+
+         display: flex;
+
+         height: rem(54);
+
+         cursor: pointer;
+         transition: all 0.2s linear;
+
+         color: #757781;
+         border-radius: rem(54);
+
+         justify-content: center;
+         align-items: center;
+         &:hover {
+            color: $primary-color;
+         }
+      }
+   }
+}
+
 .catalog-details {
+   $parent: &;
+
    padding-bottom: rem(60);
 
 @include tags($light-color);
@@ -641,6 +758,103 @@
 
 @include table();
 
+   &__field {
+      &-label {
+         font-size: 16px;
+         &:not(:last-child) {
+            margin-bottom: rem(15);
+         }
+      }
+      &-row {
+         &:not(:last-child) {
+            margin-bottom: rem(40);
+         }
+      }
+   }
+   &__page-top {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      margin-top: 0 !important;
+      padding-top: rem(30);
+      .btn-circle {
+         color: $white-color;
+         &__icon {
+            background: rgba(249, 249, 252, 0.2);
+
+            backdrop-filter: blur(35px);
+            svg {
+               fill: $white-color;
+            }
+         }
+         &:hover {
+            svg {
+               fill: $white-color;
+            }
+         }
+      }
+   }
+   &__preview {
+      position: relative;
+
+      margin-top: rem(-51);
+
+      color: $white-color;
+      #{$parent}__params {
+         justify-content: flex-end;
+      }
+      &-info {
+         position: absolute;
+         z-index: 2;
+         right: 0;
+         bottom: 0;
+         left: 0;
+
+         padding: rem(60) 0;
+      }
+      &-title {
+         font-size: rem(46);
+         line-height: 1.1;
+         &:not(:last-child) {
+            margin-bottom: rem(15);
+         }
+      }
+      &-description {
+         font-size: rem(28);
+         font-weight: 500;
+         line-height: 1.1;
+         &:not(:last-child) {
+            margin-bottom: rem(15);
+         }
+      }
+      &-row {
+         display: flex;
+
+         align-items: center;
+         justify-content: space-between;
+      }
+      &-col {
+         flex-grow: 1;
+      }
+      &:after {
+         position: absolute;
+         right: 0;
+         bottom: 0;
+         left: 0;
+
+         height: 100%;
+
+         content: '';
+
+         background: linear-gradient(180deg, rgba(15, 18, 31, 0.4) 0.84%, rgba(21, 24, 41, 0) 24.6%), linear-gradient(180deg, rgba(21, 24, 41, 0) 47.83%, rgba(15, 18, 31, 0.8) 89.73%);
+      }
+      &:not(:last-child) {
+         margin-bottom: rem(80);
+      }
+   }
    .slide-large,
    .slide-small {
       display: block;
@@ -724,17 +938,14 @@
    &__params {
       font-size: rem(16);
 
-@include u-row-flex(15px);
+@include u-row-flex(0);
 
-      &:not(:last-child) {
-         margin-bottom: rem(40);
-      }
       &-item {
-         margin: 0;
-
-@include u-col(15px);
-
-@include u-size(4,12,15px);
+         width: rem(200);
+         margin: 0 rem(10) rem(40) 0;
+         &:nth-child(3n) {
+            margin-right: 0;
+         }
       }
       &-value {
          font-size: rem(16);
@@ -748,8 +959,6 @@
 
       padding: rem(40) 0;
 
-      border-top: 1px solid $gray-color;
-
       align-items: center;
       justify-content: space-between;
       &-link {
@@ -759,6 +968,24 @@
       }
       &-phone {
          color: $black-color;
+      }
+   }
+   &__hr {
+      border-top: 1px solid $gray-color;
+   }
+   &__row-price {
+      display: flex;
+
+      padding: rem(40) 0;
+
+      align-items: center;
+      justify-content: space-between;
+      &-value {
+         font-size: rem(28);
+         font-weight: 700;
+      }
+      &-btn {
+         font-size: 16px;
       }
    }
    &__description {
@@ -777,13 +1004,42 @@
    }
    &__row {
       @include row-flex();
+      &:not(:last-child) {
+         margin-bottom: rem(80);
+      }
+   }
+   &__tabs {
+      &-navigation {
+         position: relative;
+         &::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+            height: 1px;
+
+            content: '';
+
+            background: $gray-color;
+         }
+         li {
+            position: relative;
+            z-index: 2;
+
+            margin-bottom: 0;
+         }
+      }
    }
    &__col {
       @include col();
 
 @include from($break_xl) {
          &:nth-child(even) {
-            padding-left: rem(180);
+            padding-left: rem(150);
          }
       }
 

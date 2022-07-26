@@ -16,19 +16,49 @@ block variables
         },
        ]
 block content
-  +b.SECTION.page-top 
-   .container 
-    +e.row
-     +b.A(href="catalog.html" class="btn-circle __back")
-      +e.icon(class="--small")
-       +icon('arrow-right')
-      span Все типовые проекты
-     +b.A(href="#" class="btn-circle")
-      +e.icon
-       +icon('share')
+  
   +b.SECTION.catalog-details
-   .container
+   +e.preview 
+     +b.page-top(class="__page-top") 
+      .container 
+       +e.row
+        +b.A(href="catalog.html" class="btn-circle __back")
+         +e.icon(class="--small")
+          +icon('arrow-right')
+         span Все типовые проекты
+        +b.A(href="#" class="btn-circle")
+         +e.icon
+          +icon('share')
+     
+     +e.preview-info 
+      .container
+       +e.preview-row
+        +e.preview-col 
+         +e.H1.preview-title AXIOM 40-1
+         +e.preview-description от 8 305 784 ₽ 
 
+        +e.preview-col 
+         +e.params
+          +e.params-item 
+           +e.params-name Общая площадь
+           +e.params-value 
+            +icon('size')
+            span 47 м²
+          +e.params-item 
+           +e.params-name Этажность
+           +e.params-value 
+            +icon('menu')
+            span 2
+          +e.params-item 
+           +e.params-name Срок строительства
+           +e.params-value 
+            +icon('clock')
+            span от 1,5 месяцев
+
+
+     img(src="assets/images/details/preview.png", alt="")
+   .container
+    
 
     +e.row
      +e.col 
@@ -67,20 +97,18 @@ block content
       +e.params
        +e.params-item 
         +e.params-name Строительная площадь 
-         span.answer-icon 
-          +icon('help')
+    
         +e.params-value 
          +icon('size')
-         span 47 м2
+         span 47 м²
          span.answer-icon 
           +icon('help')
        +e.params-item 
         +e.params-name Отапливаемая площадь 
-         span.answer-icon 
-          +icon('help')
+     
         +e.params-value 
          +icon('size')
-         span 42 м2
+         span 42 м²
        +e.params-item 
         +e.params-name Срок строительства
         +e.params-value 
@@ -96,19 +124,116 @@ block content
         +e.params-value 
          +icon('menu')
          span 2
-       
-    +e.tabs 
-     +b.UL.page-navigation(class="__tabs-navigation") 
-      li.is-active
-       a(href="#") Описание
-      li 
-       a(href="#") Стадии готовности
-      li 
-       a(href="#") Конструктив стен
-      li 
-       a(href="#") Выбрать подрядчика
-
       
+      +e.field-row 
+       +e.field-label Тип конструкции:
+
+       +b.switch-buttons 
+        +e.LABEL.button 
+         input(type="radio" name="type" value="frame" checked)
+         span Каркас
+        +e.LABEL.button 
+         input(type="radio" name="type" value="block")
+         span Блоки
+
+      +e.field-row 
+       +e.field-label Фундамент:
+
+       +b.switch-buttons 
+        +e.LABEL.button 
+         input(type="radio" name="foundation" value="swedish" checked)
+         span Утепленная шведская плита
+        +e.LABEL.button 
+         input(type="radio" name="foundation" value="pile-screw")
+         span Свайно-винтовой фундамент
+
+      +e.field-row 
+       +e.field-label Варианты внешней отделки:
+
+       +b.radio-cards 
+        +e.LABEL.item
+         input(type="radio" name="exterior" value="HAUBERK" checked)
+         +e.item-wrap
+          +e.item-image
+           +e.item-button
+           img(src="assets/images/details/exterior/HAUBERK.png", alt="")
+          +e.item-name HAUBERK
+        +e.LABEL.item
+         input(type="radio" name="exterior" value="Имитация бруса")
+         +e.item-wrap
+          +e.item-image
+           +e.item-button
+           img(src="assets/images/details/exterior/timber-imitation.png", alt="")
+          +e.item-name Имитация бруса
+        +e.LABEL.item
+         input(type="radio" name="exterior" value="Фахберк")
+         +e.item-wrap
+          +e.item-image
+           +e.item-button
+           img(src="assets/images/details/exterior/fachwerk.png", alt="")
+          +e.item-name Фахверк
+        +e.LABEL.item
+         input(type="radio" name="exterior" value="Штукатурный фасад")
+         +e.item-wrap
+          +e.item-image
+           +e.item-button
+           img(src="assets/images/details/exterior/stucco-facade.png", alt="")
+          +e.item-name Штукатурный фасад
+      +e.hr 
+
+      +e.row-price 
+       +e.row-price-value от 8 305 784 ₽ 
+       +e.A(href="#" class='row-price-btn btn --primary') Хочу такой дом
+
+    +e.tabs.js-tabs
+     +b.UL.page-navigation(class="__tabs-navigation") 
+      li.js-tab-link 
+       a Описание
+      li.js-tab-link 
+       a Стадии готовности
+      li.js-tab-link 
+       a Конструктив стен
+      li.js-tab-link 
+       a Выбрать подрядчика
+
+     // Tab - Описание
+     +e.tabs-content.js-tab-content
+      +b.tab-catalog-description
+       +e.row 
+        +e.col
+         +e.content.typography 
+          p Этот дом — как выпускной, как первый автомобиль и как первый поход на рок-концерт: с него начинается новая жизнь. Размером с приличную однокомнатную квартиру, он достаточно просторный, чтобы осчастливить семью из двух-трех человек с собакой и компанией друзей на вечерней веранде. Дом AXIOM 40-1 создан для настоящих ценителей хюгге-настроения, с шерстяным пледом и без лишних вещей в шкафу. Кому нужна «однушка» в высотке, если у вас есть собственный дом с верандой, с порога которого открывается весь мир?
+          p Несмотря на компактную квадратуру, в доме есть две светлые жилые комнаты и кухня-студия, которая совмещается с уютной гостиной, санузел. Выбирайте дом AXIOM 40-1 и начинайте жить по своим правилам. Здесь можно шуметь до утра, спать в тишине до обеда и наконец-то испытать сабвуфер на всю громкость. Знаем, вы об этом постоянно думаете.
+          p Можно вечно копить на дом побольше, попросторнее и покрасивее, а можно уже через пару месяцев заехать в свой собственный уютный коттедж, построенный в не боящихся мороза традициях Скандинавии. Как сказал Лев Толстой: «Счастлив тот, кто у себя дома». Оставляйте заявку на сайте, и мы поможем вам стать чуточку счастливее.
+        +e.col 
+         +b.planning
+          +e.title Планировки
+          +e.row 
+           +e.col 
+            +b.A(href="assets/images/details/planning/1.png" class="planning-item")
+             +e.image 
+              img(src="assets/images/details/planning/1.png", alt="")
+             +e.name 1 этаж – 47,3 м²
+           +e.col 
+            +b.A(href="assets/images/details/planning/1.png" class="planning-item")
+             +e.image 
+              img(src="assets/images/details/planning/1.png", alt="")
+             +e.name 2 этаж – 47,3 м²
+
+     // Tab - Стадии готовности
+     +e.tabs-content.js-tab-content
+      +b.tab-catalog-stages
+       p stages
+     
+     // Tab - Конструктив стен
+     +e.tabs-content.js-tab-content
+      +b.tab-catalog-side
+       p side
+     
+     // Tab - Выбрать подрядчика
+     +e.tabs-content.js-tab-content
+      +b.tab-catalog-contractor
+       p contractor
 
   include ../includes/modules/_section-calculate
   include ../includes/modules/_section-know

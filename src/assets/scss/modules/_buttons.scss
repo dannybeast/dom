@@ -136,11 +136,8 @@
    &:hover {
       color: $primary-color;
       #{$parent}__icon {
-         transition: background 0.1s linear;
-
-         background: $primary-color;
          svg {
-            fill: $white-color;
+            fill: $primary-color;
          }
       }
    }
