@@ -1,0 +1,46 @@
+mixin gallery(hasVideo)
+ +e.gallery
+  +e.gallery-large
+   +e.gallery-prev(ref="prev") 
+    +icon('arrow-right')
+
+   +e.gallery-next(ref="next")
+    +icon('arrow-right')
+   .swiper-container.js-swiper-gallery-large
+    .swiper-wrapper
+     .swiper-slide 
+      if hasVideo
+       +b.A(href="https://youtu.be/HHjbPrSv8qU" data-fancybox="details").slide-large.slide-large--video
+        img(src="assets/images/details/pic.png", alt="")
+      else
+       +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
+        img(src="assets/images/details/pic.png", alt="")
+     .swiper-slide 
+      +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
+       img(src="assets/images/details/pic2.png", alt="")
+     .swiper-slide 
+      +b.A(href="assets/images/details/pic3.png" data-fancybox="details").slide-large
+       img(src="assets/images/details/pic3.png", alt="")
+     .swiper-slide 
+      +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
+       img(src="assets/images/details/pic2.png", alt="")
+
+  +e.thrumbs
+   .swiper-container.js-swiper-gallery-small
+    .swiper-wrapper
+     .swiper-slide 
+      if hasVideo
+       +b.slide-small.slide-small--video
+        img(src="assets/images/details/pic.png", alt="")
+      else 
+       +b.slide-small
+        img(src="assets/images/details/pic.png", alt="")
+     .swiper-slide 
+      +b.slide-small
+       img(src="assets/images/details/pic2.png", alt="")
+     .swiper-slide 
+      +b.slide-small
+       img(src="assets/images/details/pic3.png", alt="")
+     .swiper-slide 
+      +b.slide-small
+       img(src="assets/images/details/pic2.png", alt="")

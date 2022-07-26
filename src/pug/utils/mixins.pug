@@ -269,7 +269,7 @@ mixin filter-bedrooms()
       +e.name 4 спальни
       +e.count 12
 
-mixin filter(argObj)
+mixin filter(argObj, hideSorting)
  +e.mobile-curtain 
   +e.mobile-curtain-layer
    +e.mobile-curtain-top 
@@ -341,9 +341,10 @@ mixin filter(argObj)
     +e.mobile-curtain-btn(class=" btn btn--primary") Применить
 
  +e.mobile
-  +e.mobile-btn.js-open-mobile-sorting
-   +icon('sort')
-   span Сортировка
+  if !hideSorting
+   +e.mobile-btn.js-open-mobile-sorting
+    +icon('sort')
+    span Сортировка
   +e.mobile-btn.js-open-mobile-filter
    +icon('filter')
    span Фильтр

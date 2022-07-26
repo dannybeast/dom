@@ -62,43 +62,8 @@ block content
 
     +e.row
      +e.col 
-      +e.gallery
-       +e.gallery-large
-        +e.gallery-prev(ref="prev") 
-           +icon('arrow-right')
-          
-        +e.gallery-next(ref="next")
-          +icon('arrow-right')
-        .swiper-container.js-swiper-gallery-large
-          .swiper-wrapper
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic2.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic3.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic3.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic2.png", alt="")
-            
-       +e.thrumbs
-         .swiper-container.js-swiper-gallery-small
-           .swiper-wrapper
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic2.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic3.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic2.png", alt="")
+      include ../includes/modules/_catalog-details-gallery
+      +gallery()
      +e.col 
       +e.params
        +e.params-item 
@@ -420,7 +385,7 @@ block content
      +e.tabs-content.js-tab-content
       +b.tab-catalog-contractor
        +b.page-filter(class="__filter")
-        +filter({region, resetBtn})
+        +filter({region, resetBtn}, 'hideSorting')
        
        +b.contractors-slider.swiper-container.js-contractors-swiper
         +e.prev(ref="prev") 

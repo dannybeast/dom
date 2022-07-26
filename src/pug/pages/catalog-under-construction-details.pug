@@ -28,8 +28,8 @@ block content
        +icon('share')
   +b.SECTION.catalog-details
    .container
-    +b.H1.page-title(class="__title") МО, г.о. Чехов, д.Ходаево, ДНП Сантория
-    +e.tags 
+    +b.H1.page-title(class="__title --inline") МО, г.о. Чехов, д.Ходаево, ДНП Сантория
+    +e.tags(class="--inline")
      each tag in tags
       +e.tag 
        +icon(tag.icon)
@@ -37,43 +37,8 @@ block content
 
     +e.row
      +e.col 
-      +e.gallery
-       +e.gallery-large
-        +e.gallery-prev(ref="prev") 
-           +icon('arrow-right')
-          
-        +e.gallery-next(ref="next")
-          +icon('arrow-right')
-        .swiper-container.js-swiper-gallery-large
-          .swiper-wrapper
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic2.png", alt="")
-
-       +e.thrumbs
-         .swiper-container.js-swiper-gallery-small
-           .swiper-wrapper
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic2.png", alt="")
+      include ../includes/modules/_catalog-details-gallery
+      +gallery('video')
      +e.col 
       +e.params
        +e.params-item 
@@ -96,7 +61,8 @@ block content
        +e.LI 
         +e.table-list-name Подрядчик:
         +e.table-list-value 
-         strong ТЕХНОКАРКАС
+         a(href="#" target="_blank") 
+          strong ТЕХНОКАРКАС
        +e.LI 
         +e.table-list-name Тип конструкции:
         +e.table-list-value 
@@ -112,7 +78,8 @@ block content
        +e.LI 
         +e.table-list-name Материал кровли:
         +e.table-list-value 
-         strong SHINGLAS
+         a(href="#" target="_blank") 
+          strong SHINGLAS
        +e.LI 
         +e.table-list-name Внешняя отделка:
         +e.table-list-value 
@@ -126,17 +93,14 @@ block content
        +e.row-price-value от 8 305 784 ₽ 
        +e.A(href="#" class='row-price-btn btn --primary') Хочу такой дом
 
-  +b.SECTION.plan
-   .container 
-    +e.H2.title.h2 Планировка
-    
+      +b.A(href="#" target="_blank" class='block-link')
+       +e.name Для этого дома достуна онлайн-трансляция
+       +e.link
+        span Смотреть трансляцию
+        +icon('arrow-link')
 
-
-  +b.SECTION.tour-3d
-   .container 
-    +e.H2.title.h2 3D-тур
-   +e.inner.js-tour
-
+  include ../includes/modules/_plan
+  include ../includes/modules/_tour-3d
 
   include ../includes/modules/_section-calculate
   include ../includes/modules/_section-know

@@ -1,18 +1,18 @@
 extends ../layout/main
 
 block variables
-    - var title = 'Коттеджный поселок «Воздвиженское», Московская область';
+    - var title = 'МО, г.о. Чехов, д.Ходаево, ДНП Сантория';
     - var description = '';
     - var pageName = 'catalog-details';
     -
      var tags = [
+       {
+         name: '3D-тур',
+         icon: 'cube'
+        },
         {
          name: 'Можно посетить',
          icon: 'home'
-        },
-        {
-         name: 'Видеотрансляция',
-         icon: 'video'
         },
        ]
 block content
@@ -22,14 +22,14 @@ block content
      +b.A(href="catalog-finished.html" class="btn-circle __back")
       +e.icon(class="--small")
        +icon('arrow-right')
-      span Все строящиеся дома дома
+      span Все готовые дома
      +b.A(href="#" class="btn-circle")
       +e.icon
        +icon('share')
   +b.SECTION.catalog-details
    .container
-    +b.H1.page-title(class="__title") МО, г.о. Чехов, д.Ходаево, ДНП Сантория
-    +e.tags 
+    +b.H1.page-title(class="__title --inline")=title
+    +e.tags(class="--inline")
      each tag in tags
       +e.tag 
        +icon(tag.icon)
@@ -37,43 +37,8 @@ block content
 
     +e.row
      +e.col 
-      +e.gallery
-       +e.gallery-large
-        +e.gallery-prev(ref="prev") 
-           +icon('arrow-right')
-          
-        +e.gallery-next(ref="next")
-          +icon('arrow-right')
-        .swiper-container.js-swiper-gallery-large
-          .swiper-wrapper
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic.png", alt="")
-            .swiper-slide 
-             +b.A(href="assets/images/details/pic2.png" data-fancybox="details").slide-large
-              img(src="assets/images/details/pic2.png", alt="")
-
-       +e.thrumbs
-         .swiper-container.js-swiper-gallery-small
-           .swiper-wrapper
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic.png", alt="")
-             .swiper-slide 
-                +b.slide-small
-                 img(src="assets/images/details/pic2.png", alt="")
+      include ../includes/modules/_catalog-details-gallery
+      +gallery()
      +e.col 
       +e.params
        +e.params-item 
@@ -87,16 +52,12 @@ block content
          +icon('menu')
          span 2
        +e.params-item 
-        +e.params-name Этап строительства
+        +e.params-name Год строительства
         +e.params-value 
-         +icon('play')
-         span Отделка
+         +icon('calendar')
+         span 2022
    
       +e.UL.table-list 
-       +e.LI 
-        +e.table-list-name Подрядчик:
-        +e.table-list-value 
-         strong ТЕХНОКАРКАС
        +e.LI 
         +e.table-list-name Тип конструкции:
         +e.table-list-value 
@@ -106,36 +67,22 @@ block content
         +e.table-list-value 
          strong УШП
        +e.LI 
-        +e.table-list-name Тип кровли:
+        +e.table-list-name Кровля:
         +e.table-list-value 
-         strong Двухскатная
-       +e.LI 
-        +e.table-list-name Материал кровли:
-        +e.table-list-value 
-         strong SHINGLAS
+         strong Двускатная, SHINGLAS
+
        +e.LI 
         +e.table-list-name Внешняя отделка:
         +e.table-list-value 
-         strong Фиброцементный сайдинг Decover
-       +e.LI 
-        +e.table-list-name Внешняя отделка:
-        +e.table-list-value 
-         strong ГКЛ
+         strong HAUBERK
+  
       +e.hr
       +e.row-price 
        +e.row-price-value от 8 305 784 ₽ 
        +e.A(href="#" class='row-price-btn btn --primary') Хочу такой дом
 
-  +b.SECTION.plan
-   .container 
-    +e.H2.title.h2 Планировка
-    
-
-
-  +b.SECTION.tour-3d
-   .container 
-    +e.H2.title.h2 3D-тур
-   +e.inner.js-tour
+  include ../includes/modules/_plan
+  include ../includes/modules/_tour-3d
 
 
   include ../includes/modules/_section-calculate
