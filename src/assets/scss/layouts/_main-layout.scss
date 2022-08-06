@@ -13,11 +13,10 @@
 
    &__content {
       position: relative;
-
-      padding-top: rem(50);
-
-@include sm-block() {
-         padding-top: rem(40);
+      & >section {
+         &:first-child {
+            padding-top: rem(50);
+         }
       }
    }
 }

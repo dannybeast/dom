@@ -5,14 +5,6 @@ block variables
     - var description = '';
     - var pageName = 'index';
 block content
-  +b.cookie-alert 
-   +e.icon 
-    img(src="assets/images/cookie-icon.svg", alt="")
-   +e.text 
-    p Наш сайт использует cookie файлы для хранения данных.<br> Продолжая использовать сайт, вы даете свое согласие на работы с этими файлами
-   
-   +e.A(href="#" class='btn btn --primary') Принять и закрыть
-  
   +b.SECTION.home
    .container
     +b.H1.page-title Политика конфиденциальности
@@ -86,6 +78,13 @@ block content
          li
           a(href="#title8").js-anchor В заключение
 
+  +b.cookie-alert 
+   +e.icon 
+    img(src="assets/images/cookie-icon.svg", alt="")
+   +e.text 
+    p Наш сайт использует cookie файлы для хранения данных.<br> Продолжая использовать сайт, вы даете свое согласие на работы с этими файлами
+   
+   +e.A(href="#" class='btn btn --primary') Принять и закрыть
 
 block script
   //-script(src="assets/js/vendors.js")

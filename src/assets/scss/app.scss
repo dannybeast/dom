@@ -1087,6 +1087,8 @@
 .catalog-details {
    $parent: &;
 
+   overflow: hidden;
+
    padding-bottom: rem(60);
 
 @include tags($light-color);
@@ -1094,6 +1096,11 @@
 @include params(rem(25));
 
 @include table();
+
+   &:first-child {
+      margin-top: -1px;
+      padding-top: 0 !important;
+   }
 
    &__tags {
       &--inline {
@@ -1142,9 +1149,8 @@
    &__preview {
       position: relative;
 
-      margin-top: rem(-51);
-
       color: $white-color;
+
       #{$parent}__params {
          justify-content: flex-end;
          &-item {
