@@ -34,6 +34,7 @@ $(document).ready(function () {
   Validation();
   Masks.maskPhone();
   App.anchors();
+  App.mobileMenu();
   App.toggleSorting();
   App.catalogItemToggleContent();
   App.hideCookieAlert();

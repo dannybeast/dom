@@ -1,0 +1,65 @@
++b.mobile-menu 
+ +e.inner
+  +e.top 
+   +e.top-title(data-menu-back)
+     span
+
+  +e.menu 
+    ul(data-podmenu).is-active
+     li
+      +e.A(href="#" data-menu="Наши дома") Наши дома
+     li
+      +e.A(href="#") Технологии
+     li
+      +e.A(href="#") Подрядчики
+     li
+      +e.A(href="#" data-menu="Сервисы") Сервисы
+     li
+      +e.A(href="#" data-menu="Еще") Еще
+    
+
+    ul(data-podmenu="Наши дома")
+     li 
+      a(href="catalog.html") Типовые проекты
+     li 
+      a(href="catalog-finished.html") Готовые дома
+     li 
+      a(href="catalog-township.html") Поселки
+     li 
+      a(href="catalog-under-construction.html") Строящиеся дома
+     li 
+      a(href="catalog-on-sale.html") В продаже
+     li 
+      a(href="#") На карте
+    
+    ul(data-podmenu="Сервисы")
+     li 
+      a(href="#") Тест-лайф
+     li 
+      a(href="#") Ипотека
+     li 
+      a(href="#") Технический аудит
+
+    ul(data-podmenu="Еще")
+     li 
+      a(href="#") О нас
+     li
+      a(href="#" data-menu="Блог") Блог
+     li 
+      a(href="#") Контакты
+    
+    ul(data-podmenu="Блог")
+     li 
+      a(href="#") Мероприятия
+     li 
+      a(href="#") Статьи
+     li 
+      a(href="#") СМИ о нас
+     li 
+      a(href="#") Видео
+
+  +e.bottom 
+   +e.A(href="#" class='btn btn --primary') Расчитать дом
+   +b.module-contacts(class="__contacts")
+     +e.label Бесплатно по РФ
+     +e.A(href="tel:88006000565" class="value nowrap") 8 (800) 600-05-65

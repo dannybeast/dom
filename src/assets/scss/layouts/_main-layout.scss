@@ -4,7 +4,13 @@
 
    min-height: 100vh;
 
+@include lg-block() {
+      padding-top: $header-height-tablet;
+   }
 
+@include sm-block() {
+      padding-top: $header-height-mobile;
+   }
 
    .footer,
    .footer-redesign {

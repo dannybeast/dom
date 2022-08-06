@@ -1,9 +1,32 @@
+
+// header
+$header-height: 100px;
+$header-height-tablet: 80px;
+$header-height-mobile: 60px;
+$header-logo-size: 112px;
+$header-logo-size-tablet: 70px;
+$header-logo-size-mobile: 52px;
+$header-icon-size: 22px;
+$header-icon-offset: rem(30);
+$header-btn-icon-size: 30px;
+
 .header-redesign {
    $parent: &;
 
    position: relative;
 
    border-bottom: 1px solid $gray-color;
+
+@include lg-block() {
+      position: fixed;
+      z-index: $z-index-header;
+      top: 0;
+      right: 0;
+      left: 0;
+
+      background: $white-color;
+   }
+
    &__container {
       max-width: rem(1680);
    }
@@ -28,16 +51,20 @@
    &__logo {
       display: block;
 
-      width: rem(112);
+      width: $header-logo-size;
       margin-right: rem(30);
 
 @include xxl-block() {
-         width: rem(88);
+         width: 88px;
       }
 
 @include lg-block() {
-         width: rem(70);
+         width: $header-logo-size-tablet;
          margin-right: auto;
+      }
+
+@include sm-block() {
+         width: $header-logo-size-mobile;
       }  flex-shrink: 0;
    }
    &__user {
@@ -50,7 +77,7 @@
       color: $black-color3;
 
 @include lg-block() {
-         margin-left: rem(20);
+         margin-left: $header-icon-offset;
       }
 
       &:hover {
@@ -59,8 +86,8 @@
       &-icon-link {
          display: none;
 
-         width: 30px;
-         height: 30px;
+         width: $header-btn-icon-size;
+         height: $header-btn-icon-size;
 
          cursor: pointer;
 
@@ -70,8 +97,8 @@
             align-items: center;
             justify-content: center;
             svg {
-               width: 22px;
-               height: 22px;
+               width: $header-icon-size;
+               height: $header-icon-size;
 
                fill: $black-color3;
             }
@@ -298,16 +325,21 @@
    &__row {
       display: flex;
 
-      padding: rem(23) 0;
+      height: $header-height;
 
-@include to(450px) {
-         padding: rem(17) 0;
+@include lg-block {
+         height: $header-height-tablet;
+      }
+
+@include sm-block {
+         height: $header-height-mobile;
+         padding: 0;
       }  align-items: center;
       justify-content: space-between;
    }
 
    &__btn {
-      @include to(450px) {
+      @include to(470px) {
          display: none;
       }
    }
@@ -342,15 +374,15 @@
       height: rem(36);
 
 @include lg-block() {
-         width: 30px;
-         height: 30px;
-         margin-left: rem(20);
+         width: $header-btn-icon-size;
+         height: $header-btn-icon-size;
+         margin-left: $header-icon-offset;
       } align-items: center;
       justify-content: center;
 
       svg {
-         width: 22px;
-         height: 22px;
+         width: $header-icon-size;
+         height: $header-icon-size;
 
          fill: $black-color3;
       }
@@ -398,7 +430,7 @@
       color: $black-color3;
 
 @include lg-block() {
-         margin-left: rem(30);
+         margin-left: $header-icon-offset;
       }  align-items: center;
 
       span {
@@ -407,8 +439,8 @@
          }
       }
       svg {
-         width: rem(22);
-         height: rem(22);
+         width: $header-icon-size;
+         height: $header-icon-size;
          margin-right: rem(15);
 
          fill: $black-color3;
