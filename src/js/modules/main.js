@@ -15,6 +15,7 @@ import rangeSlider from "./rangeSlider";
 import yandexMap from "./map";
 import tabs from "./tabs";
 import CatalogFilter from "./catalogFilter";
+import MobileMenu from "./mobileMenu";
 
 // Global
 window.Masks = Masks
@@ -34,10 +35,10 @@ $(document).ready(function () {
   Validation();
   Masks.maskPhone();
   App.anchors();
-  App.mobileMenu();
   App.toggleSorting();
   App.catalogItemToggleContent();
   App.hideCookieAlert();
+  MobileMenu.init();
   sliderCatalogItem.init();
   sliderContractors.init();
 })
